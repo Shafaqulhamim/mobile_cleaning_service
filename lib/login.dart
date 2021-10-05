@@ -17,9 +17,10 @@ class LoginPage extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios,
             size: 20,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
+        title: new Text("Login"),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

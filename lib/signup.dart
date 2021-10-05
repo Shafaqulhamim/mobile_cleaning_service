@@ -9,7 +9,7 @@ class SignupPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff32cb95),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -49,27 +49,21 @@ class SignupPage extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  inputFile(label: "Username"),
+                  inputFile(label: "First name"),
+                  inputFile(label: "Last name"),
                   inputFile(label: "Email"),
+                  inputFile(label: "Phone Number"),
                   inputFile(label: "Password", obscureText: true),
                   inputFile(label: "Confirm Password ", obscureText: true),
                 ],
               ),
               Container(
                 padding: EdgeInsets.only(top: 3, left: 3),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border(
-                      bottom: BorderSide(color: Colors.black),
-                      top: BorderSide(color: Colors.black),
-                      left: BorderSide(color: Colors.black),
-                      right: BorderSide(color: Colors.black),
-                    )),
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {},
-                  color: Color(0xff0095FF),
+                  color: Color(0xff32cb95),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),

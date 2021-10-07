@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_cleaning_service/Home.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -76,7 +77,10 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                       minWidth: double.infinity,
                       height: 60,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      },
                       color: Color(0xff32cb95),
                       elevation: 0,
                       shape: RoundedRectangleBorder(

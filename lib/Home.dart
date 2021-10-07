@@ -12,7 +12,38 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        backgroundColor: Colors.white,
+        leading: Icon(
+          Icons.menu,
+          color: Colors.grey,
+        ),
+        // The search area here
+        title: Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(15)),
+          child: Center(
+            child: TextField(
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey,
+                  ),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      Icons.clear,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      /* Clear the search field */
+                    },
+                  ),
+                  hintText: 'Search...',
+                  border: InputBorder.none),
+            ),
+          ),
+        ),
       ),
       body: Container(),
       bottomNavigationBar: BottomNavigationBar(
@@ -33,7 +64,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
-            title: Text('Message'),
+            title: Text('Messages'),
             backgroundColor: Colors.white12,
           ),
           BottomNavigationBarItem(

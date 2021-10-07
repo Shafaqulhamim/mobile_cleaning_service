@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<SignupPage> {
+  bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +59,23 @@ class SignupPage extends StatelessWidget {
                   inputFile(label: "Last name"),
                   inputFile(label: "Email"),
                   inputFile(label: "Phone Number"),
+                  Row(
+                    children: [
+                      Text("Is Cleaner"),
+                      Switch(
+                        value: isSwitched,
+                        onChanged: (value) {
+                          setState(() {
+                            isSwitched = value;
+                            print(isSwitched);
+                          });
+                        },
+                        activeTrackColor: Colors.lightGreenAccent,
+                        activeColor: Colors.green,
+                      ),
+                    ],
+                  ),
+                  inputFile(label: "NID No"),
                   inputFile(label: "Password", obscureText: true),
                   inputFile(label: "Confirm Password ", obscureText: true),
                 ],

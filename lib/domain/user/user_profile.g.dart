@@ -17,40 +17,22 @@ Map<String, dynamic> _$$UserProfileObjToJson(_$UserProfileObj instance) =>
     };
 
 _$UserData _$$UserDataFromJson(Map<String, dynamic> json) => _$UserData(
-      json['name'] as String,
-      json['phoneNumber'] as String,
-      json['bloodGroup'] as String,
+      json['firstname'] as String,
+      json['lastname'] as String,
       json['address'] as String,
-      json['postCode'] as String,
-      json['gender'] as String,
-      json['state'] as String,
-      json['city'] as String,
-      UserLocation.fromJson(json['location'] as Map<String, dynamic>),
+      json['phoneNumber'] as String,
+      json['nid'] as String,
+      json['isCleaner'] as bool,
     );
 
 Map<String, dynamic> _$$UserDataToJson(_$UserData instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'phoneNumber': instance.phoneNumber,
-      'bloodGroup': instance.bloodGroup,
+      'firstname': instance.firstname,
+      'lastname': instance.lastname,
       'address': instance.address,
-      'postCode': instance.postCode,
-      'gender': instance.gender,
-      'state': instance.state,
-      'city': instance.city,
-      'location': instance.location,
-    };
-
-_$UserLocation _$$UserLocationFromJson(Map<String, dynamic> json) =>
-    _$UserLocation(
-      (json['latitude'] as num).toDouble(),
-      (json['longitude'] as num).toDouble(),
-    );
-
-Map<String, dynamic> _$$UserLocationToJson(_$UserLocation instance) =>
-    <String, dynamic>{
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
+      'phoneNumber': instance.phoneNumber,
+      'nid': instance.nid,
+      'isCleaner': instance.isCleaner,
     };
 
 _$UserList _$$UserListFromJson(Map<String, dynamic> json) => _$UserList(

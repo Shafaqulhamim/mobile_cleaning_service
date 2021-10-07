@@ -151,8 +151,7 @@ class FirebaseAuthProvider extends IAuthProvider {
   }
 
   @override
-  UserData user =
-      const UserData('', '', "", "", '', "", "", "", UserLocation(0, 0));
+  UserData user = const UserData('', '', "", "", "", false);
 
   @override
   Future<Either<Failure, Unit>> forgetPassword(String email) async {

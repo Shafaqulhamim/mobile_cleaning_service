@@ -10,17 +10,14 @@ abstract class UserProfile with _$UserProfile {
   const factory UserProfile(UserData data) = UserProfileObj;
 
   const factory UserProfile.data(
-      String name,
-      String phoneNumber,
-      String bloodGroup,
-      String address,
-      String postCode,
-      String gender,
-      String state,
-      String city,
-      UserLocation location) = UserData;
-  const factory UserProfile.location(double latitude, double longitude) =
-      UserLocation;
+    String firstname,
+    String lastname,
+    String address,
+    String phoneNumber,
+    String nid,
+    bool isCleaner,
+  ) = UserData;
+
   // factory UserProfile.empty() =>
   //     const UserProfileObj(UserData('', '', "", '', "", "", "", "", {}));
   const factory UserProfile.list({@required List<UserProfileObj>? users}) =

@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:mobile_cleaning_service/Home.dart';
+import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+
+import 'domain/user/user_profile.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -7,8 +14,24 @@ class SignupPage extends StatefulWidget {
 
 class _State extends State<SignupPage> {
   bool isSwitched = false;
+
+  final TextEditingController email = TextEditingController(text: "");
+  final TextEditingController password = TextEditingController(text: "");
+  final TextEditingController firstName = TextEditingController(text: "");
+  final TextEditingController nid = TextEditingController(text: "");
+
+  final TextEditingController lastName = TextEditingController(text: "");
+  final TextEditingController phoneNumber = TextEditingController();
+  final TextEditingController address = TextEditingController(text: "Sylhet");
+  bool isCleaner = true;
+
   @override
   Widget build(BuildContext context) {
+    // final _formKey = useMemoized(() => GlobalKey<FormState>());
+
+    final AuthBloc authBloc = BlocProvider.of<AuthBloc>(context);
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -27,91 +50,134 @@ class _State extends State<SignupPage> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Column(
+      body: BlocListener<AuthBloc, AuthState>(
+        listenWhen: (p, c) =>
+            p.isLoading != c.isLoading ||
+            p.error != c.error ||
+            p.isAuthenticated != c.isAuthenticated ||
+            (c.lat != p.lat && c.long != p.long),
+        listener: (context, state) {
+          if (state.error.isNotEmpty) {
+            EasyLoading.showError(state.error);
+          } else if (state.isLoading) {
+            EasyLoading.show(status: 'loading...');
+          } else if (state.isAuthenticated) {
+            EasyLoading.dismiss();
+            EasyLoading.showSuccess('Registration Successful!');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+            );
+          }
+        },
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Form(
+                // key: _formKey,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text(
-                        "Sign up",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            "Sign up",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Create an account, It's free ",
+                            style: TextStyle(
+                                fontSize: 15, color: Colors.grey[700]),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          inputFile(label: "First name", controlle: firstName),
+                          inputFile(label: "Last name", controlle: lastName),
+                          inputFile(label: "Email", controlle: email),
+                          inputFile(
+                              label: "Phone Number", controlle: phoneNumber),
+                          Row(
+                            children: [
+                              Text("Is Cleaner"),
+                              Switch(
+                                value: isSwitched,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isSwitched = value;
+                                    print(isSwitched);
+                                  });
+                                },
+                                activeTrackColor: Colors.lightGreenAccent,
+                                activeColor: Colors.green,
+                              ),
+                            ],
+                          ),
+                          if (isSwitched)
+                            inputFile(label: "NID No", controlle: nid),
+                          inputFile(
+                              label: "Password",
+                              obscureText: true,
+                              controlle: password),
+                          inputFile(
+                              label: "Confirm Password ", obscureText: true),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 3, left: 3),
+                        child: MaterialButton(
+                          minWidth: double.infinity,
+                          height: 60,
+                          onPressed: () {
+                            authBloc.add(SignupEvent(
+                                email.text,
+                                password.text,
+                                UserData(
+                                  firstName.text,
+                                  lastName.text,
+                                  address.text,
+                                  phoneNumber.text,
+                                  nid.text,
+                                  isSwitched,
+                                )));
+                          },
+                          color: Color(0xff32cb95),
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Create an account, It's free ",
-                        style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      inputFile(label: "First name"),
-                      inputFile(label: "Last name"),
-                      inputFile(label: "Email"),
-                      inputFile(label: "Phone Number"),
                       Row(
-                        children: [
-                          Text("Is Cleaner"),
-                          Switch(
-                            value: isSwitched,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched = value;
-                                print(isSwitched);
-                              });
-                            },
-                            activeTrackColor: Colors.lightGreenAccent,
-                            activeColor: Colors.green,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("Already have an account?"),
+                          Text(
+                            " Login",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 18),
                           ),
                         ],
                       ),
-                      inputFile(label: "NID No"),
-                      inputFile(label: "Password", obscureText: true),
-                      inputFile(label: "Confirm Password ", obscureText: true),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 3, left: 3),
-                    child: MaterialButton(
-                      minWidth: double.infinity,
-                      height: 60,
-                      onPressed: () {},
-                      color: Color(0xff32cb95),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text("Already have an account?"),
-                      Text(
-                        " Login",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ]),
+                    ]),
+              ),
+            ),
           ),
         ),
       ),
@@ -120,7 +186,7 @@ class _State extends State<SignupPage> {
 }
 
 // we will be creating a widget for text field
-Widget inputFile({label, obscureText = false}) {
+Widget inputFile({label, obscureText = false, controlle}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
@@ -133,6 +199,7 @@ Widget inputFile({label, obscureText = false}) {
         height: 5,
       ),
       TextField(
+        controller: controlle,
         obscureText: obscureText,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),

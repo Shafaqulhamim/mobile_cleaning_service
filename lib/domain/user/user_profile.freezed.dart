@@ -19,8 +19,6 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
       return UserProfileObj.fromJson(json);
     case 'data':
       return UserData.fromJson(json);
-    case 'location':
-      return UserLocation.fromJson(json);
     case 'list':
       return UserList.fromJson(json);
 
@@ -40,33 +38,15 @@ class _$UserProfileTearOff {
     );
   }
 
-  UserData data(
-      String name,
-      String phoneNumber,
-      String bloodGroup,
-      String address,
-      String postCode,
-      String gender,
-      String state,
-      String city,
-      UserLocation location) {
+  UserData data(String firstname, String lastname, String address,
+      String phoneNumber, String nid, bool isCleaner) {
     return UserData(
-      name,
-      phoneNumber,
-      bloodGroup,
+      firstname,
+      lastname,
       address,
-      postCode,
-      gender,
-      state,
-      city,
-      location,
-    );
-  }
-
-  UserLocation location(double latitude, double longitude) {
-    return UserLocation(
-      latitude,
-      longitude,
+      phoneNumber,
+      nid,
+      isCleaner,
     );
   }
 
@@ -89,54 +69,27 @@ mixin _$UserProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)
+    required TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)
         data,
-    required TResult Function(double latitude, double longitude) location,
     required TResult Function(List<UserProfileObj>? users) list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) =>
@@ -145,7 +98,6 @@ mixin _$UserProfile {
   TResult map<TResult extends Object?>(
     TResult Function(UserProfileObj value) $default, {
     required TResult Function(UserData value) data,
-    required TResult Function(UserLocation value) location,
     required TResult Function(UserList value) list,
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +105,6 @@ mixin _$UserProfile {
   TResult? mapOrNull<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
   }) =>
       throw _privateConstructorUsedError;
@@ -161,7 +112,6 @@ mixin _$UserProfile {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
     required TResult orElse(),
   }) =>
@@ -253,18 +203,9 @@ class _$UserProfileObj implements UserProfileObj {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)
+    required TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)
         data,
-    required TResult Function(double latitude, double longitude) location,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
     return $default(this.data);
@@ -274,18 +215,9 @@ class _$UserProfileObj implements UserProfileObj {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
   }) {
     return $default?.call(this.data);
@@ -295,18 +227,9 @@ class _$UserProfileObj implements UserProfileObj {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
@@ -321,7 +244,6 @@ class _$UserProfileObj implements UserProfileObj {
   TResult map<TResult extends Object?>(
     TResult Function(UserProfileObj value) $default, {
     required TResult Function(UserData value) data,
-    required TResult Function(UserLocation value) location,
     required TResult Function(UserList value) list,
   }) {
     return $default(this);
@@ -332,7 +254,6 @@ class _$UserProfileObj implements UserProfileObj {
   TResult? mapOrNull<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
   }) {
     return $default?.call(this);
@@ -343,7 +264,6 @@ class _$UserProfileObj implements UserProfileObj {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {
@@ -376,15 +296,12 @@ abstract class $UserDataCopyWith<$Res> {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
       _$UserDataCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      String phoneNumber,
-      String bloodGroup,
+      {String firstname,
+      String lastname,
       String address,
-      String postCode,
-      String gender,
-      String state,
-      String city,
-      UserLocation location});
+      String phoneNumber,
+      String nid,
+      bool isCleaner});
 }
 
 /// @nodoc
@@ -398,53 +315,38 @@ class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? phoneNumber = freezed,
-    Object? bloodGroup = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
     Object? address = freezed,
-    Object? postCode = freezed,
-    Object? gender = freezed,
-    Object? state = freezed,
-    Object? city = freezed,
-    Object? location = freezed,
+    Object? phoneNumber = freezed,
+    Object? nid = freezed,
+    Object? isCleaner = freezed,
   }) {
     return _then(UserData(
-      name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstname == freezed
+          ? _value.firstname
+          : firstname // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      bloodGroup == freezed
-          ? _value.bloodGroup
-          : bloodGroup // ignore: cast_nullable_to_non_nullable
+      lastname == freezed
+          ? _value.lastname
+          : lastname // ignore: cast_nullable_to_non_nullable
               as String,
       address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      postCode == freezed
-          ? _value.postCode
-          : postCode // ignore: cast_nullable_to_non_nullable
+      phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
+      nid == freezed
+          ? _value.nid
+          : nid // ignore: cast_nullable_to_non_nullable
               as String,
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      city == freezed
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as UserLocation,
+      isCleaner == freezed
+          ? _value.isCleaner
+          : isCleaner // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -452,77 +354,62 @@ class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserData implements UserData {
-  const _$UserData(this.name, this.phoneNumber, this.bloodGroup, this.address,
-      this.postCode, this.gender, this.state, this.city, this.location);
+  const _$UserData(this.firstname, this.lastname, this.address,
+      this.phoneNumber, this.nid, this.isCleaner);
 
   factory _$UserData.fromJson(Map<String, dynamic> json) =>
       _$$UserDataFromJson(json);
 
   @override
-  final String name;
+  final String firstname;
   @override
-  final String phoneNumber;
-  @override
-  final String bloodGroup;
+  final String lastname;
   @override
   final String address;
   @override
-  final String postCode;
+  final String phoneNumber;
   @override
-  final String gender;
+  final String nid;
   @override
-  final String state;
-  @override
-  final String city;
-  @override
-  final UserLocation location;
+  final bool isCleaner;
 
   @override
   String toString() {
-    return 'UserProfile.data(name: $name, phoneNumber: $phoneNumber, bloodGroup: $bloodGroup, address: $address, postCode: $postCode, gender: $gender, state: $state, city: $city, location: $location)';
+    return 'UserProfile.data(firstname: $firstname, lastname: $lastname, address: $address, phoneNumber: $phoneNumber, nid: $nid, isCleaner: $isCleaner)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is UserData &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.phoneNumber, phoneNumber) ||
+            (identical(other.firstname, firstname) ||
                 const DeepCollectionEquality()
-                    .equals(other.phoneNumber, phoneNumber)) &&
-            (identical(other.bloodGroup, bloodGroup) ||
+                    .equals(other.firstname, firstname)) &&
+            (identical(other.lastname, lastname) ||
                 const DeepCollectionEquality()
-                    .equals(other.bloodGroup, bloodGroup)) &&
+                    .equals(other.lastname, lastname)) &&
             (identical(other.address, address) ||
                 const DeepCollectionEquality()
                     .equals(other.address, address)) &&
-            (identical(other.postCode, postCode) ||
+            (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
-                    .equals(other.postCode, postCode)) &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)) &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)) &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)) &&
-            (identical(other.location, location) ||
+                    .equals(other.phoneNumber, phoneNumber)) &&
+            (identical(other.nid, nid) ||
+                const DeepCollectionEquality().equals(other.nid, nid)) &&
+            (identical(other.isCleaner, isCleaner) ||
                 const DeepCollectionEquality()
-                    .equals(other.location, location)));
+                    .equals(other.isCleaner, isCleaner)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(phoneNumber) ^
-      const DeepCollectionEquality().hash(bloodGroup) ^
+      const DeepCollectionEquality().hash(firstname) ^
+      const DeepCollectionEquality().hash(lastname) ^
       const DeepCollectionEquality().hash(address) ^
-      const DeepCollectionEquality().hash(postCode) ^
-      const DeepCollectionEquality().hash(gender) ^
-      const DeepCollectionEquality().hash(state) ^
-      const DeepCollectionEquality().hash(city) ^
-      const DeepCollectionEquality().hash(location);
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(nid) ^
+      const DeepCollectionEquality().hash(isCleaner);
 
   @JsonKey(ignore: true)
   @override
@@ -533,68 +420,39 @@ class _$UserData implements UserData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)
+    required TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)
         data,
-    required TResult Function(double latitude, double longitude) location,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
-    return data(name, phoneNumber, bloodGroup, address, postCode, gender, state,
-        city, this.location);
+    return data(firstname, lastname, address, phoneNumber, nid, isCleaner);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
   }) {
-    return data?.call(name, phoneNumber, bloodGroup, address, postCode, gender,
-        state, city, this.location);
+    return data?.call(
+        firstname, lastname, address, phoneNumber, nid, isCleaner);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(name, phoneNumber, bloodGroup, address, postCode, gender,
-          state, city, this.location);
+      return data(firstname, lastname, address, phoneNumber, nid, isCleaner);
     }
     return orElse();
   }
@@ -604,7 +462,6 @@ class _$UserData implements UserData {
   TResult map<TResult extends Object?>(
     TResult Function(UserProfileObj value) $default, {
     required TResult Function(UserData value) data,
-    required TResult Function(UserLocation value) location,
     required TResult Function(UserList value) list,
   }) {
     return data(this);
@@ -615,7 +472,6 @@ class _$UserData implements UserData {
   TResult? mapOrNull<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
   }) {
     return data?.call(this);
@@ -626,7 +482,6 @@ class _$UserData implements UserData {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {
@@ -643,231 +498,19 @@ class _$UserData implements UserData {
 }
 
 abstract class UserData implements UserProfile {
-  const factory UserData(
-      String name,
-      String phoneNumber,
-      String bloodGroup,
-      String address,
-      String postCode,
-      String gender,
-      String state,
-      String city,
-      UserLocation location) = _$UserData;
+  const factory UserData(String firstname, String lastname, String address,
+      String phoneNumber, String nid, bool isCleaner) = _$UserData;
 
   factory UserData.fromJson(Map<String, dynamic> json) = _$UserData.fromJson;
 
-  String get name => throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String get bloodGroup => throw _privateConstructorUsedError;
+  String get firstname => throw _privateConstructorUsedError;
+  String get lastname => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get postCode => throw _privateConstructorUsedError;
-  String get gender => throw _privateConstructorUsedError;
-  String get state => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  UserLocation get location => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
+  String get nid => throw _privateConstructorUsedError;
+  bool get isCleaner => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserDataCopyWith<UserData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserLocationCopyWith<$Res> {
-  factory $UserLocationCopyWith(
-          UserLocation value, $Res Function(UserLocation) then) =
-      _$UserLocationCopyWithImpl<$Res>;
-  $Res call({double latitude, double longitude});
-}
-
-/// @nodoc
-class _$UserLocationCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
-    implements $UserLocationCopyWith<$Res> {
-  _$UserLocationCopyWithImpl(
-      UserLocation _value, $Res Function(UserLocation) _then)
-      : super(_value, (v) => _then(v as UserLocation));
-
-  @override
-  UserLocation get _value => super._value as UserLocation;
-
-  @override
-  $Res call({
-    Object? latitude = freezed,
-    Object? longitude = freezed,
-  }) {
-    return _then(UserLocation(
-      latitude == freezed
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude == freezed
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$UserLocation implements UserLocation {
-  const _$UserLocation(this.latitude, this.longitude);
-
-  factory _$UserLocation.fromJson(Map<String, dynamic> json) =>
-      _$$UserLocationFromJson(json);
-
-  @override
-  final double latitude;
-  @override
-  final double longitude;
-
-  @override
-  String toString() {
-    return 'UserProfile.location(latitude: $latitude, longitude: $longitude)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is UserLocation &&
-            (identical(other.latitude, latitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.latitude, latitude)) &&
-            (identical(other.longitude, longitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.longitude, longitude)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(latitude) ^
-      const DeepCollectionEquality().hash(longitude);
-
-  @JsonKey(ignore: true)
-  @override
-  $UserLocationCopyWith<UserLocation> get copyWith =>
-      _$UserLocationCopyWithImpl<UserLocation>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(UserData data) $default, {
-    required TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)
-        data,
-    required TResult Function(double latitude, double longitude) location,
-    required TResult Function(List<UserProfileObj>? users) list,
-  }) {
-    return location(latitude, longitude);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
-        data,
-    TResult Function(double latitude, double longitude)? location,
-    TResult Function(List<UserProfileObj>? users)? list,
-  }) {
-    return location?.call(latitude, longitude);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
-        data,
-    TResult Function(double latitude, double longitude)? location,
-    TResult Function(List<UserProfileObj>? users)? list,
-    required TResult orElse(),
-  }) {
-    if (location != null) {
-      return location(latitude, longitude);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(UserProfileObj value) $default, {
-    required TResult Function(UserData value) data,
-    required TResult Function(UserLocation value) location,
-    required TResult Function(UserList value) list,
-  }) {
-    return location(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
-    TResult Function(UserList value)? list,
-  }) {
-    return location?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
-    TResult Function(UserList value)? list,
-    required TResult orElse(),
-  }) {
-    if (location != null) {
-      return location(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserLocationToJson(this)..['runtimeType'] = 'location';
-  }
-}
-
-abstract class UserLocation implements UserProfile {
-  const factory UserLocation(double latitude, double longitude) =
-      _$UserLocation;
-
-  factory UserLocation.fromJson(Map<String, dynamic> json) =
-      _$UserLocation.fromJson;
-
-  double get latitude => throw _privateConstructorUsedError;
-  double get longitude => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UserLocationCopyWith<UserLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -937,18 +580,9 @@ class _$UserList implements UserList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)
+    required TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)
         data,
-    required TResult Function(double latitude, double longitude) location,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
     return list(users);
@@ -958,18 +592,9 @@ class _$UserList implements UserList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
   }) {
     return list?.call(users);
@@ -979,18 +604,9 @@ class _$UserList implements UserList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(
-            String name,
-            String phoneNumber,
-            String bloodGroup,
-            String address,
-            String postCode,
-            String gender,
-            String state,
-            String city,
-            UserLocation location)?
+    TResult Function(String firstname, String lastname, String address,
+            String phoneNumber, String nid, bool isCleaner)?
         data,
-    TResult Function(double latitude, double longitude)? location,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
@@ -1005,7 +621,6 @@ class _$UserList implements UserList {
   TResult map<TResult extends Object?>(
     TResult Function(UserProfileObj value) $default, {
     required TResult Function(UserData value) data,
-    required TResult Function(UserLocation value) location,
     required TResult Function(UserList value) list,
   }) {
     return list(this);
@@ -1016,7 +631,6 @@ class _$UserList implements UserList {
   TResult? mapOrNull<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
   }) {
     return list?.call(this);
@@ -1027,7 +641,6 @@ class _$UserList implements UserList {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
-    TResult Function(UserLocation value)? location,
     TResult Function(UserList value)? list,
     required TResult orElse(),
   }) {

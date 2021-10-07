@@ -1,94 +1,83 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
+import 'package:mobile_cleaning_service/infrastructure/auth/firebase_auth_provider.dart';
 import 'package:mobile_cleaning_service/login.dart';
 import 'package:mobile_cleaning_service/signup.dart';
+import 'package:mobile_cleaning_service/welcome_page.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePage(),
-  ));
+  runApp(HomePage());
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff32cb95),
-      body: SafeArea(
-        child: Container(
-          // we will give media query height
-          // double.infinity make it big as my parent allows
-          // while MediaQuery make it big as per the screen
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-          child: Column(
-            // even space distribution
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 0.1,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 8,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/welcome.png"))),
-              ),
-              Column(
-                children: <Widget>[
-                  // the login button
-                  MaterialButton(
-                    color: Color(0xfff9f9f9),
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
-                    },
-                    // defining the shape
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          color: Colors.teal),
-                    ),
+    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+          } else if (snapshot.connectionState == ConnectionState.done) {
+            return MultiRepositoryProvider(
+              providers: [
+                RepositoryProvider<IAuthProvider>(
+                  create: (context) =>
+                      FirebaseAuthProvider(FirebaseAuth.instance),
+                ),
+              ],
+              child: MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthBloc>(
+                    create: (context) => AuthBloc(context.read<IAuthProvider>())
+                      ..add(const AuthEvent.authCheckRequested()),
                   ),
-                  // creating the signup button
-                  SizedBox(height: 20),
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupPage()));
-                    },
-                    color: Colors.teal,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      "Sign up",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18),
-                    ),
-                  )
                 ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+                child: MaterialApp(
+                    debugShowCheckedModeBanner: false,
+                    title: 'Blood 365',
+                    builder: EasyLoading.init(),
+                    home: BlocListener<AuthBloc, AuthState>(
+                      listenWhen: (c, p) =>
+                          c.isAuthenticated != p.isAuthenticated,
+                      listener: (context, state) {
+                        if (state.isAuthenticated) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Welcome()),
+                          );
+                        }
+                      },
+                      child: Scaffold(
+                        body: Welcome(),
+                      ),
+                    )),
+              ),
+            );
+          }
+          return const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Blood 365',
+            home: Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(
+                    // value: controller.value,
+                    ),
+              ),
+            ),
+          );
+        });
   }
 }
 //hi i am hamim

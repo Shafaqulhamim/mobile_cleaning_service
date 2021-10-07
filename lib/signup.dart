@@ -21,74 +21,75 @@ class SignupPage extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40),
-          height: MediaQuery.of(context).size.height - 50,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    "Sign up",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Create an account, It's free ",
-                    style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                  )
-                ],
-              ),
-              Column(
-                children: <Widget>[
-                  inputFile(label: "First name"),
-                  inputFile(label: "Last name"),
-                  inputFile(label: "Email"),
-                  inputFile(label: "Phone Number"),
-                  inputFile(label: "Password", obscureText: true),
-                  inputFile(label: "Confirm Password ", obscureText: true),
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 3, left: 3),
-                child: MaterialButton(
-                  minWidth: double.infinity,
-                  height: 60,
-                  onPressed: () {},
-                  color: Color(0xff32cb95),
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Text(
-                    "Sign up",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                      color: Colors.white,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Create an account, It's free ",
+                      style: TextStyle(fontSize: 15, color: Colors.grey[700]),
+                    )
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    inputFile(label: "First name"),
+                    inputFile(label: "Last name"),
+                    inputFile(label: "Email"),
+                    inputFile(label: "Phone Number"),
+                    inputFile(label: "Password", obscureText: true),
+                    inputFile(label: "Confirm Password ", obscureText: true),
+                  ],
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 3, left: 3),
+                  child: MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () {},
+                    color: Color(0xff32cb95),
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text("Already have an account?"),
-                  Text(
-                    " Login",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                  )
-                ],
-              )
-            ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Already have an account?"),
+                    Text(
+                      " Login",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

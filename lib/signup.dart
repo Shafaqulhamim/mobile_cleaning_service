@@ -49,7 +49,10 @@ class _State extends State<SignupPage> {
             color: Colors.black,
           ),
         ),
+      title: new Text("Create an account"),
       ),
+      
+      
       body: BlocListener<AuthBloc, AuthState>(
         listenWhen: (p, c) =>
             p.isLoading != c.isLoading ||
@@ -79,25 +82,6 @@ class _State extends State<SignupPage> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Create an account, It's free ",
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey[700]),
-                          )
-                        ],
-                      ),
                       Column(
                         children: <Widget>[
                           inputFile(label: "First name", controlle: firstName),
@@ -152,7 +136,7 @@ class _State extends State<SignupPage> {
                           color: Color(0xff32cb95),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
+                            borderRadius: BorderRadius.circular(15),
                           ),
                           child: Text(
                             "Sign up",
@@ -171,7 +155,7 @@ class _State extends State<SignupPage> {
                           Text(
                             " Login",
                             style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18),
+                                fontWeight: FontWeight.w600, fontSize: 16),
                           ),
                         ],
                       ),
@@ -198,16 +182,27 @@ Widget inputFile({label, obscureText = false, controlle}) {
       SizedBox(
         height: 5,
       ),
-      TextField(
-        controller: controlle,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xff808080)),
+      Container(
+        height: 45,
+        child: TextField(
+          controller: controlle,
+          obscureText: obscureText,
+          
+          decoration: InputDecoration(
+          
+                              filled: true,
+                               focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.greenAccent, width: 2.0),
+              borderRadius: BorderRadius.circular(15.0),
             ),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xff808080)))),
+                              fillColor: Colors.greenAccent[10],
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.circular(15)),
+                            ),
+     
+                  
+        ),
       ),
       SizedBox(
         height: 10,

@@ -31,7 +31,7 @@ class _WelcomeState extends State<Welcome> {
                 height: 0.1,
               ),
               Container(
-                height: MediaQuery.of(context).size.height / 8,
+                height: MediaQuery.of(context).size.height / 6,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/welcome.png"))),

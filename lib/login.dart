@@ -72,6 +72,15 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Column(
                       children: <Widget>[
+                         Container(
+                height: MediaQuery.of(context).size.height / 6,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/login.png"))),
+              ),
+              SizedBox(
+                height: 80,
+              ),
                         TextField(
                           controller: email,
                           decoration: InputDecoration(

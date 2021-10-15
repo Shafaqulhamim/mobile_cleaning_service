@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile_cleaning_service/Home.dart';
+import 'package:mobile_cleaning_service/customer_dash.dart';
 
 import 'application/auth/auth_bloc.dart';
 
@@ -51,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             EasyLoading.showSuccess('Successfully Authenticated!');
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Home()),
+              MaterialPageRoute(builder: (context) => CustomerDash()),
             );
           }
         },
@@ -72,15 +73,15 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Column(
                       children: <Widget>[
-                         Container(
-                height: MediaQuery.of(context).size.height / 6,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/login.png"))),
-              ),
-              SizedBox(
-                height: 80,
-              ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 6,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/login.png"))),
+                        ),
+                        SizedBox(
+                          height: 80,
+                        ),
                         TextField(
                           controller: email,
                           decoration: InputDecoration(

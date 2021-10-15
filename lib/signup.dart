@@ -4,6 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+import 'package:mobile_cleaning_service/customer_dash.dart';
 
 import 'domain/user/user_profile.dart';
 
@@ -22,7 +23,7 @@ class _State extends State<SignupPage> {
 
   final TextEditingController lastName = TextEditingController(text: "");
   final TextEditingController phoneNumber = TextEditingController();
-  final TextEditingController address = TextEditingController(text: "Sylhet");
+  final TextEditingController address = TextEditingController(text: "");
   bool isCleaner = true;
 
   @override
@@ -49,10 +50,8 @@ class _State extends State<SignupPage> {
             color: Colors.black,
           ),
         ),
-      title: new Text("Create an account"),
+        title: new Text("Create an account"),
       ),
-      
-      
       body: BlocListener<AuthBloc, AuthState>(
         listenWhen: (p, c) =>
             p.isLoading != c.isLoading ||
@@ -69,7 +68,7 @@ class _State extends State<SignupPage> {
             EasyLoading.showSuccess('Registration Successful!');
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Home()),
+              MaterialPageRoute(builder: (context) => CustomerDash()),
             );
           }
         },
@@ -187,21 +186,18 @@ Widget inputFile({label, obscureText = false, controlle}) {
         child: TextField(
           controller: controlle,
           obscureText: obscureText,
-          
           decoration: InputDecoration(
-          
-                              filled: true,
-                               focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.greenAccent, width: 2.0),
+            filled: true,
+            focusedBorder: OutlineInputBorder(
+              borderSide:
+                  const BorderSide(color: Colors.greenAccent, width: 2.0),
               borderRadius: BorderRadius.circular(15.0),
             ),
-                              fillColor: Colors.greenAccent[10],
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(15)),
-                            ),
-     
-                  
+            fillColor: Colors.greenAccent[10],
+            border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(15)),
+          ),
         ),
       ),
       SizedBox(

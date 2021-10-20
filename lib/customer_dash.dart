@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_cleaning_service/view/account.dart';
+import 'package:mobile_cleaning_service/view/pages/favorite.dart';
+import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 import 'application/auth/auth_bloc.dart';
@@ -61,41 +64,220 @@ class _CustomerDashState extends State<CustomerDash> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            if (_currentIndex == 0) {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Performance()));
+            }
+            if (_currentIndex == 1) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Favorite()));
+            }
           });
         },
       ),
-      key: _key, // Assign the key to Scaffold.
+      key: _key,
+
+      // Assign the key to Scaffold.
       drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xff32cb95),
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'User Name',
+                style: TextStyle(fontSize: 20),
               ),
-              child: Text("MOBILE\nCleaning Service"),
+              accountEmail: Text(''),
+              currentAccountPicture: CircleAvatar(
+                child: Image(
+                    image: NetworkImage(
+                        'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png')),
+                //Icon(
+                //   Icons.account_circle_outlined,
+                //   size: 50,
+                // ),
+                radius: 20,
+                backgroundColor: Colors.white,
+              ),
+              decoration: BoxDecoration(color: Colors.purple),
+              // otherAccountsPictures: [
+              //   CircleAvatar(child: Text('x')),
+              //   CircleAvatar(child: Text('x')),
+              // ],
             ),
+
             ListTile(
-              title: const Text('Log out'),
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                child: Icon(
+                  Icons.menu_book,
+                  size: 40,
+                ),
+              ),
+              title: const Text("My Book"),
               onTap: () {
-                authBloc.add(const SignedOut());
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Welcome();
-                    },
-                  ),
-                );
+                print('Text1');
+                // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                //   return page1();
+                // }));
               },
             ),
+            const Divider(),
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.account_circle_outlined,
+                  size: 40,
+                ),
+              ),
+              title: const Text("My Account"),
+              onTap: () {
+                print('Text1');
+                // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                //   return page1();
+                // }));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Account()));
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.fmd_good_outlined,
+                  size: 40,
+                ),
+              ),
+              title: const Text("My Address"),
+              onTap: () {
+                print('Text1');
+                // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                //   return page1();
+                // }));
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.point_of_sale,
+                  size: 40,
+                ),
+              ),
+              title: const Text("Promo Code"),
+            ),
+            const Divider(),
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.help_sharp,
+                  size: 40,
+                ),
+              ),
+              title: const Text("Help & Support"),
+              // trailing: const Icon(Icons.arrow_forward),
+            ),
+            const Divider(),
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.settings_suggest_outlined,
+                  size: 40,
+                ),
+              ),
+              title: const Text("Settings"),
+              // trailing: const Icon(Icons.arrow_forward),
+            ),
+            // title: Text('Page2'),
+            // trailing: Icon(Icons.arrow_forward),
+            // onTap: () {
+            //   print('Text2');
+            // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+            //   return page2();
+            // }));
+            const Divider(),
+
+            ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white70),
+                child: Icon(
+                  Icons.power_settings_new,
+                  size: 40,
+                ),
+              ),
+              title: const Text("Logout"),
+              onTap: () {
+                print('Text3');
+                // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                //   return page3();
+                // }));
+              },
+            )
           ],
         ),
       ),
+
+      // drawer: Drawer(
+      //   // Add a ListView to the drawer. This ensures the user can scroll
+      //   // through the options in the drawer if there isn't enough vertical
+      //   // space to fit everything.
+      //   child: ListView(
+      //     // Important: Remove any padding from the ListView.
+      //     padding: EdgeInsets.zero,
+      //     children: [
+      //       DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: Color(0xff32cb95),
+
+      //         ),
+      //         child: Text("MOBILE\nCleaning Service"),
+      //       ),
+
+      //       ListTile(
+      //         title: const Text('Log out'),
+      //         onTap: () {
+      //           authBloc.add(const SignedOut());
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (context) {
+      //                 return Welcome();
+      //               },
+      //             ),
+      //           );
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(

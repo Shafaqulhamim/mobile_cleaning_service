@@ -23,6 +23,9 @@ class _FavoriteState extends State<Favorite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+                elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Color(0xff32cb95),
         title: Text("Favorite"),
         leading: Icon(Icons.arrow_back_ios_new),
       ),

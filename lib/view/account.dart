@@ -16,7 +16,7 @@ class _AccountState extends State<Account> {
         centerTitle: true,
         title: Text("My Account"),
         leading: Icon(Icons.arrow_back_ios_new),
-        backgroundColor: Color.fromRGBO(120, 209, 168, 1),
+        backgroundColor: Color(0xff32cb95),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -29,7 +29,7 @@ class _AccountState extends State<Account> {
                   children: [
                     Image(
                       image: NetworkImage(
-                          'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png'),
+                          'https://www.linkpicture.com/q/undraw_profile_pic_ic5t-1.png'),
                       width: 90,
                       height: 90,
                     ),
@@ -45,7 +45,7 @@ class _AccountState extends State<Account> {
                       'My Account',
                       style: TextStyle(
                           fontSize: 20,
-                          color: Colors.blueAccent,
+                          color: Color(0xff32cb95),
                           fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -80,7 +80,7 @@ class _AccountState extends State<Account> {
                 child: TextField(
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    hintText: "+88 1234567890",
+                    hintText: "01234567890",
                     labelText: "Phone",
                   ),
                 ),
@@ -115,12 +115,12 @@ class _AccountState extends State<Account> {
         //alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.blue,
+          color: Color(0xff32cb95),
         ),
         child: Center(
           child: Text(
             "Change Password",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -138,12 +138,12 @@ class _AccountState extends State<Account> {
         //alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.blue,
+          color: Color(0xff32cb95),
         ),
         child: Center(
           child: Text(
             "Change Email",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -166,7 +166,7 @@ class _AccountState extends State<Account> {
         child: Center(
           child: Text(
             "Delete Account",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
           ),
         ),
       ),

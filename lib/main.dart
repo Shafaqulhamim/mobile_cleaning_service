@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 ],
                 child: MaterialApp(
                     debugShowCheckedModeBanner: false,
-                    title: 'Blood 365',
+                    title: 'Cleaning Service',
                     builder: EasyLoading.init(),
                     home: BlocListener<AuthBloc, AuthState>(
                       listenWhen: (c, p) =>
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           }
           return const MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Blood 365',
+            title: 'Cleaning Service',
             home: Scaffold(
               body: Center(
                 child: CircularProgressIndicator(
@@ -80,4 +80,3 @@ class _HomePageState extends State<HomePage> {
         });
   }
 }
-//hi i am hamim

@@ -21,7 +21,7 @@ class _CustomerDashState extends State<CustomerDash> {
 
   @override
   void initState() {
-    for (int i = 0; i <= 50; i++) {
+    for (int i = 0; i <= 9; i++) {
       list.add(i);
     }
     //TabController _tabController=TabController(length: 4, vsync: this);
@@ -91,15 +91,15 @@ class _CustomerDashState extends State<CustomerDash> {
               currentAccountPicture: CircleAvatar(
                 child: Image(
                     image: NetworkImage(
-                        'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png')),
+                        'https://www.linkpicture.com/q/undraw_profile_pic_ic5t_8.png')),
                 //Icon(
                 //   Icons.account_circle_outlined,
                 //   size: 50,
                 // ),
-                radius: 20,
+                radius: 15,
                 backgroundColor: Colors.white,
               ),
-              decoration: BoxDecoration(color: Colors.purple),
+              decoration: BoxDecoration(color: Color(0xff32cb95)),
               // otherAccountsPictures: [
               //   CircleAvatar(child: Text('x')),
               //   CircleAvatar(child: Text('x')),
@@ -116,7 +116,7 @@ class _CustomerDashState extends State<CustomerDash> {
                 ),
                 child: Icon(
                   Icons.menu_book,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("My Book"),
@@ -136,7 +136,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
                   Icons.account_circle_outlined,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("My Account"),
@@ -158,7 +158,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
                   Icons.fmd_good_outlined,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("My Address"),
@@ -177,8 +177,8 @@ class _CustomerDashState extends State<CustomerDash> {
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
-                  Icons.point_of_sale,
-                  size: 40,
+                  Icons.money_off_sharp,
+                  size: 30,
                 ),
               ),
               title: const Text("Promo Code"),
@@ -192,7 +192,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
                   Icons.help_sharp,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("Help & Support"),
@@ -207,7 +207,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
                   Icons.settings_suggest_outlined,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("Settings"),
@@ -230,7 +230,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     shape: BoxShape.circle, color: Colors.white70),
                 child: Icon(
                   Icons.power_settings_new,
-                  size: 40,
+                  size: 30,
                 ),
               ),
               title: const Text("Logout"),
@@ -286,29 +286,31 @@ class _CustomerDashState extends State<CustomerDash> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 10),
                 child: GestureDetector(
                   onTap: () {
                     _key.currentState!.openDrawer();
                   },
                   child: Icon(
-                    Icons.clear_all,
-                    size: 50,
-                    color: Colors.black54,
+                    Icons.line_weight_rounded,
+                    size: 40,
+                    color: Color(0xff32cb95),
                   ),
                 ),
               ),
+              
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
-                  child: Text(
-                    "MOBILE\nCleaning Service",
-                    style: TextStyle(fontSize: 18, color: Colors.black),
-                  ),
-                ),
+                height: MediaQuery.of(context).size.height / 8,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/login.png"))),
               ),
+                ),
+              
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 70),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
                   decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -320,52 +322,54 @@ class _CustomerDashState extends State<CustomerDash> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Container(
                     child: Text(
-                  "Choose Services",
-                  style: TextStyle(fontSize: 18),
+                  "Service",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff32cb95)),                 
                 )),
               ),
+                SizedBox(
+                height: 0,
+              ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(left: 20, top: 0),
                 child: Row(
                   children: [
-                    Container(
-                      child: Icon(
-                        Icons.cleaning_services_rounded,
-                        size: 50,
-                        color: Color(0xff32cb95),
-                      ),
+                    Image(
+                      image: NetworkImage(
+                          'https://www.linkpicture.com/q/cleanhome2.png'),
+                      width: 80,
+                      height: 80,
                     ),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
+                   /* Container(
                       child: Icon(
-                        Icons.clean_hands_sharp,
+                        Icons.cleaning_services_sharp,
                         size: 50,
                         color: Color(0xff32cb95),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 0,
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Recommended',
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff32cb95)),
                       textAlign: TextAlign.start,
                     ),
                     SizedBox(

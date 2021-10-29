@@ -31,46 +31,51 @@ class _PerformanceState extends State<Performance> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 50),
+              padding: const EdgeInsets.only(left: 10, top: 20),
               child: GestureDetector(
                 onTap: () {
                   // _key.currentState!.openDrawer();
                 },
                 child: Icon(
-                  Icons.clear_all,
-                  size: 50,
-                  color: Colors.black54,
+                  Icons.line_weight_rounded,
+                  size: 40,
+                  color: Color(0xff32cb95),
                 ),
               ),
+            ),
+                        
+            SizedBox(
+              height: 0,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Container(
-                child: Text(
-                  "MOBILE\nCleaning Service",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                padding: const EdgeInsets.all(11.0),
+                child: Container(
+                height: MediaQuery.of(context).size.height / 9,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/login.png"),
+              ),
+                ),
                   ),
                 ),
-              ),
-            ),
+              
+            
             SizedBox(
-              height: 30,
+              height: 0,
             ),
             Container(
               width: double.infinity,
-              height: 220,
-              color: Colors.blueAccent,
+              height: 185,
+              color: Color(0xff32cb95),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      "Overall\n perfomance",
+                      "Overall perfomance",
                       textAlign: TextAlign.center,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -201,7 +206,7 @@ class _PerformanceState extends State<Performance> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -210,8 +215,9 @@ class _PerformanceState extends State<Performance> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
+            
             SizedBox(
-              height: 20,
+              height: 0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -222,6 +228,7 @@ class _PerformanceState extends State<Performance> {
                   child: Container(
                     height: 250,
                     width: 150,
+                    
                     //color: Colors.red,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -278,12 +285,12 @@ class _PerformanceState extends State<Performance> {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "1",
+                          "5",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "7",
+                          "3",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         )
@@ -346,7 +353,7 @@ class _PerformanceState extends State<Performance> {
         },
 
         //currentIndex: _selectedIndex,
-        selectedItemColor: Colors.greenAccent,
+        selectedItemColor: Color(0xff32cb95),
         // onTap: _onItemTapped,
       ),
       //body: pages[_currentindex],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_cleaning_service/view/account.dart';
+import 'package:mobile_cleaning_service/view/clean_home.dart';
 import 'package:mobile_cleaning_service/view/pages/favorite.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
@@ -376,29 +377,37 @@ class _CustomerDashState extends State<CustomerDash> {
                         scrollDirection: Axis.horizontal,
                         itemCount: list.length,
                         itemBuilder: (BuildContext cnx, int index) {
-                          return Card(
-                            elevation: 10,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 170,
-                                  width: 180,
-                                  child: Image.network(
-                                    'https://png.pngtree.com/png-clipart/20190618/original/pngtree-office-worker-female-go-to-work-office-worker-thinking-woman-png-image_3933871.jpg',
-                                    height: 15,
-                                    width: 15,
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CleanHome()));
+                            },
+                            child: Card(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 170,
+                                    width: 180,
+                                    child: Image.network(
+                                      'https://png.pngtree.com/png-clipart/20190618/original/pngtree-office-worker-female-go-to-work-office-worker-thinking-woman-png-image_3933871.jpg',
+                                      height: 15,
+                                      width: 15,
+                                    ),
                                   ),
-                                ),
-                                Text('Asma'),
-                                Row(
-                                  children: [
-                                    Icon(Icons.add_location_alt),
-                                    Text('Ditance 3.4 km')
-                                  ],
-                                )
-                              ],
+                                  Text('Asma'),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.add_location_alt),
+                                      Text('Ditance 3.4 km')
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           );
                         },

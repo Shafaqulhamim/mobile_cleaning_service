@@ -7,10 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+import 'package:mobile_cleaning_service/customer_dash.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/infrastructure/auth/firebase_auth_provider.dart';
 import 'package:mobile_cleaning_service/login.dart';
 import 'package:mobile_cleaning_service/signup.dart';
+import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 void main() {
@@ -53,10 +55,20 @@ class _AppPageState extends State<AppPage> {
                       listenWhen: (c, p) =>
                           c.isAuthenticated != p.isAuthenticated,
                       listener: (context, state) {
-                        if (state.isAuthenticated) {
+                        if (state.isAuthenticated &&
+                            state.userData.isCleaner == false) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Home()),
+                            MaterialPageRoute(
+                                builder: (context) => CustomerDash()),
+                          );
+                        }
+                        if (state.isAuthenticated &&
+                            state.userData.isCleaner == true) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Performance()),
                           );
                         }
                       },

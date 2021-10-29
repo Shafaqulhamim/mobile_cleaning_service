@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/infrastructure/auth/firebase_auth_provider.dart';
@@ -13,15 +14,15 @@ import 'package:mobile_cleaning_service/signup.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 void main() {
-  runApp(HomePage());
+  runApp(AppPage());
 }
 
-class HomePage extends StatefulWidget {
+class AppPage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AppPage> createState() => _AppPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppPageState extends State<AppPage> {
   @override
   Widget build(BuildContext context) {
     final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                         if (state.isAuthenticated) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Welcome()),
+                            MaterialPageRoute(builder: (context) => Home()),
                           );
                         }
                       },

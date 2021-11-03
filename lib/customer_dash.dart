@@ -235,10 +235,15 @@ class _CustomerDashState extends State<CustomerDash> {
               ),
               title: const Text("Logout"),
               onTap: () {
-                print('Text3');
-                // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                //   return page3();
-                // }));
+                authBloc.add(const SignedOut());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Welcome();
+                    },
+                  ),
+                );
               },
             )
           ],
@@ -298,17 +303,15 @@ class _CustomerDashState extends State<CustomerDash> {
                   ),
                 ),
               ),
-              
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
-                height: MediaQuery.of(context).size.height / 8,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/login.png"))),
-              ),
+                  height: MediaQuery.of(context).size.height / 8,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/login.png"))),
                 ),
-              
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
@@ -329,10 +332,13 @@ class _CustomerDashState extends State<CustomerDash> {
                 child: Container(
                     child: Text(
                   "Service",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff32cb95)),                 
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Color(0xff32cb95)),
                 )),
               ),
-                SizedBox(
+              SizedBox(
                 height: 0,
               ),
               Padding(
@@ -348,7 +354,7 @@ class _CustomerDashState extends State<CustomerDash> {
                     SizedBox(
                       width: 20,
                     ),
-                   /* Container(
+                    /* Container(
                       child: Icon(
                         Icons.cleaning_services_sharp,
                         size: 50,
@@ -369,7 +375,10 @@ class _CustomerDashState extends State<CustomerDash> {
                   children: [
                     Text(
                       'Recommended',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(0xff32cb95)),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Color(0xff32cb95)),
                       textAlign: TextAlign.start,
                     ),
                     SizedBox(

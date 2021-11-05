@@ -66,9 +66,11 @@ class _State extends State<SignupPage> {
           } else if (state.isAuthenticated) {
             EasyLoading.dismiss();
             EasyLoading.showSuccess('Registration Successful!');
+            authBloc.add(UserPList());
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CustomerDash()),
+              MaterialPageRoute(
+                  builder: (context) => CustomerDash(state.userDataList)),
             );
           }
         },

@@ -19,6 +19,7 @@ class _BookDetailsState extends State<BookDetails> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -131,7 +132,7 @@ class _BookDetailsState extends State<BookDetails> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                    left: 150,
+                    left: 120,
                   ),
                   child: Container(
                     child: Column(
@@ -219,7 +220,7 @@ class _BookDetailsState extends State<BookDetails> {
                 // ),
 
                 Flexible(
-                  fit: FlexFit.loose,
+                  fit: FlexFit.tight,
                   child: RadioListTile(
                     value: 1,
                     groupValue: _rValue,

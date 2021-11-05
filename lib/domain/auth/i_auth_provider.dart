@@ -18,6 +18,7 @@ abstract class IAuthProvider {
 
   Future<Either<Failure, Unit>> uploadUserData(UserData user, String userId);
   Future<Either<Failure, UserData>> getUserProfile();
+  Future<Either<Failure, List<UserData>>> getUserProfileList();
   Future<Either<Failure, Unit>> forgetPassword(String email);
   Future<Either<Failure, UserData>> signInWithEmailAndPassword(
     String emailAddress,

@@ -50,9 +50,11 @@ class _LoginPageState extends State<LoginPage> {
           }
           if (state.isAuthenticated) {
             EasyLoading.showSuccess('Successfully Authenticated!');
+            authBloc.add(UserPList());
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CustomerDash()),
+              MaterialPageRoute(
+                  builder: (context) => CustomerDash(state.userDataList)),
             );
           }
         },

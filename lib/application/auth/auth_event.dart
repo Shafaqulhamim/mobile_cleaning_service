@@ -6,6 +6,7 @@ abstract class AuthEvent with _$AuthEvent {
       String email, String password, UserData userData) = SignupEvent;
   const factory AuthEvent.login(String login, String password) = LoginEvent;
   const factory AuthEvent.authCheckRequested() = AuthCheckRequested;
+  const factory AuthEvent.getUserList() = UserPList;
   // const factory AuthEvent.getUserLocation() = GetUserLocation;
   const factory AuthEvent.signedOut() = SignedOut;
   const factory AuthEvent.resetPassword(String email) = ResetPassword;

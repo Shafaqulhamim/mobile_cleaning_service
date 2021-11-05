@@ -92,6 +92,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       resetState: (ResetState value) async* {
         yield AuthState.initial();
       },
+      getUserList: (UserPList value) async* {
+        final Either<Failure, List<UserData>> requestOption =
+            await authProvider.getUserProfileList();
+        yield requestOption.fold(
+          (l) => state.copyWith(error: l.error),
+          (r) => state.copyWith(userDataList: r),
+        );
+      },
     );
   }
 }

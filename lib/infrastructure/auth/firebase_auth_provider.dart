@@ -162,4 +162,28 @@ class FirebaseAuthProvider extends IAuthProvider {
       return left(Failure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<UserData>>> getUserProfileList() async {
+    final CollectionReference requests =
+        FirebaseFirestore.instance.collection('usersData');
+    try {
+      final QuerySnapshot<Object?> response =
+          await requests.where("isCleaner", isEqualTo: true).get();
+
+      if (response.docs.isNotEmpty) {
+        Logger().i(response.docs.first.data().runtimeType);
+        final List<UserData> list = List<UserData>.from(response.docs.map((e) =>
+            UserData.fromJson(Map<String, dynamic>.from(e.data()! as Map))));
+        Logger().i(list.length);
+        return right(list);
+      } else {
+        return right([]);
+      }
+    } catch (e) {
+      Logger().e(e.toString());
+
+      return left(Failure(e.toString()));
+    }
+  }
 }

@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:logger/logger.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
@@ -44,7 +45,8 @@ class _AppPageState extends State<AppPage> {
                 providers: [
                   BlocProvider<AuthBloc>(
                     create: (context) => AuthBloc(context.read<IAuthProvider>())
-                      ..add(const AuthEvent.authCheckRequested()),
+                      ..add(const AuthEvent.authCheckRequested())
+                      ..add(const AuthEvent.getUserList()),
                   ),
                 ],
                 child: MaterialApp(
@@ -57,14 +59,16 @@ class _AppPageState extends State<AppPage> {
                       listener: (context, state) {
                         if (state.isAuthenticated &&
                             state.userData.isCleaner == false) {
+                          Logger().i(state.userData.isCleaner);
+                          AuthBloc(context.read<IAuthProvider>())
+                            ..add(const AuthEvent.getUserList());
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CustomerDash()),
+                                builder: (context) =>
+                                    CustomerDash(state.userDataList)),
                           );
-                        }
-                        if (state.isAuthenticated &&
-                            state.userData.isCleaner == true) {
+                        } else {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

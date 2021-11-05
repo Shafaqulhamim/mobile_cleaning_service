@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
+import 'package:mobile_cleaning_service/view/book_details.dart';
 
 class CleanHome extends StatefulWidget {
-  const CleanHome({Key? key}) : super(key: key);
+  final UserData userDataList;
+  const CleanHome(this.userDataList, {Key? key}) : super(key: key);
 
   @override
   _CleanHomeState createState() => _CleanHomeState();
@@ -44,7 +47,7 @@ class _CleanHomeState extends State<CleanHome> {
                     padding:
                         const EdgeInsets.only(left: 0, top: 30, right: 210),
                     child: Text(
-                      "Hafisa Begum",
+                      widget.userDataList.firstname,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -61,7 +64,7 @@ class _CleanHomeState extends State<CleanHome> {
                           width: 10,
                         ),
                         Text(
-                          '1/A, R-7 Banani, Dhaka-1213',
+                          widget.userDataList.address,
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
@@ -251,7 +254,12 @@ class _CleanHomeState extends State<CleanHome> {
                             'Book Now',
                             style: TextStyle(fontSize: 20),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BookDetails()));
+                          },
                         ),
                       ],
                     ),

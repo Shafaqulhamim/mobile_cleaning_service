@@ -6,26 +6,29 @@ part of 'user_profile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserProfileObj _$$UserProfileObjFromJson(Map<String, dynamic> json) =>
-    _$UserProfileObj(
-      UserData.fromJson(json['data'] as Map<String, dynamic>),
-    );
+_$UserProfileObj _$_$UserProfileObjFromJson(Map<String, dynamic> json) {
+  return _$UserProfileObj(
+    UserData.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
 
-Map<String, dynamic> _$$UserProfileObjToJson(_$UserProfileObj instance) =>
+Map<String, dynamic> _$_$UserProfileObjToJson(_$UserProfileObj instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
 
-_$UserData _$$UserDataFromJson(Map<String, dynamic> json) => _$UserData(
-      json['firstname'] as String,
-      json['lastname'] as String,
-      json['address'] as String,
-      json['phoneNumber'] as String,
-      json['nid'] as String,
-      json['isCleaner'] as bool,
-    );
+_$UserData _$_$UserDataFromJson(Map<String, dynamic> json) {
+  return _$UserData(
+    json['firstname'] as String,
+    json['lastname'] as String,
+    json['address'] as String,
+    json['phoneNumber'] as String,
+    json['nid'] as String,
+    json['isCleaner'] as bool,
+  );
+}
 
-Map<String, dynamic> _$$UserDataToJson(_$UserData instance) =>
+Map<String, dynamic> _$_$UserDataToJson(_$UserData instance) =>
     <String, dynamic>{
       'firstname': instance.firstname,
       'lastname': instance.lastname,
@@ -35,13 +38,15 @@ Map<String, dynamic> _$$UserDataToJson(_$UserData instance) =>
       'isCleaner': instance.isCleaner,
     };
 
-_$UserList _$$UserListFromJson(Map<String, dynamic> json) => _$UserList(
-      users: (json['users'] as List<dynamic>?)
-          ?.map((e) => UserProfileObj.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+_$UserList _$_$UserListFromJson(Map<String, dynamic> json) {
+  return _$UserList(
+    users: (json['users'] as List<dynamic>?)
+        ?.map((e) => UserProfileObj.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
-Map<String, dynamic> _$$UserListToJson(_$UserList instance) =>
+Map<String, dynamic> _$_$UserListToJson(_$UserList instance) =>
     <String, dynamic>{
       'users': instance.users,
     };

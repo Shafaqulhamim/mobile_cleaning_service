@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user_profile.dart';
 
@@ -14,7 +13,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType'] as String?) {
+  switch (json['runtimeType'] as String) {
     case 'default':
       return UserProfileObj.fromJson(json);
     case 'data':
@@ -23,8 +22,7 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
       return UserList.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'UserProfile',
-          'Invalid union type "${json['runtimeType']}"!');
+      throw FallThroughError();
   }
 }
 
@@ -76,15 +74,6 @@ mixin _$UserProfile {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
-        data,
-    TResult Function(List<UserProfileObj>? users)? list,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
     TResult Function(String firstname, String lastname, String address,
@@ -99,13 +88,6 @@ mixin _$UserProfile {
     TResult Function(UserProfileObj value) $default, {
     required TResult Function(UserData value) data,
     required TResult Function(UserList value) list,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserList value)? list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -172,7 +154,7 @@ class _$UserProfileObj implements UserProfileObj {
   const _$UserProfileObj(this.data);
 
   factory _$UserProfileObj.fromJson(Map<String, dynamic> json) =>
-      _$$UserProfileObjFromJson(json);
+      _$_$UserProfileObjFromJson(json);
 
   @override
   final UserData data;
@@ -213,18 +195,6 @@ class _$UserProfileObj implements UserProfileObj {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
-        data,
-    TResult Function(List<UserProfileObj>? users)? list,
-  }) {
-    return $default?.call(this.data);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
     TResult Function(String firstname, String lastname, String address,
@@ -251,16 +221,6 @@ class _$UserProfileObj implements UserProfileObj {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserList value)? list,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
@@ -275,7 +235,7 @@ class _$UserProfileObj implements UserProfileObj {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserProfileObjToJson(this)..['runtimeType'] = 'default';
+    return _$_$UserProfileObjToJson(this)..['runtimeType'] = 'default';
   }
 }
 
@@ -358,7 +318,7 @@ class _$UserData implements UserData {
       this.phoneNumber, this.nid, this.isCleaner);
 
   factory _$UserData.fromJson(Map<String, dynamic> json) =>
-      _$$UserDataFromJson(json);
+      _$_$UserDataFromJson(json);
 
   @override
   final String firstname;
@@ -430,19 +390,6 @@ class _$UserData implements UserData {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
-        data,
-    TResult Function(List<UserProfileObj>? users)? list,
-  }) {
-    return data?.call(
-        firstname, lastname, address, phoneNumber, nid, isCleaner);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
     TResult Function(String firstname, String lastname, String address,
@@ -469,16 +416,6 @@ class _$UserData implements UserData {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserList value)? list,
-  }) {
-    return data?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
@@ -493,7 +430,7 @@ class _$UserData implements UserData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserDataToJson(this)..['runtimeType'] = 'data';
+    return _$_$UserDataToJson(this)..['runtimeType'] = 'data';
   }
 }
 
@@ -549,7 +486,7 @@ class _$UserList implements UserList {
   const _$UserList({this.users});
 
   factory _$UserList.fromJson(Map<String, dynamic> json) =>
-      _$$UserListFromJson(json);
+      _$_$UserListFromJson(json);
 
   @override
   final List<UserProfileObj>? users;
@@ -590,18 +527,6 @@ class _$UserList implements UserList {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
-        data,
-    TResult Function(List<UserProfileObj>? users)? list,
-  }) {
-    return list?.call(users);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
     TResult Function(String firstname, String lastname, String address,
@@ -628,16 +553,6 @@ class _$UserList implements UserList {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(UserProfileObj value)? $default, {
-    TResult Function(UserData value)? data,
-    TResult Function(UserList value)? list,
-  }) {
-    return list?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UserProfileObj value)? $default, {
     TResult Function(UserData value)? data,
@@ -652,7 +567,7 @@ class _$UserList implements UserList {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserListToJson(this)..['runtimeType'] = 'list';
+    return _$_$UserListToJson(this)..['runtimeType'] = 'list';
   }
 }
 

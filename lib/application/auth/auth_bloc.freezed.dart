@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'auth_bloc.dart';
 
@@ -36,6 +35,10 @@ class _$AuthEventTearOff {
     return const AuthCheckRequested();
   }
 
+  UserPList getUserList() {
+    return const UserPList();
+  }
+
   SignedOut signedOut() {
     return const SignedOut();
   }
@@ -62,19 +65,10 @@ mixin _$AuthEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +76,7 @@ mixin _$AuthEvent {
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -93,19 +88,10 @@ mixin _$AuthEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -113,6 +99,7 @@ mixin _$AuthEvent {
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -227,6 +214,7 @@ class _$SignupEvent implements SignupEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -236,23 +224,11 @@ class _$SignupEvent implements SignupEvent {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return signUp?.call(email, password, userData);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -270,6 +246,7 @@ class _$SignupEvent implements SignupEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -279,23 +256,11 @@ class _$SignupEvent implements SignupEvent {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return signUp?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -399,6 +364,7 @@ class _$LoginEvent implements LoginEvent {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -408,23 +374,11 @@ class _$LoginEvent implements LoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return login?.call(this.login, password);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -442,6 +396,7 @@ class _$LoginEvent implements LoginEvent {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -451,23 +406,11 @@ class _$LoginEvent implements LoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return login?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -534,6 +477,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -543,23 +487,11 @@ class _$AuthCheckRequested implements AuthCheckRequested {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return authCheckRequested?.call();
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -577,6 +509,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -586,23 +519,11 @@ class _$AuthCheckRequested implements AuthCheckRequested {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return authCheckRequested?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -617,6 +538,110 @@ class _$AuthCheckRequested implements AuthCheckRequested {
 
 abstract class AuthCheckRequested implements AuthEvent {
   const factory AuthCheckRequested() = _$AuthCheckRequested;
+}
+
+/// @nodoc
+abstract class $UserPListCopyWith<$Res> {
+  factory $UserPListCopyWith(UserPList value, $Res Function(UserPList) then) =
+      _$UserPListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserPListCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $UserPListCopyWith<$Res> {
+  _$UserPListCopyWithImpl(UserPList _value, $Res Function(UserPList) _then)
+      : super(_value, (v) => _then(v as UserPList));
+
+  @override
+  UserPList get _value => super._value as UserPList;
+}
+
+/// @nodoc
+
+class _$UserPList implements UserPList {
+  const _$UserPList();
+
+  @override
+  String toString() {
+    return 'AuthEvent.getUserList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UserPList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password, UserData userData)
+        signUp,
+    required TResult Function(String login, String password) login,
+    required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
+    required TResult Function() signedOut,
+    required TResult Function(String email) resetPassword,
+    required TResult Function() resetState,
+  }) {
+    return getUserList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password, UserData userData)? signUp,
+    TResult Function(String login, String password)? login,
+    TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
+    TResult Function()? signedOut,
+    TResult Function(String email)? resetPassword,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (getUserList != null) {
+      return getUserList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignupEvent value) signUp,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
+    required TResult Function(SignedOut value) signedOut,
+    required TResult Function(ResetPassword value) resetPassword,
+    required TResult Function(ResetState value) resetState,
+  }) {
+    return getUserList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignupEvent value)? signUp,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
+    TResult Function(SignedOut value)? signedOut,
+    TResult Function(ResetPassword value)? resetPassword,
+    TResult Function(ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (getUserList != null) {
+      return getUserList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserPList implements AuthEvent {
+  const factory UserPList() = _$UserPList;
 }
 
 /// @nodoc
@@ -660,6 +685,7 @@ class _$SignedOut implements SignedOut {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -669,23 +695,11 @@ class _$SignedOut implements SignedOut {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return signedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -703,6 +717,7 @@ class _$SignedOut implements SignedOut {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -712,23 +727,11 @@ class _$SignedOut implements SignedOut {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return signedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -813,6 +816,7 @@ class _$ResetPassword implements ResetPassword {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -822,23 +826,11 @@ class _$ResetPassword implements ResetPassword {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return resetPassword?.call(email);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -856,6 +848,7 @@ class _$ResetPassword implements ResetPassword {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -865,23 +858,11 @@ class _$ResetPassword implements ResetPassword {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return resetPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -945,6 +926,7 @@ class _$ResetState implements ResetState {
         signUp,
     required TResult Function(String login, String password) login,
     required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
     required TResult Function() signedOut,
     required TResult Function(String email) resetPassword,
     required TResult Function() resetState,
@@ -954,23 +936,11 @@ class _$ResetState implements ResetState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password, UserData userData)? signUp,
-    TResult Function(String login, String password)? login,
-    TResult Function()? authCheckRequested,
-    TResult Function()? signedOut,
-    TResult Function(String email)? resetPassword,
-    TResult Function()? resetState,
-  }) {
-    return resetState?.call();
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
     TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
     TResult Function()? signedOut,
     TResult Function(String email)? resetPassword,
     TResult Function()? resetState,
@@ -988,6 +958,7 @@ class _$ResetState implements ResetState {
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
     required TResult Function(ResetPassword value) resetPassword,
     required TResult Function(ResetState value) resetState,
@@ -997,23 +968,11 @@ class _$ResetState implements ResetState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(SignupEvent value)? signUp,
-    TResult Function(LoginEvent value)? login,
-    TResult Function(AuthCheckRequested value)? authCheckRequested,
-    TResult Function(SignedOut value)? signedOut,
-    TResult Function(ResetPassword value)? resetPassword,
-    TResult Function(ResetState value)? resetState,
-  }) {
-    return resetState?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
     TResult Function(ResetPassword value)? resetPassword,
     TResult Function(ResetState value)? resetState,
@@ -1034,14 +993,22 @@ abstract class ResetState implements AuthEvent {
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  _AuthState call(String error, bool isAuthenticated, bool isLoading,
-      bool resetLink, UserData userData, double lat, double long) {
+  _AuthState call(
+      String error,
+      bool isAuthenticated,
+      bool isLoading,
+      bool resetLink,
+      UserData userData,
+      List<UserData> userDataList,
+      double lat,
+      double long) {
     return _AuthState(
       error,
       isAuthenticated,
       isLoading,
       resetLink,
       userData,
+      userDataList,
       lat,
       long,
     );
@@ -1058,6 +1025,7 @@ mixin _$AuthState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get resetLink => throw _privateConstructorUsedError;
   UserData get userData => throw _privateConstructorUsedError;
+  List<UserData> get userDataList => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
   double get long => throw _privateConstructorUsedError;
 
@@ -1076,6 +1044,7 @@ abstract class $AuthStateCopyWith<$Res> {
       bool isLoading,
       bool resetLink,
       UserData userData,
+      List<UserData> userDataList,
       double lat,
       double long});
 }
@@ -1095,6 +1064,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? isLoading = freezed,
     Object? resetLink = freezed,
     Object? userData = freezed,
+    Object? userDataList = freezed,
     Object? lat = freezed,
     Object? long = freezed,
   }) {
@@ -1119,6 +1089,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.userData
           : userData // ignore: cast_nullable_to_non_nullable
               as UserData,
+      userDataList: userDataList == freezed
+          ? _value.userDataList
+          : userDataList // ignore: cast_nullable_to_non_nullable
+              as List<UserData>,
       lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -1143,6 +1117,7 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool isLoading,
       bool resetLink,
       UserData userData,
+      List<UserData> userDataList,
       double lat,
       double long});
 }
@@ -1163,6 +1138,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? resetLink = freezed,
     Object? userData = freezed,
+    Object? userDataList = freezed,
     Object? lat = freezed,
     Object? long = freezed,
   }) {
@@ -1187,6 +1163,10 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.userData
           : userData // ignore: cast_nullable_to_non_nullable
               as UserData,
+      userDataList == freezed
+          ? _value.userDataList
+          : userDataList // ignore: cast_nullable_to_non_nullable
+              as List<UserData>,
       lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -1203,7 +1183,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 class _$_AuthState implements _AuthState {
   const _$_AuthState(this.error, this.isAuthenticated, this.isLoading,
-      this.resetLink, this.userData, this.lat, this.long);
+      this.resetLink, this.userData, this.userDataList, this.lat, this.long);
 
   @override
   final String error;
@@ -1216,13 +1196,15 @@ class _$_AuthState implements _AuthState {
   @override
   final UserData userData;
   @override
+  final List<UserData> userDataList;
+  @override
   final double lat;
   @override
   final double long;
 
   @override
   String toString() {
-    return 'AuthState(error: $error, isAuthenticated: $isAuthenticated, isLoading: $isLoading, resetLink: $resetLink, userData: $userData, lat: $lat, long: $long)';
+    return 'AuthState(error: $error, isAuthenticated: $isAuthenticated, isLoading: $isLoading, resetLink: $resetLink, userData: $userData, userDataList: $userDataList, lat: $lat, long: $long)';
   }
 
   @override
@@ -1243,6 +1225,9 @@ class _$_AuthState implements _AuthState {
             (identical(other.userData, userData) ||
                 const DeepCollectionEquality()
                     .equals(other.userData, userData)) &&
+            (identical(other.userDataList, userDataList) ||
+                const DeepCollectionEquality()
+                    .equals(other.userDataList, userDataList)) &&
             (identical(other.lat, lat) ||
                 const DeepCollectionEquality().equals(other.lat, lat)) &&
             (identical(other.long, long) ||
@@ -1257,6 +1242,7 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(resetLink) ^
       const DeepCollectionEquality().hash(userData) ^
+      const DeepCollectionEquality().hash(userDataList) ^
       const DeepCollectionEquality().hash(lat) ^
       const DeepCollectionEquality().hash(long);
 
@@ -1273,6 +1259,7 @@ abstract class _AuthState implements AuthState {
       bool isLoading,
       bool resetLink,
       UserData userData,
+      List<UserData> userDataList,
       double lat,
       double long) = _$_AuthState;
 
@@ -1286,6 +1273,8 @@ abstract class _AuthState implements AuthState {
   bool get resetLink => throw _privateConstructorUsedError;
   @override
   UserData get userData => throw _privateConstructorUsedError;
+  @override
+  List<UserData> get userDataList => throw _privateConstructorUsedError;
   @override
   double get lat => throw _privateConstructorUsedError;
   @override

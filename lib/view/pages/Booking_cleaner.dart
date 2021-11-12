@@ -29,30 +29,31 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
       ),
       body: Column(
         children: [
+          Container(
+            child: Column(
+              children: [
+                Text(
+                  "Ordered By       : Rashed Rana",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Phone     :01ff90ff",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 20, top: 50),
             child: Row(
               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Ordered By       : Rashed Rana",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Phone     :01ff90ff",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ),
                 SizedBox(
                   height: 5,
                 ),

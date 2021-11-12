@@ -4,10 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
+import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:mobile_cleaning_service/view/pages/Booking_cleaner.dart';
 
 class NotificationScreen extends StatefulWidget {
-  NotificationScreen({Key? key}) : super(key: key);
+  final String userData;
+  NotificationScreen(this.userData, {Key? key}) : super(key: key);
 
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
@@ -40,7 +42,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           if (state.orderList == null)
             ProductBloc(
                 context.read<IProductProvider>(), context.read<IAuthProvider>())
-              ..add(const ProductEvent.sellerOrderList());
+              ..add(ProductEvent.sellerOrderList(widget.userData));
         },
         builder: (context, state) {
           return ListView.builder(

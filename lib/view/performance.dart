@@ -19,7 +19,7 @@ class Performance extends StatefulWidget {
 class _PerformanceState extends State<Performance> {
   var _currentindex = 0;
   int _selectedIndex = 0;
-  final pages = [NotificationScreen(), Chat(), Favorite(), Home()];
+  final pages = [NotificationScreen("6655"), Chat(), Favorite(), Home()];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -116,12 +116,14 @@ class _PerformanceState extends State<Performance> {
                         size: 30,
                       ),
                     ),
-                    title: const Text("My Address"),
+                    title: const Text("My Notification"),
                     onTap: () {
                       print('Text1');
-                      // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                      //   return page1();
-                      // }));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationScreen(
+                                  state.userData.phoneNumber)));
                     },
                   ),
                   const Divider(),

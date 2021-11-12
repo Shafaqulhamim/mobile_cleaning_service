@@ -23,7 +23,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Book Details"),
+        title: Text("Booking"),
         leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),

@@ -19,7 +19,7 @@ class Performance extends StatefulWidget {
 class _PerformanceState extends State<Performance> {
   var _currentindex = 0;
   int _selectedIndex = 0;
-  final pages = [Notifications(), Chat(), Favorite(), Home()];
+  final pages = [NotificationScreen(), Chat(), Favorite(), Home()];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

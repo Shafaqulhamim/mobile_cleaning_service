@@ -258,7 +258,8 @@ class _CleanHomeState extends State<CleanHome> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => BookDetails()));
+                                    builder: (context) =>
+                                        BookDetails(widget.userDataList)));
                           },
                         ),
                       ],

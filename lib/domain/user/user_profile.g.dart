@@ -14,7 +14,7 @@ _$UserProfileObj _$_$UserProfileObjFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$UserProfileObjToJson(_$UserProfileObj instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
     };
 
 _$UserData _$_$UserDataFromJson(Map<String, dynamic> json) {
@@ -48,5 +48,5 @@ _$UserList _$_$UserListFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$UserListToJson(_$UserList instance) =>
     <String, dynamic>{
-      'users': instance.users,
+      'users': instance.users?.map((e) => e.toJson()).toList(),
     };

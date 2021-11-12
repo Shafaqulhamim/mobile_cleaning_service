@@ -8,9 +8,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
+import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
 import 'package:mobile_cleaning_service/infrastructure/auth/firebase_auth_provider.dart';
+import 'package:mobile_cleaning_service/infrastructure/order_provider.dart';
 import 'package:mobile_cleaning_service/login.dart';
 import 'package:mobile_cleaning_service/signup.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
@@ -40,6 +43,9 @@ class _AppPageState extends State<AppPage> {
                   create: (context) =>
                       FirebaseAuthProvider(FirebaseAuth.instance),
                 ),
+                RepositoryProvider<IProductProvider>(
+                  create: (context) => ProductProvider(),
+                ),
               ],
               child: MultiBlocProvider(
                 providers: [
@@ -48,6 +54,11 @@ class _AppPageState extends State<AppPage> {
                       ..add(const AuthEvent.authCheckRequested())
                       ..add(const AuthEvent.getUserList()),
                   ),
+                  BlocProvider<ProductBloc>(
+                      create: (context) => ProductBloc(
+                            context.read<IProductProvider>(),
+                            context.read<IAuthProvider>(),
+                          ))
                 ],
                 child: MaterialApp(
                     debugShowCheckedModeBanner: false,
@@ -68,7 +79,8 @@ class _AppPageState extends State<AppPage> {
                                 builder: (context) =>
                                     CustomerDash(state.userDataList)),
                           );
-                        } else {
+                        } else if (state.isAuthenticated &&
+                            state.userData.isCleaner == true) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

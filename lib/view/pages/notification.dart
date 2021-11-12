@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
+import 'package:mobile_cleaning_service/view/pages/Booking_cleaner.dart';
 
 class NotificationScreen extends StatefulWidget {
   NotificationScreen({Key? key}) : super(key: key);
@@ -45,14 +46,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
           return ListView.builder(
               itemCount: state.orderList.length,
               itemBuilder: (context, index) {
-                return Container(
-                  height: 100,
-                  padding: EdgeInsets.all(30),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(state.orderList[index].address),
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BookDetailsCleaner()),
+                    );
+                  },
+                  child: Container(
+                    height: 100,
+                    padding: EdgeInsets.all(30),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.white24,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(state.orderList[index].address),
+                  ),
                 );
               });
         },

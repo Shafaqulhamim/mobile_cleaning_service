@@ -45,7 +45,7 @@ class _CleanHomeState extends State<CleanHome> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 0, top: 30, right: 210),
+                        const EdgeInsets.only(left: 0, top: 30, right: 280),
                     child: Text(
                       widget.userDataList.firstname,
                       style:
@@ -152,12 +152,12 @@ class _CleanHomeState extends State<CleanHome> {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 0,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, right: 260),
+                    padding: const EdgeInsets.only(top: 30, right: 280),
                     child: Text(
-                      "Work Time",
+                      "Schedule",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),

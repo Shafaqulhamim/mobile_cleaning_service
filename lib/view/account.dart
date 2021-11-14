@@ -56,8 +56,8 @@ class _AccountState extends State<Account> {
                 child: TextField(
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: "Your Name",
-                    labelText: "User Name",
+                    hintText: "Rashed Rana",
+                    labelText: "Your Name",
                   ),
                 ),
               ),
@@ -88,16 +88,39 @@ class _AccountState extends State<Account> {
               SizedBox(
                 height: 50,
               ),
-              passwordButton(),
+              saveButton(),
               SizedBox(
                 height: 20,
               ),
-              emailButton(),
+              passwordButton(),
               SizedBox(
                 height: 20,
               ),
               deleteButton()
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget saveButton() {
+    return GestureDetector(
+      onTap: () {
+        //TODO:REGISTER HERE
+      },
+      child: Container(
+        height: 45,
+        width: 250,
+        //alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color(0xff32cb95),
+        ),
+        child: Center(
+          child: Text(
+            "Save",
+            style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -120,29 +143,6 @@ class _AccountState extends State<Account> {
         child: Center(
           child: Text(
             "Change Password",
-            style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget emailButton() {
-    return GestureDetector(
-      onTap: () {
-        //TODO:REGISTER HERE
-      },
-      child: Container(
-        height: 45,
-        width: 250,
-        //alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Color(0xff32cb95),
-        ),
-        child: Center(
-          child: Text(
-            "Change Email",
             style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.bold),
           ),
         ),

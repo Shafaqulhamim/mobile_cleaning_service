@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
+import 'package:mobile_cleaning_service/view/performance.dart';
 
 import 'domain/user/user_profile.dart';
 
@@ -67,11 +68,19 @@ class _State extends State<SignupPage> {
             EasyLoading.dismiss();
             EasyLoading.showSuccess('Registration Successful!');
             authBloc.add(UserPList());
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CustomerDash(state.userDataList)),
-            );
+            if (state.userData.isCleaner == false)
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CustomerDash(state.userDataList)),
+              );
+            else if (state.userData.isCleaner == true)
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Performance(state.userData.phoneNumber)),
+              );
           }
         },
         child: SafeArea(

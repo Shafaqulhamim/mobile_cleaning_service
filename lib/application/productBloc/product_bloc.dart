@@ -26,8 +26,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         yield state.copyWith(isSubmitting: true);
         final Either<Failure, Unit> requestOption =
             await productProvider.postOrderData(value.orderData.copyWith(
-          orderedBy: authProvider.fireAuth.currentUser!.uid,
-        ));
+                orderedBy: authProvider.fireAuth.currentUser!.uid,
+                ordererName: authProvider.user.firstname,
+                address: authProvider.user.address));
 
         yield requestOption.fold(
           (l) => state.copyWith(

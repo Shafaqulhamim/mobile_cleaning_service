@@ -89,7 +89,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             decoration: BoxDecoration(
                                 color: Colors.white24,
                                 borderRadius: BorderRadius.circular(20)),
-                            child: Text(state.orderList[index].orderedBy),
+                            child: Column(
+                              children: [
+                                Text(state.orderList[index].ordererName),
+                                Text(state.orderList[index].address),
+                              ],
+                            ),
                           ),
                         );
                       }),

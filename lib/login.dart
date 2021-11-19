@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:logger/logger.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
+import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
+import 'package:mobile_cleaning_service/view/performance.dart';
 
 import 'application/auth/auth_bloc.dart';
 
@@ -42,19 +45,22 @@ class _LoginPageState extends State<LoginPage> {
             p.error != c.error ||
             p.isAuthenticated != c.isAuthenticated,
         listener: (context, state) {
-          if (state.error.isNotEmpty) {
-            EasyLoading.showError(state.error);
-          }
-          if (state.isLoading) {
-            EasyLoading.show(status: 'loading...');
-          }
-          if (state.isAuthenticated) {
-            EasyLoading.showSuccess('Successfully Authenticated!');
-            authBloc.add(UserPList());
+          if (state.isAuthenticated && state.userData.isCleaner == false) {
+            Logger().i(state.userData.isCleaner);
+            AuthBloc(context.read<IAuthProvider>())
+              ..add(const AuthEvent.getUserList());
             Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => CustomerDash(state.userDataList)),
+            );
+          } else if (state.isAuthenticated &&
+              state.userData.isCleaner == true) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      Performance(state.userData.phoneNumber)),
             );
           }
         },

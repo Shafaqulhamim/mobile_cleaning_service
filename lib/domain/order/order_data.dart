@@ -9,10 +9,16 @@ part 'order_data.g.dart';
 
 @freezed
 abstract class OrderProfile with _$OrderProfile {
-  //const factory UserProfile(UserData data) = UserProfileObj;
+  //const factory UserProfile(UserData data) = UserProfileObj;ß
 
-  const factory OrderProfile.data(UserData userInfo, String orderedBy,
-      String address, String paymentMethod, String seller) = OrderData;
+  const factory OrderProfile.data(
+      UserData userInfo,
+      String orderedBy,
+      String ordererName,
+      String status,
+      String address,
+      String paymentMethod,
+      String seller) = OrderData;
 
   // factory UserProfile.empty() =>
   //     const UserProfileObj(UserData('', '', "", '', "", "", "", "", {}));

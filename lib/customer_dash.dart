@@ -81,8 +81,11 @@ class _CustomerDashState extends State<CustomerDash> {
               setState(() {
                 _currentIndex = index;
                 if (_currentIndex == 0) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Performance()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              CustomerDash(widget.userDataList)));
                 }
                 if (_currentIndex == 1) {
                   Navigator.push(context,

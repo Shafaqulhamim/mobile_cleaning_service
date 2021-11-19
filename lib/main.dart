@@ -84,7 +84,8 @@ class _AppPageState extends State<AppPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Performance()),
+                                builder: (context) =>
+                                    Performance(state.userData.phoneNumber)),
                           );
                         }
                       },

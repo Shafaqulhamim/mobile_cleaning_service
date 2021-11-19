@@ -10,6 +10,8 @@ _$OrderData _$_$OrderDataFromJson(Map<String, dynamic> json) {
   return _$OrderData(
     UserData.fromJson(json['userInfo'] as Map<String, dynamic>),
     json['orderedBy'] as String,
+    json['ordererName'] as String,
+    json['status'] as String,
     json['address'] as String,
     json['paymentMethod'] as String,
     json['seller'] as String,
@@ -20,6 +22,8 @@ Map<String, dynamic> _$_$OrderDataToJson(_$OrderData instance) =>
     <String, dynamic>{
       'userInfo': instance.userInfo.toJson(),
       'orderedBy': instance.orderedBy,
+      'ordererName': instance.ordererName,
+      'status': instance.status,
       'address': instance.address,
       'paymentMethod': instance.paymentMethod,
       'seller': instance.seller,

@@ -67,12 +67,6 @@ class _BookDetailsState extends State<BookDetails> {
                     MaterialPageRoute(
                         builder: (context) => CustomerDash(state.userDataList)),
                   );
-                } else if (state.isAuthenticated &&
-                    state.userData.isCleaner == true) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Performance()),
-                  );
                 }
               },
               child: Scaffold(
@@ -326,8 +320,14 @@ class _BookDetailsState extends State<BookDetails> {
                 style: TextStyle(fontSize: 20),
               ),
               onPressed: () {
-                productBloc.add(PostOrderData(OrderData(widget.userDataList, "",
-                    "", "Bkash", widget.userDataList.phoneNumber)));
+                productBloc.add(PostOrderData(OrderData(
+                    widget.userDataList,
+                    "",
+                    "",
+                    "pending",
+                    "",
+                    "Bkash",
+                    widget.userDataList.phoneNumber)));
               },
             ),
           ],

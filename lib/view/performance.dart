@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
+import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
+import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
+import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
 import 'package:mobile_cleaning_service/view/account.dart';
 
 import 'package:mobile_cleaning_service/view/pages/chat.dart';
@@ -10,7 +13,8 @@ import 'package:mobile_cleaning_service/view/pages/notification.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 class Performance extends StatefulWidget {
-  const Performance({Key? key}) : super(key: key);
+  final String phoneNumber;
+  const Performance(this.phoneNumber, {Key? key}) : super(key: key);
 
   @override
   _PerformanceState createState() => _PerformanceState();
@@ -19,7 +23,7 @@ class Performance extends StatefulWidget {
 class _PerformanceState extends State<Performance> {
   var _currentindex = 0;
   int _selectedIndex = 0;
-  final pages = [NotificationScreen("6655"), Chat(), Favorite(), Home()];
+  //final pages = [NotificationScreen("6655"), Chat(), Performance(), Home()];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -119,6 +123,8 @@ class _PerformanceState extends State<Performance> {
                     title: const Text("My Notification"),
                     onTap: () {
                       print('Text1');
+                      BlocProvider.of<ProductBloc>(context)
+                        ..add(GetOrderDataList(state.userData.phoneNumber));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -530,8 +536,24 @@ class _PerformanceState extends State<Performance> {
               onTap: (index) {
                 setState(() {
                   _currentindex = index;
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Favorite()));
+                  if (_currentindex == 1)
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Favorite()));
+                  if (_currentindex == 0)
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Performance(widget.phoneNumber)));
+                  if (_currentindex == 2)
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Favorite()));
+                  if (_currentindex == 3)
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                NotificationScreen(widget.phoneNumber)));
                 });
               },
 

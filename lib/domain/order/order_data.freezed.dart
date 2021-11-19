@@ -28,11 +28,13 @@ OrderProfile _$OrderProfileFromJson(Map<String, dynamic> json) {
 class _$OrderProfileTearOff {
   const _$OrderProfileTearOff();
 
-  OrderData data(UserData userInfo, String orderedBy, String address,
-      String paymentMethod, String seller) {
+  OrderData data(UserData userInfo, String orderedBy, String ordererName,
+      String status, String address, String paymentMethod, String seller) {
     return OrderData(
       userInfo,
       orderedBy,
+      ordererName,
+      status,
       address,
       paymentMethod,
       seller,
@@ -57,16 +59,22 @@ const $OrderProfile = _$OrderProfileTearOff();
 mixin _$OrderProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserData userInfo, String orderedBy,
-            String address, String paymentMethod, String seller)
+    required TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String seller)
         data,
     required TResult Function(List<OrderData> products) list,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String address,
-            String paymentMethod, String seller)?
+    TResult Function(UserData userInfo, String orderedBy, String ordererName,
+            String status, String address, String paymentMethod, String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
@@ -111,6 +119,8 @@ abstract class $OrderDataCopyWith<$Res> {
   $Res call(
       {UserData userInfo,
       String orderedBy,
+      String ordererName,
+      String status,
       String address,
       String paymentMethod,
       String seller});
@@ -129,6 +139,8 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
   $Res call({
     Object? userInfo = freezed,
     Object? orderedBy = freezed,
+    Object? ordererName = freezed,
+    Object? status = freezed,
     Object? address = freezed,
     Object? paymentMethod = freezed,
     Object? seller = freezed,
@@ -141,6 +153,14 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
       orderedBy == freezed
           ? _value.orderedBy
           : orderedBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      ordererName == freezed
+          ? _value.ordererName
+          : ordererName // ignore: cast_nullable_to_non_nullable
+              as String,
+      status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
               as String,
       address == freezed
           ? _value.address
@@ -161,8 +181,8 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OrderData implements OrderData {
-  const _$OrderData(this.userInfo, this.orderedBy, this.address,
-      this.paymentMethod, this.seller);
+  const _$OrderData(this.userInfo, this.orderedBy, this.ordererName,
+      this.status, this.address, this.paymentMethod, this.seller);
 
   factory _$OrderData.fromJson(Map<String, dynamic> json) =>
       _$_$OrderDataFromJson(json);
@@ -172,6 +192,10 @@ class _$OrderData implements OrderData {
   @override
   final String orderedBy;
   @override
+  final String ordererName;
+  @override
+  final String status;
+  @override
   final String address;
   @override
   final String paymentMethod;
@@ -180,7 +204,7 @@ class _$OrderData implements OrderData {
 
   @override
   String toString() {
-    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, address: $address, paymentMethod: $paymentMethod, seller: $seller)';
+    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, ordererName: $ordererName, status: $status, address: $address, paymentMethod: $paymentMethod, seller: $seller)';
   }
 
   @override
@@ -193,6 +217,11 @@ class _$OrderData implements OrderData {
             (identical(other.orderedBy, orderedBy) ||
                 const DeepCollectionEquality()
                     .equals(other.orderedBy, orderedBy)) &&
+            (identical(other.ordererName, ordererName) ||
+                const DeepCollectionEquality()
+                    .equals(other.ordererName, ordererName)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.address, address) ||
                 const DeepCollectionEquality()
                     .equals(other.address, address)) &&
@@ -208,6 +237,8 @@ class _$OrderData implements OrderData {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(userInfo) ^
       const DeepCollectionEquality().hash(orderedBy) ^
+      const DeepCollectionEquality().hash(ordererName) ^
+      const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(paymentMethod) ^
       const DeepCollectionEquality().hash(seller);
@@ -220,25 +251,33 @@ class _$OrderData implements OrderData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserData userInfo, String orderedBy,
-            String address, String paymentMethod, String seller)
+    required TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String seller)
         data,
     required TResult Function(List<OrderData> products) list,
   }) {
-    return data(userInfo, orderedBy, address, paymentMethod, seller);
+    return data(userInfo, orderedBy, ordererName, status, address,
+        paymentMethod, seller);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String address,
-            String paymentMethod, String seller)?
+    TResult Function(UserData userInfo, String orderedBy, String ordererName,
+            String status, String address, String paymentMethod, String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(userInfo, orderedBy, address, paymentMethod, seller);
+      return data(userInfo, orderedBy, ordererName, status, address,
+          paymentMethod, seller);
     }
     return orElse();
   }
@@ -272,13 +311,21 @@ class _$OrderData implements OrderData {
 }
 
 abstract class OrderData implements OrderProfile {
-  const factory OrderData(UserData userInfo, String orderedBy, String address,
-      String paymentMethod, String seller) = _$OrderData;
+  const factory OrderData(
+      UserData userInfo,
+      String orderedBy,
+      String ordererName,
+      String status,
+      String address,
+      String paymentMethod,
+      String seller) = _$OrderData;
 
   factory OrderData.fromJson(Map<String, dynamic> json) = _$OrderData.fromJson;
 
   UserData get userInfo => throw _privateConstructorUsedError;
   String get orderedBy => throw _privateConstructorUsedError;
+  String get ordererName => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get paymentMethod => throw _privateConstructorUsedError;
   String get seller => throw _privateConstructorUsedError;
@@ -353,8 +400,14 @@ class _$OrderList implements OrderList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserData userInfo, String orderedBy,
-            String address, String paymentMethod, String seller)
+    required TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String seller)
         data,
     required TResult Function(List<OrderData> products) list,
   }) {
@@ -364,8 +417,8 @@ class _$OrderList implements OrderList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String address,
-            String paymentMethod, String seller)?
+    TResult Function(UserData userInfo, String orderedBy, String ordererName,
+            String status, String address, String paymentMethod, String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),

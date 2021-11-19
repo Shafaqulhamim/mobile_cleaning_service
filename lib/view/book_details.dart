@@ -156,7 +156,7 @@ class _BookDetailsState extends State<BookDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "1 x Cleaner  :",
+                            "Fixed Wage :",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -164,7 +164,7 @@ class _BookDetailsState extends State<BookDetails> {
                             height: 5,
                           ),
                           Text(
-                            "1 Hour          :",
+                            "Per Hour      :",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -190,7 +190,7 @@ class _BookDetailsState extends State<BookDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "150 Tk.",
+                            "200Tk.",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -198,7 +198,7 @@ class _BookDetailsState extends State<BookDetails> {
                             height: 5,
                           ),
                           Text(
-                            "   50 Tk.",
+                            "100Tk.",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -206,7 +206,7 @@ class _BookDetailsState extends State<BookDetails> {
                             height: 5,
                           ),
                           Text(
-                            "     0 Tk.         ",
+                            "    0 Tk.         ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )
@@ -236,12 +236,12 @@ class _BookDetailsState extends State<BookDetails> {
                   width: 150,
                 ),
                 Text(
-                  "200Tk.",
+                  "250Tk.",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 )
               ],
             ),
-            SizedBox(height: 80),
+            SizedBox(height: 50),
             Text(
               "Payment Orders",
               textAlign: TextAlign.center,
@@ -281,17 +281,7 @@ class _BookDetailsState extends State<BookDetails> {
                       activeColor: Colors.red,
                     ),
                   ),
-                  Flexible(
-                    fit: FlexFit.loose,
-                    child: RadioListTile(
-                      value: 2,
-                      groupValue: _rValue,
-                      title: const Text('Card'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
-                  ),
+
                   Flexible(
                     fit: FlexFit.loose,
                     child: RadioListTile(
@@ -307,7 +297,7 @@ class _BookDetailsState extends State<BookDetails> {
               ),
             ),
             SizedBox(
-              height: 80,
+              height: 30,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

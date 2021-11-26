@@ -59,8 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) =>
-                      Performance(state.userData.phoneNumber)),
+                  builder: (context) => Performance(state.userData)),
             );
           }
         },

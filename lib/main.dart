@@ -85,7 +85,7 @@ class _AppPageState extends State<AppPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Performance(state.userData.phoneNumber)),
+                                    Performance(state.userData)),
                           );
                         }
                       },

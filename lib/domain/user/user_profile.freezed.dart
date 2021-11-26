@@ -36,8 +36,16 @@ class _$UserProfileTearOff {
     );
   }
 
-  UserData data(String firstname, String lastname, String address,
-      String phoneNumber, String nid, bool isCleaner) {
+  UserData data(
+      String firstname,
+      String lastname,
+      String address,
+      String phoneNumber,
+      String nid,
+      bool isCleaner,
+      int dPrice,
+      int wPrice,
+      int mPrice) {
     return UserData(
       firstname,
       lastname,
@@ -45,6 +53,9 @@ class _$UserProfileTearOff {
       phoneNumber,
       nid,
       isCleaner,
+      dPrice,
+      wPrice,
+      mPrice,
     );
   }
 
@@ -67,8 +78,16 @@ mixin _$UserProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)
+    required TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)
         data,
     required TResult Function(List<UserProfileObj>? users) list,
   }) =>
@@ -76,8 +95,16 @@ mixin _$UserProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
+    TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)?
         data,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
@@ -185,8 +212,16 @@ class _$UserProfileObj implements UserProfileObj {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)
+    required TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)
         data,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
@@ -197,8 +232,16 @@ class _$UserProfileObj implements UserProfileObj {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
+    TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)?
         data,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
@@ -261,7 +304,10 @@ abstract class $UserDataCopyWith<$Res> {
       String address,
       String phoneNumber,
       String nid,
-      bool isCleaner});
+      bool isCleaner,
+      int dPrice,
+      int wPrice,
+      int mPrice});
 }
 
 /// @nodoc
@@ -281,6 +327,9 @@ class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? nid = freezed,
     Object? isCleaner = freezed,
+    Object? dPrice = freezed,
+    Object? wPrice = freezed,
+    Object? mPrice = freezed,
   }) {
     return _then(UserData(
       firstname == freezed
@@ -307,6 +356,18 @@ class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
           ? _value.isCleaner
           : isCleaner // ignore: cast_nullable_to_non_nullable
               as bool,
+      dPrice == freezed
+          ? _value.dPrice
+          : dPrice // ignore: cast_nullable_to_non_nullable
+              as int,
+      wPrice == freezed
+          ? _value.wPrice
+          : wPrice // ignore: cast_nullable_to_non_nullable
+              as int,
+      mPrice == freezed
+          ? _value.mPrice
+          : mPrice // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -314,8 +375,16 @@ class _$UserDataCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserData implements UserData {
-  const _$UserData(this.firstname, this.lastname, this.address,
-      this.phoneNumber, this.nid, this.isCleaner);
+  const _$UserData(
+      this.firstname,
+      this.lastname,
+      this.address,
+      this.phoneNumber,
+      this.nid,
+      this.isCleaner,
+      this.dPrice,
+      this.wPrice,
+      this.mPrice);
 
   factory _$UserData.fromJson(Map<String, dynamic> json) =>
       _$_$UserDataFromJson(json);
@@ -332,10 +401,16 @@ class _$UserData implements UserData {
   final String nid;
   @override
   final bool isCleaner;
+  @override
+  final int dPrice;
+  @override
+  final int wPrice;
+  @override
+  final int mPrice;
 
   @override
   String toString() {
-    return 'UserProfile.data(firstname: $firstname, lastname: $lastname, address: $address, phoneNumber: $phoneNumber, nid: $nid, isCleaner: $isCleaner)';
+    return 'UserProfile.data(firstname: $firstname, lastname: $lastname, address: $address, phoneNumber: $phoneNumber, nid: $nid, isCleaner: $isCleaner, dPrice: $dPrice, wPrice: $wPrice, mPrice: $mPrice)';
   }
 
   @override
@@ -358,7 +433,13 @@ class _$UserData implements UserData {
                 const DeepCollectionEquality().equals(other.nid, nid)) &&
             (identical(other.isCleaner, isCleaner) ||
                 const DeepCollectionEquality()
-                    .equals(other.isCleaner, isCleaner)));
+                    .equals(other.isCleaner, isCleaner)) &&
+            (identical(other.dPrice, dPrice) ||
+                const DeepCollectionEquality().equals(other.dPrice, dPrice)) &&
+            (identical(other.wPrice, wPrice) ||
+                const DeepCollectionEquality().equals(other.wPrice, wPrice)) &&
+            (identical(other.mPrice, mPrice) ||
+                const DeepCollectionEquality().equals(other.mPrice, mPrice)));
   }
 
   @override
@@ -369,7 +450,10 @@ class _$UserData implements UserData {
       const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(phoneNumber) ^
       const DeepCollectionEquality().hash(nid) ^
-      const DeepCollectionEquality().hash(isCleaner);
+      const DeepCollectionEquality().hash(isCleaner) ^
+      const DeepCollectionEquality().hash(dPrice) ^
+      const DeepCollectionEquality().hash(wPrice) ^
+      const DeepCollectionEquality().hash(mPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -380,26 +464,44 @@ class _$UserData implements UserData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)
+    required TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)
         data,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
-    return data(firstname, lastname, address, phoneNumber, nid, isCleaner);
+    return data(firstname, lastname, address, phoneNumber, nid, isCleaner,
+        dPrice, wPrice, mPrice);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
+    TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)?
         data,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(firstname, lastname, address, phoneNumber, nid, isCleaner);
+      return data(firstname, lastname, address, phoneNumber, nid, isCleaner,
+          dPrice, wPrice, mPrice);
     }
     return orElse();
   }
@@ -435,8 +537,16 @@ class _$UserData implements UserData {
 }
 
 abstract class UserData implements UserProfile {
-  const factory UserData(String firstname, String lastname, String address,
-      String phoneNumber, String nid, bool isCleaner) = _$UserData;
+  const factory UserData(
+      String firstname,
+      String lastname,
+      String address,
+      String phoneNumber,
+      String nid,
+      bool isCleaner,
+      int dPrice,
+      int wPrice,
+      int mPrice) = _$UserData;
 
   factory UserData.fromJson(Map<String, dynamic> json) = _$UserData.fromJson;
 
@@ -446,6 +556,9 @@ abstract class UserData implements UserProfile {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get nid => throw _privateConstructorUsedError;
   bool get isCleaner => throw _privateConstructorUsedError;
+  int get dPrice => throw _privateConstructorUsedError;
+  int get wPrice => throw _privateConstructorUsedError;
+  int get mPrice => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserDataCopyWith<UserData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -517,8 +630,16 @@ class _$UserList implements UserList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(UserData data) $default, {
-    required TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)
+    required TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)
         data,
     required TResult Function(List<UserProfileObj>? users) list,
   }) {
@@ -529,8 +650,16 @@ class _$UserList implements UserList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(UserData data)? $default, {
-    TResult Function(String firstname, String lastname, String address,
-            String phoneNumber, String nid, bool isCleaner)?
+    TResult Function(
+            String firstname,
+            String lastname,
+            String address,
+            String phoneNumber,
+            String nid,
+            bool isCleaner,
+            int dPrice,
+            int wPrice,
+            int mPrice)?
         data,
     TResult Function(List<UserProfileObj>? users)? list,
     required TResult orElse(),

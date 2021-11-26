@@ -15,6 +15,7 @@ abstract class IAuthProvider {
     String password,
     UserData userData,
   );
+  Future<Either<Failure, Unit>> updateUserData(UserData user, String userId);
 
   Future<Either<Failure, Unit>> uploadUserData(UserData user, String userId);
   Future<Either<Failure, UserData>> getUserProfile();

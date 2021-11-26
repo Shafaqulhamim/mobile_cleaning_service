@@ -78,8 +78,7 @@ class _State extends State<SignupPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        Performance(state.userData.phoneNumber)),
+                    builder: (context) => Performance(state.userData)),
               );
           }
         },
@@ -135,13 +134,15 @@ class _State extends State<SignupPage> {
                                 email.text,
                                 password.text,
                                 UserData(
-                                  firstName.text,
-                                  lastName.text,
-                                  address.text,
-                                  phoneNumber.text,
-                                  nid.text,
-                                  isSwitched,
-                                )));
+                                    firstName.text,
+                                    lastName.text,
+                                    address.text,
+                                    phoneNumber.text,
+                                    nid.text,
+                                    isSwitched,
+                                    0,
+                                    0,
+                                    0)));
                           },
                           color: Color(0xff32cb95),
                           elevation: 0,

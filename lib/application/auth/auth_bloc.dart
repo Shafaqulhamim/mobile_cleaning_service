@@ -100,6 +100,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           (r) => state.copyWith(userDataList: r),
         );
       },
+      updateUserData: (UpdateUserData value) async* {
+        yield state.copyWith(isLoading: true);
+        final Either<Failure, Unit> resetResponse =
+            await authProvider.updateUserData(
+                value.userData, authProvider.fireAuth.currentUser!.uid);
+
+        yield resetResponse.fold(
+            (l) => state.copyWith(error: l.error, isLoading: false),
+            (r) => state.copyWith(resetLink: true, isLoading: false));
+      },
     );
   }
 }

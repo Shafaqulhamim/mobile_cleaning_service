@@ -4,6 +4,7 @@ import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
+import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:mobile_cleaning_service/view/account.dart';
 
 import 'package:mobile_cleaning_service/view/pages/chat.dart';
@@ -13,7 +14,7 @@ import 'package:mobile_cleaning_service/view/pages/notification.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 class Performance extends StatefulWidget {
-  final String phoneNumber;
+  final UserData phoneNumber;
   const Performance(this.phoneNumber, {Key? key}) : super(key: key);
 
   @override
@@ -104,8 +105,11 @@ class _PerformanceState extends State<Performance> {
                       // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
                       //   return page1();
                       // }));
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Account()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Account(widget.phoneNumber)));
                     },
                   ),
                   const Divider(),
@@ -552,8 +556,8 @@ class _PerformanceState extends State<Performance> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                NotificationScreen(widget.phoneNumber)));
+                            builder: (context) => NotificationScreen(
+                                widget.phoneNumber.phoneNumber)));
                 });
               },
 

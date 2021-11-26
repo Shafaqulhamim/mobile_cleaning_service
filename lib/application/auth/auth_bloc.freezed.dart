@@ -31,6 +31,12 @@ class _$AuthEventTearOff {
     );
   }
 
+  UpdateUserData updateUserData(UserData userData) {
+    return UpdateUserData(
+      userData,
+    );
+  }
+
   AuthCheckRequested authCheckRequested() {
     return const AuthCheckRequested();
   }
@@ -64,6 +70,7 @@ mixin _$AuthEvent {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -75,6 +82,7 @@ mixin _$AuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -87,6 +95,7 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -98,6 +107,7 @@ mixin _$AuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -213,6 +223,7 @@ class _$SignupEvent implements SignupEvent {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -227,6 +238,7 @@ class _$SignupEvent implements SignupEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -245,6 +257,7 @@ class _$SignupEvent implements SignupEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -259,6 +272,7 @@ class _$SignupEvent implements SignupEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -363,6 +377,7 @@ class _$LoginEvent implements LoginEvent {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -377,6 +392,7 @@ class _$LoginEvent implements LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -395,6 +411,7 @@ class _$LoginEvent implements LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -409,6 +426,7 @@ class _$LoginEvent implements LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -430,6 +448,147 @@ abstract class LoginEvent implements AuthEvent {
   String get password => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LoginEventCopyWith<LoginEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateUserDataCopyWith<$Res> {
+  factory $UpdateUserDataCopyWith(
+          UpdateUserData value, $Res Function(UpdateUserData) then) =
+      _$UpdateUserDataCopyWithImpl<$Res>;
+  $Res call({UserData userData});
+}
+
+/// @nodoc
+class _$UpdateUserDataCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $UpdateUserDataCopyWith<$Res> {
+  _$UpdateUserDataCopyWithImpl(
+      UpdateUserData _value, $Res Function(UpdateUserData) _then)
+      : super(_value, (v) => _then(v as UpdateUserData));
+
+  @override
+  UpdateUserData get _value => super._value as UpdateUserData;
+
+  @override
+  $Res call({
+    Object? userData = freezed,
+  }) {
+    return _then(UpdateUserData(
+      userData == freezed
+          ? _value.userData
+          : userData // ignore: cast_nullable_to_non_nullable
+              as UserData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateUserData implements UpdateUserData {
+  const _$UpdateUserData(this.userData);
+
+  @override
+  final UserData userData;
+
+  @override
+  String toString() {
+    return 'AuthEvent.updateUserData(userData: $userData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateUserData &&
+            (identical(other.userData, userData) ||
+                const DeepCollectionEquality()
+                    .equals(other.userData, userData)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userData);
+
+  @JsonKey(ignore: true)
+  @override
+  $UpdateUserDataCopyWith<UpdateUserData> get copyWith =>
+      _$UpdateUserDataCopyWithImpl<UpdateUserData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password, UserData userData)
+        signUp,
+    required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
+    required TResult Function() authCheckRequested,
+    required TResult Function() getUserList,
+    required TResult Function() signedOut,
+    required TResult Function(String email) resetPassword,
+    required TResult Function() resetState,
+  }) {
+    return updateUserData(userData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password, UserData userData)? signUp,
+    TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
+    TResult Function()? authCheckRequested,
+    TResult Function()? getUserList,
+    TResult Function()? signedOut,
+    TResult Function(String email)? resetPassword,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (updateUserData != null) {
+      return updateUserData(userData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignupEvent value) signUp,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
+    required TResult Function(AuthCheckRequested value) authCheckRequested,
+    required TResult Function(UserPList value) getUserList,
+    required TResult Function(SignedOut value) signedOut,
+    required TResult Function(ResetPassword value) resetPassword,
+    required TResult Function(ResetState value) resetState,
+  }) {
+    return updateUserData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignupEvent value)? signUp,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
+    TResult Function(AuthCheckRequested value)? authCheckRequested,
+    TResult Function(UserPList value)? getUserList,
+    TResult Function(SignedOut value)? signedOut,
+    TResult Function(ResetPassword value)? resetPassword,
+    TResult Function(ResetState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (updateUserData != null) {
+      return updateUserData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateUserData implements AuthEvent {
+  const factory UpdateUserData(UserData userData) = _$UpdateUserData;
+
+  UserData get userData => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateUserDataCopyWith<UpdateUserData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -476,6 +635,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -490,6 +650,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -508,6 +669,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -522,6 +684,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -580,6 +743,7 @@ class _$UserPList implements UserPList {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -594,6 +758,7 @@ class _$UserPList implements UserPList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -612,6 +777,7 @@ class _$UserPList implements UserPList {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -626,6 +792,7 @@ class _$UserPList implements UserPList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -684,6 +851,7 @@ class _$SignedOut implements SignedOut {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -698,6 +866,7 @@ class _$SignedOut implements SignedOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -716,6 +885,7 @@ class _$SignedOut implements SignedOut {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -730,6 +900,7 @@ class _$SignedOut implements SignedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -815,6 +986,7 @@ class _$ResetPassword implements ResetPassword {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -829,6 +1001,7 @@ class _$ResetPassword implements ResetPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -847,6 +1020,7 @@ class _$ResetPassword implements ResetPassword {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -861,6 +1035,7 @@ class _$ResetPassword implements ResetPassword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,
@@ -925,6 +1100,7 @@ class _$ResetState implements ResetState {
     required TResult Function(String email, String password, UserData userData)
         signUp,
     required TResult Function(String login, String password) login,
+    required TResult Function(UserData userData) updateUserData,
     required TResult Function() authCheckRequested,
     required TResult Function() getUserList,
     required TResult Function() signedOut,
@@ -939,6 +1115,7 @@ class _$ResetState implements ResetState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, UserData userData)? signUp,
     TResult Function(String login, String password)? login,
+    TResult Function(UserData userData)? updateUserData,
     TResult Function()? authCheckRequested,
     TResult Function()? getUserList,
     TResult Function()? signedOut,
@@ -957,6 +1134,7 @@ class _$ResetState implements ResetState {
   TResult map<TResult extends Object?>({
     required TResult Function(SignupEvent value) signUp,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(UpdateUserData value) updateUserData,
     required TResult Function(AuthCheckRequested value) authCheckRequested,
     required TResult Function(UserPList value) getUserList,
     required TResult Function(SignedOut value) signedOut,
@@ -971,6 +1149,7 @@ class _$ResetState implements ResetState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignupEvent value)? signUp,
     TResult Function(LoginEvent value)? login,
+    TResult Function(UpdateUserData value)? updateUserData,
     TResult Function(AuthCheckRequested value)? authCheckRequested,
     TResult Function(UserPList value)? getUserList,
     TResult Function(SignedOut value)? signedOut,

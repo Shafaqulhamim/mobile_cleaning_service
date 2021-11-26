@@ -151,7 +151,7 @@ class FirebaseAuthProvider extends IAuthProvider {
   }
 
   @override
-  UserData user = const UserData('', '', "", "", "", false);
+  UserData user = const UserData('', '', "", "", "", false, 0, 0, 0);
 
   @override
   Future<Either<Failure, Unit>> forgetPassword(String email) async {
@@ -180,6 +180,35 @@ class FirebaseAuthProvider extends IAuthProvider {
       } else {
         return right([]);
       }
+    } catch (e) {
+      Logger().e(e.toString());
+
+      return left(Failure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> updateUserData(
+      UserData user, String userId) async {
+    final String userId = firebaseAuth.currentUser!.uid;
+
+    final CollectionReference users =
+        FirebaseFirestore.instance.collection('usersData');
+
+    try {
+      await users.doc(userId).update(user.toJson()).then((value) {
+        Logger().i("updated ");
+
+        return right(unit);
+      }).onError((error, stackTrace) {
+        Logger().e(error.toString());
+        return left(Failure(error.toString()));
+      });
+
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      Logger().e(e.toString());
+      return left(Failure(e.toString()));
     } catch (e) {
       Logger().e(e.toString());
 

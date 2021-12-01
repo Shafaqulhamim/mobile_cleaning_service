@@ -1,3 +1,4 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
@@ -157,58 +158,22 @@ class _CleanHomeState extends State<CleanHome> {
                   Padding(
                     padding: const EdgeInsets.only(top: 30, right: 280),
                     child: Text(
-                      "Schedule",
+                      "Date & Time",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            //color: Colors.grey,
-                          ),
-                          child: Center(
-                            child: Text(
-                              "07:00",
-                              style: TextStyle(color: Colors.black54),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            color: Color(0xff32cb95),
-                          ),
-                          child: Center(
-                              child: Text(
-                            "10:00",
-                            style: TextStyle(color: Colors.white),
-                          )),
-                        ),
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            // color: Colors.grey,
-                          ),
-                          child: Center(child: Text("14:00")),
-                        ),
-                      ],
-                    ),
+                  DateTimePicker(
+                    initialValue: '',
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2100),
+                    dateLabelText: 'Date',
+                    onChanged: (val) => print(val),
+                    validator: (val) {
+                      print(val);
+                      return null;
+                    },
+                    onSaved: (val) => print(val),
                   ),
                   Padding(
                     padding:

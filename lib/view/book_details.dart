@@ -77,250 +77,274 @@ class _BookDetailsState extends State<BookDetails> {
             // TODO: implement listener
           }
         },
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 20, top: 50),
-              child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: BlocListener<AuthBloc, AuthState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          child: BlocConsumer<AuthBloc, AuthState>(
+            listenWhen: (c, p) => c.isAuthenticated != p.isAuthenticated,
+            listener: (context, state) {
+              // TODO: implement listener
+            },
+            builder: (context, state) {
+              return Column(
                 children: [
-                  Container(
-                    height: 80,
-                    width: 150,
-                    child: Column(
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, right: 20, top: 50),
+                    child: Row(
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Book ID       :",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                        Container(
+                          height: 80,
+                          width: 150,
+                          child: Column(
+                            children: [
+                              Text(
+                                "Book ID       :",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Address       :",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          "Address       :",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                        Container(
+                          height: 80,
+                          width: 160,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 30),
+                                child: Text(
+                                  "A567407",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 30),
+                                child: Text(
+                                  "${state.userData.address}",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     ),
                   ),
-                  Container(
-                    height: 80,
-                    width: 160,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  const Divider(
+                    height: 20,
+                    thickness: 2,
+                    indent: 30,
+                    endIndent: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 30, right: 20, bottom: 20),
+                    child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Text(
-                            "A567407",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Fixed Wage :",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Per Hour      :",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Promo          :",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Text(
-                            "1/A, R-7 Banani,\nDhaka-1213",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                          padding: const EdgeInsets.only(
+                            left: 120,
+                          ),
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "200Tk.",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "100Tk.",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "    0 Tk.         ",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  )
-                ],
-              ),
-            ),
-            const Divider(
-              height: 20,
-              thickness: 2,
-              indent: 30,
-              endIndent: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, top: 30, right: 20, bottom: 20),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Fixed Wage :",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Per Hour      :",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Promo          :",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
+                  ),
+                  const Divider(
+                    height: 20,
+                    thickness: 2,
+                    indent: 30,
+                    endIndent: 30,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 40),
+                        child: Text(
+                          "Total             : ",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 120,
-                    ),
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "200Tk.",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "100Tk.",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "    0 Tk.         ",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
+                      SizedBox(
+                        width: 150,
                       ),
+                      Text(
+                        "250Tk.",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 50),
+                  Text(
+                    "Payment Orders",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        // RadioListTile(
+                        //   value: 1,
+                        //   groupValue: _rValue,
+                        //   onChanged: ( value) {
+                        //     //setState(() {});
+                        //     method(value);
+                        //   },
+                        //   // {
+                        //   //   method(value);
+                        //   // },
+                        //   title: Text('Android'),
+                        // ),
+
+                        Flexible(
+                          fit: FlexFit.tight,
+                          child: RadioListTile(
+                            value: 1,
+                            groupValue: _rValue,
+                            title: const Text('Cash'),
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            activeColor: Colors.red,
+                          ),
+                        ),
+
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: RadioListTile(
+                            value: 3,
+                            groupValue: _rValue,
+                            title: const Text('Bkash'),
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Color(0xff32cb95),
+                        fixedSize: const Size(250, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                    child: const Text(
+                      'Confirm Booking ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () {
+                      productBloc.add(PostOrderData(OrderData(
+                          widget.userDataList,
+                          "",
+                          "",
+                          "pending",
+                          "",
+                          "Bkash",
+                          widget.userDataList.phoneNumber)));
+                    },
                   ),
                 ],
-              ),
-            ),
-            const Divider(
-              height: 20,
-              thickness: 2,
-              indent: 30,
-              endIndent: 30,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 40),
-                  child: Text(
-                    "Total             : ",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(
-                  width: 150,
-                ),
-                Text(
-                  "250Tk.",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            SizedBox(height: 50),
-            Text(
-              "Payment Orders",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              child: Row(
-                children: <Widget>[
-                  // RadioListTile(
-                  //   value: 1,
-                  //   groupValue: _rValue,
-                  //   onChanged: ( value) {
-                  //     //setState(() {});
-                  //     method(value);
-                  //   },
-                  //   // {
-                  //   //   method(value);
-                  //   // },
-                  //   title: Text('Android'),
-                  // ),
-
-                  Flexible(
-                    fit: FlexFit.tight,
-                    child: RadioListTile(
-                      value: 1,
-                      groupValue: _rValue,
-                      title: const Text('Cash'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                      activeColor: Colors.red,
-                    ),
-                  ),
-
-                  Flexible(
-                    fit: FlexFit.loose,
-                    child: RadioListTile(
-                      value: 3,
-                      groupValue: _rValue,
-                      title: const Text('Bkash'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Color(0xff32cb95),
-                  fixedSize: const Size(250, 50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-              child: const Text(
-                'Confirm Booking ',
-                style: TextStyle(fontSize: 20),
-              ),
-              onPressed: () {
-                productBloc.add(PostOrderData(OrderData(
-                    widget.userDataList,
-                    "",
-                    "",
-                    "pending",
-                    "",
-                    "Bkash",
-                    widget.userDataList.phoneNumber)));
-              },
-            ),
-          ],
+              );
+            },
+          ),
         ),
       ),
     );

@@ -25,6 +25,9 @@ _$UserData _$_$UserDataFromJson(Map<String, dynamic> json) {
     json['phoneNumber'] as String,
     json['nid'] as String,
     json['isCleaner'] as bool,
+    json['dPrice'] as int,
+    json['wPrice'] as int,
+    json['mPrice'] as int,
   );
 }
 
@@ -36,6 +39,9 @@ Map<String, dynamic> _$_$UserDataToJson(_$UserData instance) =>
       'phoneNumber': instance.phoneNumber,
       'nid': instance.nid,
       'isCleaner': instance.isCleaner,
+      'dPrice': instance.dPrice,
+      'wPrice': instance.wPrice,
+      'mPrice': instance.mPrice,
     };
 
 _$UserList _$_$UserListFromJson(Map<String, dynamic> json) {

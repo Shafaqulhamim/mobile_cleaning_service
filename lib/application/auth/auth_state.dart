@@ -12,6 +12,6 @@ abstract class AuthState with _$AuthState {
       double lat,
       double long) = _AuthState;
 
-  factory AuthState.initial() => const AuthState(
-      "", false, false, false, UserData("", "", "", "", "", true), [], 0, 0);
+  factory AuthState.initial() => const AuthState("", false, false, false,
+      UserData("", "", "", "", "", true, 0, 0, 0), [], 0, 0);
 }

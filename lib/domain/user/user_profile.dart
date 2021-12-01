@@ -16,6 +16,9 @@ abstract class UserProfile with _$UserProfile {
     String phoneNumber,
     String nid,
     bool isCleaner,
+    int dPrice,
+    int wPrice,
+    int mPrice,
   ) = UserData;
 
   // factory UserProfile.empty() =>

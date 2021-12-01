@@ -13,6 +13,9 @@ class CleanHome extends StatefulWidget {
 }
 
 class _CleanHomeState extends State<CleanHome> {
+  bool weekly = false;
+  bool monthly = false;
+  bool daily = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,40 +117,90 @@ class _CleanHomeState extends State<CleanHome> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            color: Color(0xff32cb95),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Weekly",
-                              style: TextStyle(color: Colors.white),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              weekly = !weekly;
+                              monthly = false;
+                              daily = false;
+                            });
+                          },
+                          child: Container(
+                            height: 30,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey),
+                              color: (weekly == true)
+                                  ? Color(0xff32cb95)
+                                  : Colors.white,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Weekly",
+                                style: TextStyle(
+                                    color: (weekly == true)
+                                        ? Colors.white
+                                        : Colors.black),
+                              ),
                             ),
                           ),
                         ),
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            //color: Colors.grey,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              weekly = false;
+                              monthly = false;
+                              daily = !daily;
+                            });
+                          },
+                          child: Container(
+                            height: 30,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey),
+                              color: (daily == true)
+                                  ? Color(0xff32cb95)
+                                  : Colors.white,
+                            ),
+                            child: Center(
+                                child: Text(
+                              "Daily",
+                              style: TextStyle(
+                                  color: (daily == true)
+                                      ? Colors.white
+                                      : Colors.black),
+                            )),
                           ),
-                          child: Center(child: Text("Daily")),
                         ),
-                        Container(
-                          height: 30,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                            //color: Colors.grey,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              weekly = false;
+                              monthly = !monthly;
+                              daily = false;
+                            });
+                          },
+                          child: Container(
+                            height: 30,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey),
+                              color: (monthly == true)
+                                  ? Color(0xff32cb95)
+                                  : Colors.white,
+                            ),
+                            child: Center(
+                                child: Text(
+                              "Monthly",
+                              style: TextStyle(
+                                  color: (monthly == true)
+                                      ? Colors.white
+                                      : Colors.black),
+                            )),
                           ),
-                          child: Center(child: Text("Monthly")),
                         ),
                       ],
                     ),
@@ -175,6 +228,30 @@ class _CleanHomeState extends State<CleanHome> {
                     },
                     onSaved: (val) => print(val),
                   ),
+                  if (daily == true)
+                    Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Text(
+                        "Price: ${widget.userDataList.dPrice}",
+                        style: TextStyle(fontSize: 27),
+                      ),
+                    ),
+                  if (monthly == true)
+                    Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Text(
+                        "Price: ${widget.userDataList.mPrice}",
+                        style: TextStyle(fontSize: 27),
+                      ),
+                    ),
+                  if (weekly == true)
+                    Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Text(
+                        "Price: ${widget.userDataList.wPrice}",
+                        style: TextStyle(fontSize: 27),
+                      ),
+                    ),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 40, left: 20, right: 20),

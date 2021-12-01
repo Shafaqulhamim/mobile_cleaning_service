@@ -219,6 +219,7 @@ class _CleanHomeState extends State<CleanHome> {
                   ),
                   DateTimePicker(
                     type: DateTimePickerType.dateTime,
+                    dateMask: 'd MMM, yyyy',
                     initialValue: DateTime.now().toString(),
                     firstDate: DateTime(2000),
                     lastDate: DateTime(2100),

@@ -14,6 +14,7 @@ _$OrderData _$_$OrderDataFromJson(Map<String, dynamic> json) {
     json['status'] as String,
     json['address'] as String,
     json['paymentMethod'] as String,
+    json['xdate'] as String,
     json['seller'] as String,
   );
 }
@@ -26,6 +27,7 @@ Map<String, dynamic> _$_$OrderDataToJson(_$OrderData instance) =>
       'status': instance.status,
       'address': instance.address,
       'paymentMethod': instance.paymentMethod,
+      'xdate': instance.xdate,
       'seller': instance.seller,
     };
 

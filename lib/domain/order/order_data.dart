@@ -18,6 +18,7 @@ abstract class OrderProfile with _$OrderProfile {
       String status,
       String address,
       String paymentMethod,
+      String xdate,
       String seller) = OrderData;
 
   // factory UserProfile.empty() =>

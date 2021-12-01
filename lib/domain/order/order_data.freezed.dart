@@ -28,8 +28,15 @@ OrderProfile _$OrderProfileFromJson(Map<String, dynamic> json) {
 class _$OrderProfileTearOff {
   const _$OrderProfileTearOff();
 
-  OrderData data(UserData userInfo, String orderedBy, String ordererName,
-      String status, String address, String paymentMethod, String seller) {
+  OrderData data(
+      UserData userInfo,
+      String orderedBy,
+      String ordererName,
+      String status,
+      String address,
+      String paymentMethod,
+      String xdate,
+      String seller) {
     return OrderData(
       userInfo,
       orderedBy,
@@ -37,6 +44,7 @@ class _$OrderProfileTearOff {
       status,
       address,
       paymentMethod,
+      xdate,
       seller,
     );
   }
@@ -66,6 +74,7 @@ mixin _$OrderProfile {
             String status,
             String address,
             String paymentMethod,
+            String xdate,
             String seller)
         data,
     required TResult Function(List<OrderData> products) list,
@@ -73,8 +82,15 @@ mixin _$OrderProfile {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String ordererName,
-            String status, String address, String paymentMethod, String seller)?
+    TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String xdate,
+            String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
@@ -123,6 +139,7 @@ abstract class $OrderDataCopyWith<$Res> {
       String status,
       String address,
       String paymentMethod,
+      String xdate,
       String seller});
 }
 
@@ -143,6 +160,7 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
     Object? status = freezed,
     Object? address = freezed,
     Object? paymentMethod = freezed,
+    Object? xdate = freezed,
     Object? seller = freezed,
   }) {
     return _then(OrderData(
@@ -170,6 +188,10 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
+      xdate == freezed
+          ? _value.xdate
+          : xdate // ignore: cast_nullable_to_non_nullable
+              as String,
       seller == freezed
           ? _value.seller
           : seller // ignore: cast_nullable_to_non_nullable
@@ -182,7 +204,7 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrderData implements OrderData {
   const _$OrderData(this.userInfo, this.orderedBy, this.ordererName,
-      this.status, this.address, this.paymentMethod, this.seller);
+      this.status, this.address, this.paymentMethod, this.xdate, this.seller);
 
   factory _$OrderData.fromJson(Map<String, dynamic> json) =>
       _$_$OrderDataFromJson(json);
@@ -200,11 +222,13 @@ class _$OrderData implements OrderData {
   @override
   final String paymentMethod;
   @override
+  final String xdate;
+  @override
   final String seller;
 
   @override
   String toString() {
-    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, ordererName: $ordererName, status: $status, address: $address, paymentMethod: $paymentMethod, seller: $seller)';
+    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, ordererName: $ordererName, status: $status, address: $address, paymentMethod: $paymentMethod, xdate: $xdate, seller: $seller)';
   }
 
   @override
@@ -228,6 +252,8 @@ class _$OrderData implements OrderData {
             (identical(other.paymentMethod, paymentMethod) ||
                 const DeepCollectionEquality()
                     .equals(other.paymentMethod, paymentMethod)) &&
+            (identical(other.xdate, xdate) ||
+                const DeepCollectionEquality().equals(other.xdate, xdate)) &&
             (identical(other.seller, seller) ||
                 const DeepCollectionEquality().equals(other.seller, seller)));
   }
@@ -241,6 +267,7 @@ class _$OrderData implements OrderData {
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(paymentMethod) ^
+      const DeepCollectionEquality().hash(xdate) ^
       const DeepCollectionEquality().hash(seller);
 
   @JsonKey(ignore: true)
@@ -258,26 +285,34 @@ class _$OrderData implements OrderData {
             String status,
             String address,
             String paymentMethod,
+            String xdate,
             String seller)
         data,
     required TResult Function(List<OrderData> products) list,
   }) {
     return data(userInfo, orderedBy, ordererName, status, address,
-        paymentMethod, seller);
+        paymentMethod, xdate, seller);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String ordererName,
-            String status, String address, String paymentMethod, String seller)?
+    TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String xdate,
+            String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
       return data(userInfo, orderedBy, ordererName, status, address,
-          paymentMethod, seller);
+          paymentMethod, xdate, seller);
     }
     return orElse();
   }
@@ -318,6 +353,7 @@ abstract class OrderData implements OrderProfile {
       String status,
       String address,
       String paymentMethod,
+      String xdate,
       String seller) = _$OrderData;
 
   factory OrderData.fromJson(Map<String, dynamic> json) = _$OrderData.fromJson;
@@ -328,6 +364,7 @@ abstract class OrderData implements OrderProfile {
   String get status => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get paymentMethod => throw _privateConstructorUsedError;
+  String get xdate => throw _privateConstructorUsedError;
   String get seller => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $OrderDataCopyWith<OrderData> get copyWith =>
@@ -407,6 +444,7 @@ class _$OrderList implements OrderList {
             String status,
             String address,
             String paymentMethod,
+            String xdate,
             String seller)
         data,
     required TResult Function(List<OrderData> products) list,
@@ -417,8 +455,15 @@ class _$OrderList implements OrderList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserData userInfo, String orderedBy, String ordererName,
-            String status, String address, String paymentMethod, String seller)?
+    TResult Function(
+            UserData userInfo,
+            String orderedBy,
+            String ordererName,
+            String status,
+            String address,
+            String paymentMethod,
+            String xdate,
+            String seller)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),

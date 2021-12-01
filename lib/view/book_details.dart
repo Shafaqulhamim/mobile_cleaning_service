@@ -13,8 +13,9 @@ import 'package:mobile_cleaning_service/welcome_page.dart';
 
 class BookDetails extends StatefulWidget {
   final UserData userDataList;
-
-  const BookDetails(this.userDataList, {Key? key}) : super(key: key);
+  final String xdate;
+  const BookDetails(this.userDataList, this.xdate, {Key? key})
+      : super(key: key);
 
   @override
   _BookDetailsState createState() => _BookDetailsState();
@@ -338,6 +339,7 @@ class _BookDetailsState extends State<BookDetails> {
                           "pending",
                           "",
                           "Bkash",
+                          widget.xdate,
                           widget.userDataList.phoneNumber)));
                     },
                   ),

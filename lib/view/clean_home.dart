@@ -15,6 +15,7 @@ class CleanHome extends StatefulWidget {
 class _CleanHomeState extends State<CleanHome> {
   bool weekly = false;
   bool monthly = false;
+  String xdate = "";
   bool daily = false;
   @override
   Widget build(BuildContext context) {
@@ -221,7 +222,11 @@ class _CleanHomeState extends State<CleanHome> {
                     firstDate: DateTime(2000),
                     lastDate: DateTime(2100),
                     dateLabelText: 'Date',
-                    onChanged: (val) => print(val),
+                    onChanged: (val) {
+                      setState(() {
+                        xdate = val;
+                      });
+                    },
                     validator: (val) {
                       print(val);
                       return null;
@@ -300,8 +305,8 @@ class _CleanHomeState extends State<CleanHome> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        BookDetails(widget.userDataList)));
+                                    builder: (context) => BookDetails(
+                                        widget.userDataList, xdate)));
                           },
                         ),
                       ],

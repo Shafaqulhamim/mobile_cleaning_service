@@ -93,14 +93,19 @@ class _State extends State<SignupPage> {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          inputFile(label: "First name", controlle: firstName),
+                          inputFile(
+                            label: "First name",
+                            controlle: firstName,
+                          ),
                           inputFile(label: "Last name", controlle: lastName),
                           inputFile(label: "Email", controlle: email),
                           inputFile(
                               label: "Phone Number", controlle: phoneNumber),
                           Row(
                             children: [
-                              Text("Is Cleaner"),
+                              Text(
+                                "Is Cleaner",
+                              ),
                               Switch(
                                 value: isSwitched,
                                 onChanged: (value) {
@@ -194,15 +199,18 @@ Widget inputFile({label, obscureText = false, controlle}) {
         height: 5,
       ),
       Container(
-        height: 45,
         child: TextField(
           controller: controlle,
           obscureText: obscureText,
           decoration: InputDecoration(
             filled: true,
+            labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Color(0xff32cb95),
+            ),
             focusedBorder: OutlineInputBorder(
-              borderSide:
-                  const BorderSide(color: Colors.greenAccent, width: 2.0),
+              borderSide: const BorderSide(color: Colors.greenAccent, width: 2),
               borderRadius: BorderRadius.circular(15.0),
             ),
             fillColor: Colors.greenAccent[10],

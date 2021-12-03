@@ -14,7 +14,8 @@ import 'package:mobile_cleaning_service/welcome_page.dart';
 class BookDetails extends StatefulWidget {
   final UserData userDataList;
   final String xdate;
-  const BookDetails(this.userDataList, this.xdate, {Key? key})
+  final int total;
+  const BookDetails(this.userDataList, this.xdate, this.total, {Key? key})
       : super(key: key);
 
   @override
@@ -22,6 +23,9 @@ class BookDetails extends StatefulWidget {
 }
 
 class _BookDetailsState extends State<BookDetails> {
+  String textMethod = "cash";
+  bool selection1 = true;
+  bool selection2 = false;
   int _rValue = 0;
   int _cValue = 1;
 
@@ -101,11 +105,11 @@ class _BookDetailsState extends State<BookDetails> {
                           width: 150,
                           child: Column(
                             children: [
-                              Text(
-                                "Book ID       :",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
+                              // Text(
+                              //   "Book ID       :",
+                              //   style: TextStyle(
+                              //       fontSize: 16, fontWeight: FontWeight.bold),
+                              // ),
                               SizedBox(
                                 height: 5,
                               ),
@@ -124,15 +128,15 @@ class _BookDetailsState extends State<BookDetails> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: Text(
-                                  "A567407",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 30),
+                              //   child: Text(
+                              //     "A567407",
+                              //     style: TextStyle(
+                              //         fontSize: 16,
+                              //         fontWeight: FontWeight.bold),
+                              //   ),
+                              // ),
                               SizedBox(
                                 height: 5,
                               ),
@@ -257,7 +261,7 @@ class _BookDetailsState extends State<BookDetails> {
                         width: 150,
                       ),
                       Text(
-                        "250Tk.",
+                        widget.total.toString(),
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
@@ -294,12 +298,20 @@ class _BookDetailsState extends State<BookDetails> {
                         Flexible(
                           fit: FlexFit.tight,
                           child: RadioListTile(
+                            selected: selection1,
                             value: 1,
                             groupValue: _rValue,
                             title: const Text('Cash'),
                             onChanged: (value) {
-                              setState(() {});
+                              setState(() {
+                                if (textMethod == "Bkash") {
+                                  textMethod = "cash";
+                                  selection1 = true;
+                                  selection2 = false;
+                                }
+                              });
                             },
+                            selectedTileColor: Colors.green[50],
                             activeColor: Colors.red,
                           ),
                         ),
@@ -307,11 +319,19 @@ class _BookDetailsState extends State<BookDetails> {
                         Flexible(
                           fit: FlexFit.loose,
                           child: RadioListTile(
+                            selectedTileColor: Colors.green[50],
+                            selected: selection2,
                             value: 3,
                             groupValue: _rValue,
                             title: const Text('Bkash'),
                             onChanged: (value) {
-                              setState(() {});
+                              setState(() {
+                                if (textMethod == "cash") {
+                                  textMethod = "Bkash";
+                                  selection1 = false;
+                                  selection2 = true;
+                                }
+                              });
                             },
                           ),
                         )
@@ -337,10 +357,11 @@ class _BookDetailsState extends State<BookDetails> {
                           "",
                           "",
                           "pending",
-                          "",
-                          "Bkash",
+                          widget.userDataList.address,
+                          textMethod,
                           widget.xdate,
-                          widget.userDataList.phoneNumber)));
+                          widget.userDataList.phoneNumber,
+                          widget.total.toString())));
                     },
                   ),
                 ],

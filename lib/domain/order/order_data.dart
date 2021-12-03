@@ -19,7 +19,8 @@ abstract class OrderProfile with _$OrderProfile {
       String address,
       String paymentMethod,
       String xdate,
-      String seller) = OrderData;
+      String seller,
+      String price) = OrderData;
 
   // factory UserProfile.empty() =>
   //     const UserProfileObj(UserData('', '', "", '', "", "", "", "", {}));

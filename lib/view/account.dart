@@ -20,11 +20,14 @@ class _AccountState extends State<Account> {
   final TextEditingController wPrice = TextEditingController(text: "");
   final TextEditingController dPrice = TextEditingController(text: "");
   final TextEditingController mPrice = TextEditingController(text: "");
+  final TextEditingController address = TextEditingController(text: "");
 
   @override
   void initState() {
     name.text = widget.userProfile.firstname;
     phone.text = widget.userProfile.phoneNumber;
+    address.text =
+        (widget.userProfile.address != null) ? widget.userProfile.address : "";
     // TODO: implement initState
     super.initState();
   }
@@ -96,6 +99,7 @@ class _AccountState extends State<Account> {
                 // SizedBox(
                 //   height: 10,
                 // ),
+
                 Padding(
                   padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
                   child: TextField(
@@ -104,6 +108,17 @@ class _AccountState extends State<Account> {
                       hintText: "abc123@mail.com",
                       labelText: "Email",
                       //
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+                  child: TextField(
+                    controller: address,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: "Address",
+                      labelText: "Address",
                     ),
                   ),
                 ),
@@ -118,39 +133,45 @@ class _AccountState extends State<Account> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
-                  child: TextField(
-                    controller: dPrice,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      hintText: "01234567890",
-                      labelText: "Daily price",
+                if (widget.userProfile.isCleaner == true)
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30, right: 30, top: 20),
+                    child: TextField(
+                      controller: dPrice,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        hintText: "01234567890",
+                        labelText: "Daily price",
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
-                  child: TextField(
-                    controller: wPrice,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      hintText: "01234567890",
-                      labelText: "Weekly Price",
+                if (widget.userProfile.isCleaner == true)
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30, right: 30, top: 20),
+                    child: TextField(
+                      controller: wPrice,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        hintText: "01234567890",
+                        labelText: "Weekly Price",
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
-                  child: TextField(
-                    controller: mPrice,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      hintText: "01234567890",
-                      labelText: "Monthly Price",
+                if (widget.userProfile.isCleaner == true)
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30, right: 30, top: 20),
+                    child: TextField(
+                      controller: mPrice,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        hintText: "01234567890",
+                        labelText: "Monthly Price",
+                      ),
                     ),
                   ),
-                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -176,11 +197,12 @@ class _AccountState extends State<Account> {
     return GestureDetector(
       onTap: () {
         authBloc.add(UpdateUserData(widget.userProfile.copyWith(
+            address: address.text,
             firstname: name.text,
             phoneNumber: phone.text,
-            mPrice: int.parse(mPrice.text),
-            dPrice: int.parse(dPrice.text),
-            wPrice: int.parse(wPrice.text))));
+            mPrice: (mPrice.text == "") ? 0 : int.parse(mPrice.text),
+            dPrice: (dPrice.text == "") ? 0 : int.parse(dPrice.text),
+            wPrice: (wPrice.text == "") ? 0 : int.parse(wPrice.text))));
         //TODO:REGISTER HERE
       },
       child: Container(

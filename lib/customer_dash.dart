@@ -163,8 +163,10 @@ class _CustomerDashState extends State<CustomerDash> {
                     // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
                     //   return page1();
                     // }));
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => Account()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Account(state.userData)));
                   },
                 ),
                 const Divider(),

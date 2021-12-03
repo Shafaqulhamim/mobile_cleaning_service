@@ -11,10 +11,11 @@ class ProductProvider extends IProductProvider {
   @override
   @override
   Future<Either<Failure, Unit>> postOrderData(OrderData order) async {
-    final CollectionReference requests =
-        FirebaseFirestore.instance.collection('OrderData');
+    final ref = FirebaseFirestore.instance.collection('OrderData').doc();
+    final DocumentReference<Map<String, dynamic>> requests =
+        FirebaseFirestore.instance.collection('OrderData').doc(ref.id);
     try {
-      await requests.add(order.toJson()).then((value) {
+      await requests.set(order.toJson()).then((value) {
         Logger().i("updated ");
 
         return right(unit);

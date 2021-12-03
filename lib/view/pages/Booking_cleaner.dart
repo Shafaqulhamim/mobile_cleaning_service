@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
+import 'package:mobile_cleaning_service/domain/order/order_data.dart';
 
 class BookDetailsCleaner extends StatefulWidget {
-  const BookDetailsCleaner({Key? key}) : super(key: key);
+  final OrderData orderList;
+  const BookDetailsCleaner(this.orderList, {Key? key}) : super(key: key);
 
   @override
   _BookDetailsCleanerState createState() => _BookDetailsCleanerState();
@@ -19,6 +23,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
 
   @override
   Widget build(BuildContext context) {
+    final ProductBloc productBloc = BlocProvider.of<ProductBloc>(context);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -293,7 +298,10 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 'Confirm Booking ',
                 style: TextStyle(fontSize: 20),
               ),
-              onPressed: () {},
+              onPressed: () {
+                productBloc.add(AcceptOrderData(
+                    widget.orderList.copyWith(status: "Accepted"), "Accepted"));
+              },
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

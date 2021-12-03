@@ -553,11 +553,13 @@ class _PerformanceState extends State<Performance> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Favorite()));
                   if (_currentindex == 3)
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NotificationScreen(
-                                widget.phoneNumber.phoneNumber)));
+                    BlocProvider.of<ProductBloc>(context)
+                      ..add(GetOrderDataList(widget.phoneNumber.phoneNumber));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotificationScreen(
+                              widget.phoneNumber.phoneNumber)));
                 });
               },
 

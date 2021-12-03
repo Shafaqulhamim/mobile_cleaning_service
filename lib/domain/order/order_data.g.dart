@@ -17,6 +17,7 @@ _$OrderData _$_$OrderDataFromJson(Map<String, dynamic> json) {
     json['xdate'] as String,
     json['seller'] as String,
     json['price'] as String,
+    json['orderID'] as String,
   );
 }
 
@@ -31,6 +32,7 @@ Map<String, dynamic> _$_$OrderDataToJson(_$OrderData instance) =>
       'xdate': instance.xdate,
       'seller': instance.seller,
       'price': instance.price,
+      'orderID': instance.orderID,
     };
 
 _$OrderList _$_$OrderListFromJson(Map<String, dynamic> json) {

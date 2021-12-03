@@ -22,10 +22,21 @@ class _$ProductEventTearOff {
     );
   }
 
+  AcceptOrderData acceptOrderData(OrderData orderData, String status) {
+    return AcceptOrderData(
+      orderData,
+      status,
+    );
+  }
+
   GetOrderDataList sellerOrderList(String phoneNumber) {
     return GetOrderDataList(
       phoneNumber,
     );
+  }
+
+  GetCustomerOrderDataList customerOrderList() {
+    return const GetCustomerOrderDataList();
   }
 }
 
@@ -37,26 +48,35 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OrderData orderData) postOrderData,
+    required TResult Function(OrderData orderData, String status)
+        acceptOrderData,
     required TResult Function(String phoneNumber) sellerOrderList,
+    required TResult Function() customerOrderList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OrderData orderData)? postOrderData,
+    TResult Function(OrderData orderData, String status)? acceptOrderData,
     TResult Function(String phoneNumber)? sellerOrderList,
+    TResult Function()? customerOrderList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostOrderData value) postOrderData,
+    required TResult Function(AcceptOrderData value) acceptOrderData,
     required TResult Function(GetOrderDataList value) sellerOrderList,
+    required TResult Function(GetCustomerOrderDataList value) customerOrderList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostOrderData value)? postOrderData,
+    TResult Function(AcceptOrderData value)? acceptOrderData,
     TResult Function(GetOrderDataList value)? sellerOrderList,
+    TResult Function(GetCustomerOrderDataList value)? customerOrderList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +164,10 @@ class _$PostOrderData implements PostOrderData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OrderData orderData) postOrderData,
+    required TResult Function(OrderData orderData, String status)
+        acceptOrderData,
     required TResult Function(String phoneNumber) sellerOrderList,
+    required TResult Function() customerOrderList,
   }) {
     return postOrderData(orderData);
   }
@@ -153,7 +176,9 @@ class _$PostOrderData implements PostOrderData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OrderData orderData)? postOrderData,
+    TResult Function(OrderData orderData, String status)? acceptOrderData,
     TResult Function(String phoneNumber)? sellerOrderList,
+    TResult Function()? customerOrderList,
     required TResult orElse(),
   }) {
     if (postOrderData != null) {
@@ -166,7 +191,9 @@ class _$PostOrderData implements PostOrderData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostOrderData value) postOrderData,
+    required TResult Function(AcceptOrderData value) acceptOrderData,
     required TResult Function(GetOrderDataList value) sellerOrderList,
+    required TResult Function(GetCustomerOrderDataList value) customerOrderList,
   }) {
     return postOrderData(this);
   }
@@ -175,7 +202,9 @@ class _$PostOrderData implements PostOrderData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostOrderData value)? postOrderData,
+    TResult Function(AcceptOrderData value)? acceptOrderData,
     TResult Function(GetOrderDataList value)? sellerOrderList,
+    TResult Function(GetCustomerOrderDataList value)? customerOrderList,
     required TResult orElse(),
   }) {
     if (postOrderData != null) {
@@ -191,6 +220,145 @@ abstract class PostOrderData implements ProductEvent {
   OrderData get orderData => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostOrderDataCopyWith<PostOrderData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AcceptOrderDataCopyWith<$Res> {
+  factory $AcceptOrderDataCopyWith(
+          AcceptOrderData value, $Res Function(AcceptOrderData) then) =
+      _$AcceptOrderDataCopyWithImpl<$Res>;
+  $Res call({OrderData orderData, String status});
+}
+
+/// @nodoc
+class _$AcceptOrderDataCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res>
+    implements $AcceptOrderDataCopyWith<$Res> {
+  _$AcceptOrderDataCopyWithImpl(
+      AcceptOrderData _value, $Res Function(AcceptOrderData) _then)
+      : super(_value, (v) => _then(v as AcceptOrderData));
+
+  @override
+  AcceptOrderData get _value => super._value as AcceptOrderData;
+
+  @override
+  $Res call({
+    Object? orderData = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(AcceptOrderData(
+      orderData == freezed
+          ? _value.orderData
+          : orderData // ignore: cast_nullable_to_non_nullable
+              as OrderData,
+      status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AcceptOrderData implements AcceptOrderData {
+  const _$AcceptOrderData(this.orderData, this.status);
+
+  @override
+  final OrderData orderData;
+  @override
+  final String status;
+
+  @override
+  String toString() {
+    return 'ProductEvent.acceptOrderData(orderData: $orderData, status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is AcceptOrderData &&
+            (identical(other.orderData, orderData) ||
+                const DeepCollectionEquality()
+                    .equals(other.orderData, orderData)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(orderData) ^
+      const DeepCollectionEquality().hash(status);
+
+  @JsonKey(ignore: true)
+  @override
+  $AcceptOrderDataCopyWith<AcceptOrderData> get copyWith =>
+      _$AcceptOrderDataCopyWithImpl<AcceptOrderData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OrderData orderData) postOrderData,
+    required TResult Function(OrderData orderData, String status)
+        acceptOrderData,
+    required TResult Function(String phoneNumber) sellerOrderList,
+    required TResult Function() customerOrderList,
+  }) {
+    return acceptOrderData(orderData, status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OrderData orderData)? postOrderData,
+    TResult Function(OrderData orderData, String status)? acceptOrderData,
+    TResult Function(String phoneNumber)? sellerOrderList,
+    TResult Function()? customerOrderList,
+    required TResult orElse(),
+  }) {
+    if (acceptOrderData != null) {
+      return acceptOrderData(orderData, status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PostOrderData value) postOrderData,
+    required TResult Function(AcceptOrderData value) acceptOrderData,
+    required TResult Function(GetOrderDataList value) sellerOrderList,
+    required TResult Function(GetCustomerOrderDataList value) customerOrderList,
+  }) {
+    return acceptOrderData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PostOrderData value)? postOrderData,
+    TResult Function(AcceptOrderData value)? acceptOrderData,
+    TResult Function(GetOrderDataList value)? sellerOrderList,
+    TResult Function(GetCustomerOrderDataList value)? customerOrderList,
+    required TResult orElse(),
+  }) {
+    if (acceptOrderData != null) {
+      return acceptOrderData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AcceptOrderData implements ProductEvent {
+  const factory AcceptOrderData(OrderData orderData, String status) =
+      _$AcceptOrderData;
+
+  OrderData get orderData => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AcceptOrderDataCopyWith<AcceptOrderData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -261,7 +429,10 @@ class _$GetOrderDataList implements GetOrderDataList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OrderData orderData) postOrderData,
+    required TResult Function(OrderData orderData, String status)
+        acceptOrderData,
     required TResult Function(String phoneNumber) sellerOrderList,
+    required TResult Function() customerOrderList,
   }) {
     return sellerOrderList(phoneNumber);
   }
@@ -270,7 +441,9 @@ class _$GetOrderDataList implements GetOrderDataList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OrderData orderData)? postOrderData,
+    TResult Function(OrderData orderData, String status)? acceptOrderData,
     TResult Function(String phoneNumber)? sellerOrderList,
+    TResult Function()? customerOrderList,
     required TResult orElse(),
   }) {
     if (sellerOrderList != null) {
@@ -283,7 +456,9 @@ class _$GetOrderDataList implements GetOrderDataList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostOrderData value) postOrderData,
+    required TResult Function(AcceptOrderData value) acceptOrderData,
     required TResult Function(GetOrderDataList value) sellerOrderList,
+    required TResult Function(GetCustomerOrderDataList value) customerOrderList,
   }) {
     return sellerOrderList(this);
   }
@@ -292,7 +467,9 @@ class _$GetOrderDataList implements GetOrderDataList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostOrderData value)? postOrderData,
+    TResult Function(AcceptOrderData value)? acceptOrderData,
     TResult Function(GetOrderDataList value)? sellerOrderList,
+    TResult Function(GetCustomerOrderDataList value)? customerOrderList,
     required TResult orElse(),
   }) {
     if (sellerOrderList != null) {
@@ -309,6 +486,102 @@ abstract class GetOrderDataList implements ProductEvent {
   @JsonKey(ignore: true)
   $GetOrderDataListCopyWith<GetOrderDataList> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetCustomerOrderDataListCopyWith<$Res> {
+  factory $GetCustomerOrderDataListCopyWith(GetCustomerOrderDataList value,
+          $Res Function(GetCustomerOrderDataList) then) =
+      _$GetCustomerOrderDataListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetCustomerOrderDataListCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res>
+    implements $GetCustomerOrderDataListCopyWith<$Res> {
+  _$GetCustomerOrderDataListCopyWithImpl(GetCustomerOrderDataList _value,
+      $Res Function(GetCustomerOrderDataList) _then)
+      : super(_value, (v) => _then(v as GetCustomerOrderDataList));
+
+  @override
+  GetCustomerOrderDataList get _value =>
+      super._value as GetCustomerOrderDataList;
+}
+
+/// @nodoc
+
+class _$GetCustomerOrderDataList implements GetCustomerOrderDataList {
+  const _$GetCustomerOrderDataList();
+
+  @override
+  String toString() {
+    return 'ProductEvent.customerOrderList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is GetCustomerOrderDataList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OrderData orderData) postOrderData,
+    required TResult Function(OrderData orderData, String status)
+        acceptOrderData,
+    required TResult Function(String phoneNumber) sellerOrderList,
+    required TResult Function() customerOrderList,
+  }) {
+    return customerOrderList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OrderData orderData)? postOrderData,
+    TResult Function(OrderData orderData, String status)? acceptOrderData,
+    TResult Function(String phoneNumber)? sellerOrderList,
+    TResult Function()? customerOrderList,
+    required TResult orElse(),
+  }) {
+    if (customerOrderList != null) {
+      return customerOrderList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PostOrderData value) postOrderData,
+    required TResult Function(AcceptOrderData value) acceptOrderData,
+    required TResult Function(GetOrderDataList value) sellerOrderList,
+    required TResult Function(GetCustomerOrderDataList value) customerOrderList,
+  }) {
+    return customerOrderList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PostOrderData value)? postOrderData,
+    TResult Function(AcceptOrderData value)? acceptOrderData,
+    TResult Function(GetOrderDataList value)? sellerOrderList,
+    TResult Function(GetCustomerOrderDataList value)? customerOrderList,
+    required TResult orElse(),
+  }) {
+    if (customerOrderList != null) {
+      return customerOrderList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCustomerOrderDataList implements ProductEvent {
+  const factory GetCustomerOrderDataList() = _$GetCustomerOrderDataList;
 }
 
 /// @nodoc

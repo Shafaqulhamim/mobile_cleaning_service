@@ -37,7 +37,8 @@ class _$OrderProfileTearOff {
       String paymentMethod,
       String xdate,
       String seller,
-      String price) {
+      String price,
+      String orderID) {
     return OrderData(
       userInfo,
       orderedBy,
@@ -48,6 +49,7 @@ class _$OrderProfileTearOff {
       xdate,
       seller,
       price,
+      orderID,
     );
   }
 
@@ -78,7 +80,8 @@ mixin _$OrderProfile {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)
+            String price,
+            String orderID)
         data,
     required TResult Function(List<OrderData> products) list,
   }) =>
@@ -94,7 +97,8 @@ mixin _$OrderProfile {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)?
+            String price,
+            String orderID)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
@@ -145,7 +149,8 @@ abstract class $OrderDataCopyWith<$Res> {
       String paymentMethod,
       String xdate,
       String seller,
-      String price});
+      String price,
+      String orderID});
 }
 
 /// @nodoc
@@ -168,6 +173,7 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
     Object? xdate = freezed,
     Object? seller = freezed,
     Object? price = freezed,
+    Object? orderID = freezed,
   }) {
     return _then(OrderData(
       userInfo == freezed
@@ -206,6 +212,10 @@ class _$OrderDataCopyWithImpl<$Res> extends _$OrderProfileCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
+      orderID == freezed
+          ? _value.orderID
+          : orderID // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -222,7 +232,8 @@ class _$OrderData implements OrderData {
       this.paymentMethod,
       this.xdate,
       this.seller,
-      this.price);
+      this.price,
+      this.orderID);
 
   factory _$OrderData.fromJson(Map<String, dynamic> json) =>
       _$_$OrderDataFromJson(json);
@@ -245,10 +256,12 @@ class _$OrderData implements OrderData {
   final String seller;
   @override
   final String price;
+  @override
+  final String orderID;
 
   @override
   String toString() {
-    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, ordererName: $ordererName, status: $status, address: $address, paymentMethod: $paymentMethod, xdate: $xdate, seller: $seller, price: $price)';
+    return 'OrderProfile.data(userInfo: $userInfo, orderedBy: $orderedBy, ordererName: $ordererName, status: $status, address: $address, paymentMethod: $paymentMethod, xdate: $xdate, seller: $seller, price: $price, orderID: $orderID)';
   }
 
   @override
@@ -277,7 +290,9 @@ class _$OrderData implements OrderData {
             (identical(other.seller, seller) ||
                 const DeepCollectionEquality().equals(other.seller, seller)) &&
             (identical(other.price, price) ||
-                const DeepCollectionEquality().equals(other.price, price)));
+                const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.orderID, orderID) ||
+                const DeepCollectionEquality().equals(other.orderID, orderID)));
   }
 
   @override
@@ -291,7 +306,8 @@ class _$OrderData implements OrderData {
       const DeepCollectionEquality().hash(paymentMethod) ^
       const DeepCollectionEquality().hash(xdate) ^
       const DeepCollectionEquality().hash(seller) ^
-      const DeepCollectionEquality().hash(price);
+      const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(orderID);
 
   @JsonKey(ignore: true)
   @override
@@ -310,12 +326,13 @@ class _$OrderData implements OrderData {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)
+            String price,
+            String orderID)
         data,
     required TResult Function(List<OrderData> products) list,
   }) {
     return data(userInfo, orderedBy, ordererName, status, address,
-        paymentMethod, xdate, seller, price);
+        paymentMethod, xdate, seller, price, orderID);
   }
 
   @override
@@ -330,14 +347,15 @@ class _$OrderData implements OrderData {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)?
+            String price,
+            String orderID)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),
   }) {
     if (data != null) {
       return data(userInfo, orderedBy, ordererName, status, address,
-          paymentMethod, xdate, seller, price);
+          paymentMethod, xdate, seller, price, orderID);
     }
     return orElse();
   }
@@ -380,7 +398,8 @@ abstract class OrderData implements OrderProfile {
       String paymentMethod,
       String xdate,
       String seller,
-      String price) = _$OrderData;
+      String price,
+      String orderID) = _$OrderData;
 
   factory OrderData.fromJson(Map<String, dynamic> json) = _$OrderData.fromJson;
 
@@ -393,6 +412,7 @@ abstract class OrderData implements OrderProfile {
   String get xdate => throw _privateConstructorUsedError;
   String get seller => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
+  String get orderID => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $OrderDataCopyWith<OrderData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -473,7 +493,8 @@ class _$OrderList implements OrderList {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)
+            String price,
+            String orderID)
         data,
     required TResult Function(List<OrderData> products) list,
   }) {
@@ -492,7 +513,8 @@ class _$OrderList implements OrderList {
             String paymentMethod,
             String xdate,
             String seller,
-            String price)?
+            String price,
+            String orderID)?
         data,
     TResult Function(List<OrderData> products)? list,
     required TResult orElse(),

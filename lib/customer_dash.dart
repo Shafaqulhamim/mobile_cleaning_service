@@ -4,11 +4,13 @@ import 'package:logger/logger.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:mobile_cleaning_service/view/account.dart';
 import 'package:mobile_cleaning_service/view/clean_home.dart';
+import 'package:mobile_cleaning_service/view/pages/customer_notification.dart';
 import 'package:mobile_cleaning_service/view/pages/favorite.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
 import 'application/auth/auth_bloc.dart';
+import 'application/productBloc/product_bloc.dart';
 import 'domain/auth/i_auth_provider.dart';
 
 class CustomerDash extends StatefulWidget {
@@ -90,6 +92,15 @@ class _CustomerDashState extends State<CustomerDash> {
                 if (_currentIndex == 1) {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Favorite()));
+                }
+                if (_currentIndex == 3) {
+                  BlocProvider.of<ProductBloc>(context)
+                    ..add(GetCustomerOrderDataList());
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CustomerNotificationScreen(
+                              state.userData.phoneNumber)));
                 }
               });
             },

@@ -9,15 +9,17 @@ import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:mobile_cleaning_service/view/pages/Booking_cleaner.dart';
 
-class NotificationScreen extends StatefulWidget {
+class CustomerNotificationScreen extends StatefulWidget {
   final String userData;
-  NotificationScreen(this.userData, {Key? key}) : super(key: key);
+  CustomerNotificationScreen(this.userData, {Key? key}) : super(key: key);
 
   @override
-  _NotificationScreenState createState() => _NotificationScreenState();
+  _CustomerNotificationScreenState createState() =>
+      _CustomerNotificationScreenState();
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _CustomerNotificationScreenState
+    extends State<CustomerNotificationScreen> {
   @override
   void initState() {
     // ProductBloc(context.read<IProductProvider>(), context.read<IAuthProvider>())
@@ -66,7 +68,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           return RefreshIndicator(
             onRefresh: () async {
               BlocProvider.of<ProductBloc>(context)
-                ..add(GetOrderDataList(widget.userData));
+                ..add(GetCustomerOrderDataList());
             },
             child: Column(
               children: <Widget>[
@@ -78,12 +80,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BookDetailsCleaner(
-                                      state.orderList[index])),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => BookDetailsCleaner(
+                            //           state.orderList[index])),
+                            // );
                           },
                           child: Container(
                             height: 100,

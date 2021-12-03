@@ -48,6 +48,29 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           ),
         );
       },
+      acceptOrderData: (AcceptOrderData value) async* {
+        final Either<Failure, Unit> resetResponse = await productProvider
+            .acceptOrderData(value.orderData, value.status);
+
+        yield resetResponse.fold(
+            (l) => state.copyWith(
+                  error: l.error,
+                ),
+            (r) => state.copyWith(isSubmitted: true, isSubmitting: false));
+      },
+      customerOrderList: (GetCustomerOrderDataList value) async* {
+        final Either<Failure, List<OrderData>> searchOption =
+            await productProvider
+                .getOrderList(authProvider.fireAuth.currentUser!.uid);
+
+        yield searchOption.fold(
+          (l) => state.copyWith(error: l.error),
+          (r) => state.copyWith(
+            orderList: r,
+            // isSubmitting: false,
+          ),
+        );
+      },
     );
   }
 }

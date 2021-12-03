@@ -13,6 +13,7 @@ class CleanHome extends StatefulWidget {
 }
 
 class _CleanHomeState extends State<CleanHome> {
+  int total = 0;
   bool weekly = false;
   bool monthly = false;
   String xdate = "";
@@ -304,11 +305,14 @@ class _CleanHomeState extends State<CleanHome> {
                             style: TextStyle(fontSize: 20),
                           ),
                           onPressed: () {
+                            if (weekly) total = widget.userDataList.wPrice;
+                            if (monthly) total = widget.userDataList.mPrice;
+                            if (daily) total = widget.userDataList.dPrice;
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => BookDetails(
-                                        widget.userDataList, xdate)));
+                                        widget.userDataList, xdate, total)));
                           },
                         ),
                       ],

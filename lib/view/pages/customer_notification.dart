@@ -32,12 +32,12 @@ class _CustomerNotificationScreenState
   Widget build(BuildContext context) {
     final ProductBloc productBloc = BlocProvider.of<ProductBloc>(context);
     return Scaffold(
-      backgroundColor: Colors.indigo[100],
+      backgroundColor: Color(0xff32cb95),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff32cb95),
         title: Text(
           "Notifications",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -55,7 +55,7 @@ class _CustomerNotificationScreenState
           }
 
           if (state.orderList != null) {
-            EasyLoading.showSuccess('Successfully Accepted!');
+            EasyLoading.showSuccess('Your order has been Accepted Successfully!');
             // BlocProvider.of<ProductBloc>(context)
             //   ..add(GetOrderDataList(widget.userData));
           }
@@ -93,7 +93,7 @@ class _CustomerNotificationScreenState
                               padding: EdgeInsets.all(30),
                               margin: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                  color: Colors.white24,
+                                  color: Color(0xff5edaae),
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
                                 children: [

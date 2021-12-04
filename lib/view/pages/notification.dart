@@ -53,7 +53,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           }
 
           if (state.orderList != null) {
-            EasyLoading.showSuccess('Successfully Accepted!');
+            EasyLoading.showSuccess('You have a new order!');
             // BlocProvider.of<ProductBloc>(context)
             //   ..add(GetOrderDataList(widget.userData));
           }

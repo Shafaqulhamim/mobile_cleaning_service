@@ -6,8 +6,12 @@ import 'package:mobile_cleaning_service/view/account.dart';
 import 'package:mobile_cleaning_service/view/clean_home.dart';
 import 'package:mobile_cleaning_service/view/pages/customer_notification.dart';
 import 'package:mobile_cleaning_service/view/pages/favorite.dart';
+import 'package:mobile_cleaning_service/view/pages/help_support.dart';
+import 'package:mobile_cleaning_service/view/pages/promo_code.dart';
+import 'package:mobile_cleaning_service/view/pages/settings.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
+import 'package:mobile_cleaning_service/view/pages/my_address.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'application/productBloc/product_bloc.dart';
@@ -194,10 +198,10 @@ class _CustomerDashState extends State<CustomerDash> {
                   ),
                   title: const Text("My Address"),
                   onTap: () {
-                    print('Text1');
-                    // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                    //   return page1();
-                    // }));
+                    // print('Text1');
+                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                      return myAddress();
+                    }));
                   },
                 ),
                 const Divider(),
@@ -213,6 +217,12 @@ class _CustomerDashState extends State<CustomerDash> {
                     ),
                   ),
                   title: const Text("Promo Code"),
+                  onTap: () {
+                    // print('Text1');
+                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                      return promo();
+                    }));
+                  },
                 ),
                 const Divider(),
                 ListTile(
@@ -228,6 +238,12 @@ class _CustomerDashState extends State<CustomerDash> {
                   ),
                   title: const Text("Help & Support"),
                   // trailing: const Icon(Icons.arrow_forward),
+                  onTap: () {
+                    // print('Text1');
+                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                      return help();
+                    }));
+                  },
                 ),
                 const Divider(),
                 ListTile(
@@ -242,7 +258,12 @@ class _CustomerDashState extends State<CustomerDash> {
                     ),
                   ),
                   title: const Text("Settings"),
-                  // trailing: const Icon(Icons.arrow_forward),
+                  onTap: () {
+                    // print('Text1');
+                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                      return settings();
+                    }));
+                  },
                 ),
                 // title: Text('Page2'),
                 // trailing: Icon(Icons.arrow_forward),

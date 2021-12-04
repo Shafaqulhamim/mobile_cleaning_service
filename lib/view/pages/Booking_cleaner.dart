@@ -313,7 +313,10 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 'Decline Booking ',
                 style: TextStyle(fontSize: 20),
               ),
-              onPressed: () {},
+              onPressed: () {
+                productBloc.add(AcceptOrderData(
+                    widget.orderList.copyWith(status: "Rejected"), "Rejected"));
+              },
             ),
           ],
         ),

@@ -70,41 +70,43 @@ class _CustomerNotificationScreenState
               BlocProvider.of<ProductBloc>(context)
                 ..add(GetCustomerOrderDataList());
             },
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: state.orderList.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => BookDetailsCleaner(
-                            //           state.orderList[index])),
-                            // );
-                          },
-                          child: Container(
-                            height: 100,
-                            padding: EdgeInsets.all(30),
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.white24,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Column(
-                              children: [
-                                Text(state.orderList[index].ordererName),
-                                Text(state.orderList[index].address),
-                              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: state.orderList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => BookDetailsCleaner(
+                              //           state.orderList[index])),
+                              // );
+                            },
+                            child: Container(
+                              height: 100,
+                              padding: EdgeInsets.all(30),
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Colors.white24,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                children: [
+                                  Text(state.orderList[index].ordererName),
+                                  Text(state.orderList[index].address),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }),
-                ),
-              ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
             ),
           );
         },

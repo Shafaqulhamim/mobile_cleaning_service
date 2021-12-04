@@ -10,7 +10,8 @@ class _addressstate extends State<myAddress> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff32cb95),
+        title: const Text('My address'),
       ),
     );
   }

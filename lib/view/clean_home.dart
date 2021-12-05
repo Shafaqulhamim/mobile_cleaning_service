@@ -241,7 +241,7 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.dPrice}",
-                        style: TextStyle(fontSize: 27),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                   if (monthly == true)
@@ -249,7 +249,7 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.mPrice}",
-                        style: TextStyle(fontSize: 27),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                   if (weekly == true)
@@ -257,10 +257,10 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.wPrice}",
-                        style: TextStyle(fontSize: 27),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
-                  Padding(
+                  /*Padding(
                     padding:
                         const EdgeInsets.only(top: 40, left: 20, right: 20),
                     child: Row(
@@ -293,7 +293,7 @@ class _CleanHomeState extends State<CleanHome> {
                             size: 30,
                             color: Colors.black45,
                           ),
-                        ),
+                        ),*/
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               primary: Color(0xff32cb95),
@@ -321,9 +321,9 @@ class _CleanHomeState extends State<CleanHome> {
                 ],
               ),
             ),
-          ],
-        ),
-      ),
+          //],
+       // ),
+      //),
     );
   }
 }

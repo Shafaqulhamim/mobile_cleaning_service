@@ -32,21 +32,25 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
         leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),
+      
       body: SingleChildScrollView(
         child: Column(
           children: [
+                    SizedBox(
+                    height: 15,
+                  ),
             Container(
               child: Column(
                 children: [
                   Text(
-                    "Ordered By       : Rashed Rana",
+                    "Ordered By        :  Rashed Rana",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "Phone     :${widget.orderList.userInfo.phoneNumber}",
+                    "   Phone                :  ${widget.orderList.userInfo.phoneNumber}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -55,6 +59,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 ],
               ),
             ),
+            
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 20, top: 50),
               child: Row(
@@ -69,12 +74,12 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                     child: Column(
                       children: [
                         Text(
-                          "Book ID       :",
+                          "Book ID        :",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 35,
                         ),
                         Text(
                           "Address       :",
@@ -100,7 +105,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                           ),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 15,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
@@ -185,7 +190,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                             height: 5,
                           ),
                           Text(
-                            "     0 Tk.         ",
+                            "        0 Tk.         ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )
@@ -220,17 +225,17 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 )
               ],
             ),
-            SizedBox(height: 80),
+            SizedBox(height: 20),
+            
             Text(
-              "Payment Orders",
-              textAlign: TextAlign.center,
+              "Payment Type",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 15,
             ),
             Container(
               child: Row(
@@ -286,7 +291,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               ),
             ),
             SizedBox(
-              height: 80,
+              height: 10,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -302,6 +307,9 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 productBloc.add(AcceptOrderData(
                     widget.orderList.copyWith(status: "Accepted"), "Accepted"));
               },
+            ),
+            SizedBox(
+              height: 10,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

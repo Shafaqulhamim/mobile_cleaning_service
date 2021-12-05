@@ -229,7 +229,7 @@ class _BookDetailsState extends State<BookDetails> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "    -0 Tk.         ",
+                                  "         -0 Tk.      ",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),

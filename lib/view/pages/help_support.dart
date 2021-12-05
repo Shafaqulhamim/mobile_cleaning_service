@@ -13,35 +13,13 @@ class _helpstate extends State<help> {
         backgroundColor: Color(0xff32cb95),
         title: const Text('Help & Support'),
       ),
-      
-body: SafeArea(
-        child: Container(
-          // we will give media query height
-          // double.infinity make it big as my parent allows
-          // while MediaQuery make it big as per the screen
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-          child: Column(
-            // even space distribution
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                //kn picture add krte hoibo? add hoise gap ta fillup kor kn gap? white gap uporer? nicher design error tao thik koris push kor amr pc te kori ami.. ok
-                height: 0,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 1,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/help.png"))),
-              ),
-             
-            ]
-          )
-      )
-      )
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Image.asset('assets/help.png'),
+          ],
+        ),
+      ),
     );
   }
 }

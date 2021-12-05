@@ -229,7 +229,7 @@ class _BookDetailsState extends State<BookDetails> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "    0 Tk.         ",
+                                  "    -0 Tk.         ",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -269,7 +269,7 @@ class _BookDetailsState extends State<BookDetails> {
                   ),
                   SizedBox(height: 50),
                   Text(
-                    "Payment Orders",
+                    "Payment Method",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
@@ -312,7 +312,7 @@ class _BookDetailsState extends State<BookDetails> {
                               });
                             },
                             selectedTileColor: Colors.green[50],
-                            activeColor: Colors.red,
+                            activeColor: Colors.green,
                           ),
                         ),
 

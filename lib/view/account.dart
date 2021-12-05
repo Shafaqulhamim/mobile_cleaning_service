@@ -49,7 +49,7 @@ class _AccountState extends State<Account> {
             EasyLoading.show(status: 'loading...');
           } else if (state.isAuthenticated) {
             EasyLoading.dismiss();
-            EasyLoading.showSuccess('Registration Successful!');
+            EasyLoading.showSuccess('Changes Saved!');
           }
         },
         child: SingleChildScrollView(
@@ -141,7 +141,7 @@ class _AccountState extends State<Account> {
                       controller: dPrice,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: "01234567890",
+                        hintText: "300Tk.",
                         labelText: "Daily price",
                       ),
                     ),
@@ -154,7 +154,7 @@ class _AccountState extends State<Account> {
                       controller: wPrice,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: "01234567890",
+                        hintText: "2000Tk.",
                         labelText: "Weekly Price",
                       ),
                     ),
@@ -167,7 +167,7 @@ class _AccountState extends State<Account> {
                       controller: mPrice,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: "01234567890",
+                        hintText: "7500Tk.",
                         labelText: "Monthly Price",
                       ),
                     ),

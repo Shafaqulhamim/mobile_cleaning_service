@@ -71,28 +71,6 @@ class _PerformanceState extends State<Performance> {
                       height: 50,
                       width: 50,
                       decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Icon(
-                        Icons.menu_book,
-                        size: 30,
-                      ),
-                    ),
-                    title: const Text("My Book"),
-                    onTap: () {
-                      print('Text1');
-                      // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                      //   return page1();
-                      // }));
-                    },
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Colors.white70),
                       child: Icon(
                         Icons.account_circle_outlined,
@@ -144,20 +122,6 @@ class _PerformanceState extends State<Performance> {
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Colors.white70),
                       child: Icon(
-                        Icons.money_off_sharp,
-                        size: 30,
-                      ),
-                    ),
-                    title: const Text("Promo Code"),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white70),
-                      child: Icon(
                         Icons.help_sharp,
                         size: 30,
                       ),
@@ -165,21 +129,7 @@ class _PerformanceState extends State<Performance> {
                     title: const Text("Help & Support"),
                     // trailing: const Icon(Icons.arrow_forward),
                   ),
-                  const Divider(),
-                  ListTile(
-                    leading: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white70),
-                      child: Icon(
-                        Icons.settings_suggest_outlined,
-                        size: 30,
-                      ),
-                    ),
-                    title: const Text("Settings"),
-                    // trailing: const Icon(Icons.arrow_forward),
-                  ),
+
                   // title: Text('Page2'),
                   // trailing: Icon(Icons.arrow_forward),
                   // onTap: () {
@@ -223,7 +173,7 @@ class _PerformanceState extends State<Performance> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 20),
+                    padding: const EdgeInsets.only(left: 10, top: 0),
                     child: GestureDetector(
                       onTap: () {
                         _key.currentState!.openDrawer();
@@ -509,28 +459,7 @@ class _PerformanceState extends State<Performance> {
 
                   // backgroundColor: Colors.red,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.favorite,
-                  ),
 
-                  label: 'Favorite',
-
-                  // onTap: () {
-                  //   // _key.currentState!.openDrawer();
-                  //   Navigator.push(
-                  //                 context,
-                  //                 MaterialPageRoute(builder: (context) => Welcome()),
-                  //               );
-                  // },
-
-                  // backgroundColor: Colors.green,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.chat),
-                  label: 'Chat',
-                  //backgroundColor: Colors.purple,
-                ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.notification_add_outlined),
                   label: 'Notification',

@@ -89,16 +89,19 @@ class _CustomerNotificationScreenState
                               // );
                             },
                             child: Container(
-                              height: 100,
+                              height: 115,
                               padding: EdgeInsets.all(30),
                               margin: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   color: Color(0xff5edaae),
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
-                                children: [
-                                  Text(state.orderList[index].ordererName),
-                                  Text(state.orderList[index].address),
+                              children: [
+                              Text(state.orderList[index].orderID), Text("accepted your order!"),
+                              SizedBox(
+                              height: 5,
+                              ),
+                              Text(state.orderList[index].seller),
                                 ],
                               ),
                             ),

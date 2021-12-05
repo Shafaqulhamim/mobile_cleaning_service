@@ -30,12 +30,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     final ProductBloc productBloc = BlocProvider.of<ProductBloc>(context);
     return Scaffold(
-      backgroundColor: Colors.indigo[100],
+      backgroundColor: Color (0xffc0d8cc),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff59d2a7),
         title: Text(
           "Notifications",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -86,16 +86,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             );
                           },
                           child: Container(
-                            height: 100,
+                            height: 115,
                             padding: EdgeInsets.all(30),
                             margin: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                                color: Colors.white24,
+                                color: Color(0xff5edaae),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Column(
                               children: [
-                                Text(state.orderList[index].ordererName),
-                                Text(state.orderList[index].address),
+                              Text(state.orderList[index].ordererName), Text("placed an order!"),
+                              SizedBox(
+                              height: 5,
+                                ),
+                                Text("click here to see details..."),
                               ],
                             ),
                           ),

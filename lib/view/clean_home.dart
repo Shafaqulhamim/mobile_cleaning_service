@@ -51,7 +51,7 @@ class _CleanHomeState extends State<CleanHome> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 0, top: 30, right: 280),
+                        const EdgeInsets.only(left: 20, top: 30, right: 250),
                     child: Text(
                       widget.userDataList.firstname,
                       style:
@@ -90,7 +90,7 @@ class _CleanHomeState extends State<CleanHome> {
                   Padding(
                     padding: const EdgeInsets.only(right: 130),
                     child: RatingBar.builder(
-                      initialRating: 3,
+                      initialRating: 4.5,
                       minRating: 1,
                       direction: Axis.horizontal,
                       allowHalfRating: true,

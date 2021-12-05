@@ -46,7 +46,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                     height: 5,
                   ),
                   Text(
-                    "Phone     :01ff90ff",
+                    "Phone     :${widget.orderList.userInfo.phoneNumber}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
                           child: Text(
-                            "A567407",
+                            widget.orderList.orderID,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -105,7 +105,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
                           child: Text(
-                            "1/A, R-7 Banani,\nDhaka-1213",
+                            widget.orderList.address,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -134,19 +134,19 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "1 x Cleaner  :",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "1 Hour          :",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
+                          // Text(
+                          //   "1 x Cleaner  :",
+                          //   style: TextStyle(
+                          //       fontSize: 16, fontWeight: FontWeight.bold),
+                          // ),
+                          // SizedBox(
+                          //   height: 5,
+                          // ),
+                          // Text(
+                          //   "1 Hour          :",
+                          //   style: TextStyle(
+                          //       fontSize: 16, fontWeight: FontWeight.bold),
+                          // ),
                           SizedBox(
                             height: 5,
                           ),
@@ -168,19 +168,19 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "150 Tk.",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "   50 Tk.",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
+                          // Text(
+                          //   "150 Tk.",
+                          //   style: TextStyle(
+                          //       fontSize: 16, fontWeight: FontWeight.bold),
+                          // ),
+                          // SizedBox(
+                          //   height: 5,
+                          // ),
+                          // Text(
+                          //   "   50 Tk.",
+                          //   style: TextStyle(
+                          //       fontSize: 16, fontWeight: FontWeight.bold),
+                          // ),
                           SizedBox(
                             height: 5,
                           ),
@@ -215,7 +215,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                   width: 150,
                 ),
                 Text(
-                  "200Tk.",
+                  widget.orderList.price,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 )
               ],

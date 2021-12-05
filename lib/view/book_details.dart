@@ -173,21 +173,21 @@ class _BookDetailsState extends State<BookDetails> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Fixed Wage :",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "Per Hour      :",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                                // Text(
+                                //   "Fixed Wage :",
+                                //   style: TextStyle(
+                                //       fontSize: 16,
+                                //       fontWeight: FontWeight.bold),
+                                // ),
+                                // SizedBox(
+                                //   height: 5,
+                                // ),
+                                // Text(
+                                //   "Per Hour      :",
+                                //   style: TextStyle(
+                                //       fontSize: 16,
+                                //       fontWeight: FontWeight.bold),
+                                // ),
                                 SizedBox(
                                   height: 5,
                                 ),
@@ -210,21 +210,21 @@ class _BookDetailsState extends State<BookDetails> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "200Tk.",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "100Tk.",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                                // Text(
+                                //   "200Tk.",
+                                //   style: TextStyle(
+                                //       fontSize: 16,
+                                //       fontWeight: FontWeight.bold),
+                                // ),
+                                // SizedBox(
+                                //   height: 5,
+                                // ),
+                                // Text(
+                                //   "100Tk.",
+                                //   style: TextStyle(
+                                //       fontSize: 16,
+                                //       fontWeight: FontWeight.bold),
+                                // ),
                                 SizedBox(
                                   height: 5,
                                 ),

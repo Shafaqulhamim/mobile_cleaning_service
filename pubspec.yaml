@@ -67,6 +67,7 @@ flutter:
   assets:
     - assets/welcome.png
     - assets/login.png
+    - assets/help.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://f...content-available-to-author-only...r.dev/assets-and-images/#resolution-aware.

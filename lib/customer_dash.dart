@@ -185,26 +185,7 @@ class _CustomerDashState extends State<CustomerDash> {
                   },
                 ),
                 const Divider(),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.white70),
-                    child: Icon(
-                      Icons.fmd_good_outlined,
-                      size: 30,
-                    ),
-                  ),
-                  title: const Text("My Address"),
-                  onTap: () {
-                    // print('Text1');
-                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                      return myAddress();
-                    }));
-                  },
-                ),
-                const Divider(),
+
                 ListTile(
                   leading: Container(
                     height: 50,
@@ -246,25 +227,7 @@ class _CustomerDashState extends State<CustomerDash> {
                   },
                 ),
                 const Divider(),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.white70),
-                    child: Icon(
-                      Icons.settings_suggest_outlined,
-                      size: 30,
-                    ),
-                  ),
-                  title: const Text("Settings"),
-                  onTap: () {
-                    // print('Text1');
-                    Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                      return settings();
-                    }));
-                  },
-                ),
+
                 // title: Text('Page2'),
                 // trailing: Icon(Icons.arrow_forward),
                 // onTap: () {
@@ -272,7 +235,6 @@ class _CustomerDashState extends State<CustomerDash> {
                 // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
                 //   return page2();
                 // }));
-                const Divider(),
 
                 ListTile(
                   leading: Container(

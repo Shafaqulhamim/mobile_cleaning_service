@@ -66,7 +66,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: 5,
+                    height: 1,
                   ),
                   Container(
                     height: 80,
@@ -79,7 +79,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
-                          height: 35,
+                          height: 34,
                         ),
                         Text(
                           "Address       :",
@@ -190,7 +190,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                             height: 5,
                           ),
                           Text(
-                            "        0 Tk.         ",
+                            "        -0 Tk.         ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )
@@ -202,13 +202,16 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               ),
             ),
             const Divider(
-              height: 20,
+              height: 2,
               thickness: 2,
               indent: 30,
               endIndent: 30,
             ),
             Row(
               children: [
+                SizedBox(
+                  height: 40,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 40),
                   child: Text(

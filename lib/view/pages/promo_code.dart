@@ -15,8 +15,8 @@ class _promostate extends State<promo> {
       ),
       body: const Center(
         child: SizedBox(
-          child: Text('No promo code is avalable right now.',
-              style: TextStyle(fontSize: 20)),
+          child: Text('No promo code is avalable right now!',
+              style: TextStyle(fontSize: 18, color: (Colors.grey))),
         ),
       ),
     );

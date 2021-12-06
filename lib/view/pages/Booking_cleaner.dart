@@ -43,14 +43,14 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               child: Column(
                 children: [
                   Text(
-                    "Ordered By        :  Rashed Rana",
+                    "Ordered By :  Rashed Rana",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "   Phone                :  ${widget.orderList.userInfo.phoneNumber}",
+                    "    Phone          :  ${widget.orderList.userInfo.phoneNumber}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
             ),
             
             Padding(
-              padding: const EdgeInsets.only(left: 10, right: 20, top: 50),
+              padding: const EdgeInsets.only(left: 10, right: 20, top: 20),
               child: Row(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -90,7 +90,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                     ),
                   ),
                   Container(
-                    height: 80,
+                    height: 100,
                     width: 160,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -190,7 +190,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                             height: 5,
                           ),
                           Text(
-                            "        -0 Tk.         ",
+                            "      -0 Tk.         ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )

@@ -12,7 +12,7 @@ class _FavoriteState extends State<Favorite> {
 
   @override
   void initState() {
-    for (int i = 0; i <= 2; i++) {
+    for (int i = 0; i <= 0; i++) {
       list.add(i);
     }
     // TODO: implement initState
@@ -48,33 +48,40 @@ class _FavoriteState extends State<Favorite> {
                         //   height: 50,
                         // ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8),
+                          
+                          padding: const EdgeInsets.only(left: 6),
                           child: Text(
-                            "Amena Akter",
-                            style: TextStyle(fontSize: 16),
+                            "Mehedi Hasan",
+                            style: TextStyle(fontSize: 18, color:Color(0xff32cb95), fontWeight: FontWeight.bold),
                           ),
+                        ),
+                        SizedBox(
+                        height: 5,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.add_location_alt),
-                            Text('Ditance 3.4 km')
+                            Icon(Icons.add_location_alt, size: 20, color:Color(0xff32cb95)),
+                            
+                            Text(' Mirpur-10',
+                            style: TextStyle(fontSize: 15, color:Color(0xff32cb95), fontWeight: FontWeight.bold),
+                            )
                           ],
                         ),
                       ],
                     ),
                     Icon(
                       Icons.favorite,
-                      size: 20,
-                      color: Colors.greenAccent,
+                      size: 25,
+                      color: Colors.red,
                     )
                   ],
                 ),
                 Divider(
                   height: 20,
-                  thickness: 5,
+                  thickness: 3,
                   indent: 5,
                   endIndent: 5,
-                  //color: Colors.yellow,
+                  color: Color(0xff32cb95),
                 ),
               ],
             ),

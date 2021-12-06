@@ -32,7 +32,7 @@ class _CleanHomeState extends State<CleanHome> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 0),
               child: Image.network(
                 'https://png.pngtree.com/png-clipart/20190618/original/pngtree-office-worker-female-go-to-work-office-worker-thinking-woman-png-image_3933871.jpg',
                 height: 220,
@@ -40,7 +40,7 @@ class _CleanHomeState extends State<CleanHome> {
               ),
             ),
             Container(
-              height: 465,
+              height: 385,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -51,11 +51,11 @@ class _CleanHomeState extends State<CleanHome> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 20, top: 30, right: 250),
+                        const EdgeInsets.only(left: 10, top: 15, right: 250),
                     child: Text(
                       widget.userDataList.firstname,
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xff32cb95)),
                     ),
                   ),
                   Padding(
@@ -72,7 +72,7 @@ class _CleanHomeState extends State<CleanHome> {
                         Text(
                           widget.userDataList.address,
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.bold,color: Color(0xff32cb95)),
                         ),
                         SizedBox(
                           width: 10,
@@ -88,10 +88,11 @@ class _CleanHomeState extends State<CleanHome> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 130),
+                    padding: const EdgeInsets.only(right: 200),
                     child: RatingBar.builder(
                       initialRating: 4.5,
                       minRating: 1,
+                      itemSize: 30,
                       direction: Axis.horizontal,
                       allowHalfRating: true,
                       itemCount: 5,
@@ -106,16 +107,16 @@ class _CleanHomeState extends State<CleanHome> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, right: 260),
+                    padding: const EdgeInsets.only(top: 15, right: 330),
                     child: Text(
-                      "Work Period",
+                      "Schedule",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Color(0xff32cb95)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        const EdgeInsets.only(top: 15, left: 20, right: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -141,6 +142,8 @@ class _CleanHomeState extends State<CleanHome> {
                               child: Text(
                                 "Weekly",
                                 style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  
                                     color: (weekly == true)
                                         ? Colors.white
                                         : Colors.black),
@@ -170,6 +173,7 @@ class _CleanHomeState extends State<CleanHome> {
                                 child: Text(
                               "Daily",
                               style: TextStyle(
+                                fontWeight: FontWeight.bold,
                                   color: (daily == true)
                                       ? Colors.white
                                       : Colors.black),
@@ -198,6 +202,7 @@ class _CleanHomeState extends State<CleanHome> {
                                 child: Text(
                               "Monthly",
                               style: TextStyle(
+                                fontWeight: FontWeight.bold,
                                   color: (monthly == true)
                                       ? Colors.white
                                       : Colors.black),
@@ -211,19 +216,21 @@ class _CleanHomeState extends State<CleanHome> {
                     height: 0,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, right: 280),
+                    padding: const EdgeInsets.only(top: 25, right: 310),
                     child: Text(
                       "Date & Time",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
                     ),
                   ),
                   DateTimePicker(
+                    style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
                     type: DateTimePickerType.dateTime,
                     dateMask: 'd MMM, yyyy',
                     initialValue: DateTime.now().toString(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2100),
+                    firstDate: DateTime(2021),
+                    lastDate: DateTime(2022),
                     dateLabelText: 'Date',
                     onChanged: (val) {
                       setState(() {
@@ -236,12 +243,15 @@ class _CleanHomeState extends State<CleanHome> {
                     },
                     onSaved: (val) => print(val),
                   ),
+                    SizedBox(
+                    height: 5,
+                  ),
                   if (daily == true)
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.dPrice}",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
                       ),
                     ),
                   if (monthly == true)
@@ -249,7 +259,7 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.mPrice}",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
                       ),
                     ),
                   if (weekly == true)
@@ -257,7 +267,7 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.wPrice}",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
                       ),
                     ),
                   /*Padding(

@@ -354,10 +354,10 @@ class _CustomerDashState extends State<CustomerDash> {
                       padding: const EdgeInsets.only(left: 20),
                       child: Container(
                           child: Text(
-                        "Service",
+                        "Clean Home",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color(0xff32cb95)),
                       )),
                     ),
@@ -371,7 +371,7 @@ class _CustomerDashState extends State<CustomerDash> {
                           Image(
                             image: NetworkImage(
                                 'https://www.linkpicture.com/q/cleanhome2.png'),
-                            width: 80,
+                            width: 100,
                             height: 80,
                           ),
                           SizedBox(
@@ -438,12 +438,13 @@ class _CustomerDashState extends State<CustomerDash> {
                                           ),
                                         ),
                                         Text(state
-                                            .userDataList[index].firstname),
+                                            .userDataList[index].firstname, style: TextStyle(fontSize: 16, color:Color(0xff32cb95), fontWeight: FontWeight.bold),),
                                         Row(
                                           children: [
-                                            Icon(Icons.add_location_alt),
+                                            Icon(Icons.add_location_alt, color:Color(0xff32cb95), size: 20,),
+                                            Text (" "),
                                             Text(state
-                                                .userDataList[index].address)
+                                                .userDataList[index].address,style: TextStyle(fontSize: 13, color:Color(0xff32cb95), fontWeight: FontWeight.bold),)
                                           ],
                                         )
                                       ],

@@ -14,11 +14,12 @@ class CleanHome extends StatefulWidget {
 
 class _CleanHomeState extends State<CleanHome> {
   int total = 0;
+  String day = "";
   var size, height, width;
   bool weekly = false;
   bool monthly = false;
   String xdate = "";
-  bool daily = false;
+  bool daily = true;
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -27,8 +28,9 @@ class _CleanHomeState extends State<CleanHome> {
     return Scaffold(
       backgroundColor: Color(0xff32cb95),
       appBar: AppBar(
+        backwardsCompatibility: true,
         title: Text("Clean Home"),
-        leading: Icon(Icons.arrow_back_ios_new),
+        // leading: Icon(Icons.arrow_back_ios_new),
         elevation: 0,
         backgroundColor: Color(0xff32cb95),
       ),
@@ -341,11 +343,14 @@ class _CleanHomeState extends State<CleanHome> {
                         if (weekly) total = widget.userDataList.wPrice;
                         if (monthly) total = widget.userDataList.mPrice;
                         if (daily) total = widget.userDataList.dPrice;
+                        if (weekly) day = "weekly";
+                        if (monthly) day = "monthly";
+                        if (daily) day = "daily";
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => BookDetails(
-                                    widget.userDataList, xdate, total)));
+                                    widget.userDataList, xdate, total, day)));
                       },
                     ),
                   ],

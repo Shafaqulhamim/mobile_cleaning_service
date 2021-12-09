@@ -32,13 +32,12 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
         leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),
-      
       body: SingleChildScrollView(
         child: Column(
           children: [
-                    SizedBox(
-                    height: 15,
-                  ),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               child: Column(
                 children: [
@@ -50,7 +49,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                     height: 5,
                   ),
                   Text(
-                    "    Phone          :  ${widget.orderList.userInfo.phoneNumber}",
+                    "    Phone          :  ${widget.orderList.seller}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -59,7 +58,6 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 ],
               ),
             ),
-            
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 20, top: 20),
               child: Row(
@@ -229,9 +227,8 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               ],
             ),
             SizedBox(height: 20),
-            
             Text(
-              "Payment Type",
+              "Payment Type : ${widget.orderList.paymentMethod}",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -240,59 +237,59 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
             SizedBox(
               height: 15,
             ),
-            Container(
-              child: Row(
-                children: <Widget>[
-                  // RadioListTile(
-                  //   value: 1,
-                  //   groupValue: _rValue,
-                  //   onChanged: ( value) {
-                  //     //setState(() {});
-                  //     method(value);
-                  //   },
-                  //   // {
-                  //   //   method(value);
-                  //   // },
-                  //   title: Text('Android'),
-                  // ),
+            // Container(
+            //   child: Row(
+            //     children: <Widget>[
+            //       // RadioListTile(
+            //       //   value: 1,
+            //       //   groupValue: _rValue,
+            //       //   onChanged: ( value) {
+            //       //     //setState(() {});
+            //       //     method(value);
+            //       //   },
+            //       //   // {
+            //       //   //   method(value);
+            //       //   // },
+            //       //   title: Text('Android'),
+            //       // ),
 
-                  Flexible(
-                    fit: FlexFit.tight,
-                    child: RadioListTile(
-                      value: 1,
-                      groupValue: _rValue,
-                      title: const Text('Cash'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                      activeColor: Colors.red,
-                    ),
-                  ),
-                  Flexible(
-                    fit: FlexFit.loose,
-                    child: RadioListTile(
-                      value: 2,
-                      groupValue: _rValue,
-                      title: const Text('Card'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
-                  ),
-                  Flexible(
-                    fit: FlexFit.loose,
-                    child: RadioListTile(
-                      value: 3,
-                      groupValue: _rValue,
-                      title: const Text('Bkash'),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
+            //       Flexible(
+            //         fit: FlexFit.tight,
+            //         child: RadioListTile(
+            //           value: 1,
+            //           groupValue: _rValue,
+            //           title: const Text('Cash'),
+            //           onChanged: (value) {
+            //             setState(() {});
+            //           },
+            //           activeColor: Colors.red,
+            //         ),
+            //       ),
+            //       Flexible(
+            //         fit: FlexFit.loose,
+            //         child: RadioListTile(
+            //           value: 2,
+            //           groupValue: _rValue,
+            //           title: const Text('Card'),
+            //           onChanged: (value) {
+            //             setState(() {});
+            //           },
+            //         ),
+            //       ),
+            //       Flexible(
+            //         fit: FlexFit.loose,
+            //         child: RadioListTile(
+            //           value: 3,
+            //           groupValue: _rValue,
+            //           title: const Text('Bkash'),
+            //           onChanged: (value) {
+            //             setState(() {});
+            //           },
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
             SizedBox(
               height: 10,
             ),

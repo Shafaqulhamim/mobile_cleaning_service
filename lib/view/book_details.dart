@@ -8,6 +8,7 @@ import 'package:mobile_cleaning_service/customer_dash.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/domain/order/order_data.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
+import 'package:mobile_cleaning_service/view/pages/loading_screen.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
@@ -15,7 +16,9 @@ class BookDetails extends StatefulWidget {
   final UserData userDataList;
   final String xdate;
   final int total;
-  const BookDetails(this.userDataList, this.xdate, this.total, {Key? key})
+  final String day;
+  const BookDetails(this.userDataList, this.xdate, this.total, this.day,
+      {Key? key})
       : super(key: key);
 
   @override
@@ -43,7 +46,6 @@ class _BookDetailsState extends State<BookDetails> {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Book Details"),
-        leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),
       body: BlocListener<ProductBloc, ProductState>(
@@ -59,20 +61,19 @@ class _BookDetailsState extends State<BookDetails> {
             EasyLoading.show(status: 'loading...');
           } else if (state.isSubmitted) {
             EasyLoading.showSuccess('Order Submitted!');
+            MaterialPageRoute(builder: (context) => LoadingScreen());
+
             BlocListener<AuthBloc, AuthState>(
               listenWhen: (c, p) => c.isAuthenticated != p.isAuthenticated,
               listener: (context, state) {
-                if (state.isAuthenticated &&
-                    state.userData.isCleaner == false) {
-                  Logger().i(state.userData.isCleaner);
-                  AuthBloc(context.read<IAuthProvider>())
-                    ..add(const AuthEvent.getUserList());
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CustomerDash(state.userDataList)),
-                  );
-                }
+                Logger().i(state.userData.isCleaner);
+                AuthBloc(context.read<IAuthProvider>())
+                  ..add(const AuthEvent.getUserList());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CustomerDash(state.userDataList)),
+                );
               },
               child: Scaffold(
                 body: Welcome(),
@@ -182,12 +183,12 @@ class _BookDetailsState extends State<BookDetails> {
                                 // SizedBox(
                                 //   height: 5,
                                 // ),
-                                // Text(
-                                //   "Per Hour      :",
-                                //   style: TextStyle(
-                                //       fontSize: 16,
-                                //       fontWeight: FontWeight.bold),
-                                // ),
+                                Text(
+                                  "${widget.day}     :",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
                                 SizedBox(
                                   height: 5,
                                 ),
@@ -219,12 +220,12 @@ class _BookDetailsState extends State<BookDetails> {
                                 // SizedBox(
                                 //   height: 5,
                                 // ),
-                                // Text(
-                                //   "100Tk.",
-                                //   style: TextStyle(
-                                //       fontSize: 16,
-                                //       fontWeight: FontWeight.bold),
-                                // ),
+                                Text(
+                                  "${widget.total}Tk.",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
                                 SizedBox(
                                   height: 5,
                                 ),
@@ -363,6 +364,24 @@ class _BookDetailsState extends State<BookDetails> {
                           widget.userDataList.phoneNumber,
                           widget.total.toString(),
                           "")));
+                      BlocListener<AuthBloc, AuthState>(
+                        listenWhen: (c, p) =>
+                            c.isAuthenticated != p.isAuthenticated,
+                        listener: (context, state) {
+                          Logger().i(state.userData.isCleaner);
+                          AuthBloc(context.read<IAuthProvider>())
+                            ..add(const AuthEvent.getUserList());
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    CustomerDash(state.userDataList)),
+                          );
+                        },
+                        child: Scaffold(
+                          body: Welcome(),
+                        ),
+                      );
                     },
                   ),
                 ],

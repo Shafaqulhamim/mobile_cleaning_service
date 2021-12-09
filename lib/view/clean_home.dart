@@ -14,12 +14,16 @@ class CleanHome extends StatefulWidget {
 
 class _CleanHomeState extends State<CleanHome> {
   int total = 0;
+  var size, height, width;
   bool weekly = false;
   bool monthly = false;
   String xdate = "";
   bool daily = false;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       backgroundColor: Color(0xff32cb95),
       appBar: AppBar(
@@ -54,8 +58,10 @@ class _CleanHomeState extends State<CleanHome> {
                         const EdgeInsets.only(left: 10, top: 15, right: 250),
                     child: Text(
                       widget.userDataList.firstname,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xff32cb95)),
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff32cb95)),
                     ),
                   ),
                   Padding(
@@ -72,7 +78,9 @@ class _CleanHomeState extends State<CleanHome> {
                         Text(
                           widget.userDataList.address,
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold,color: Color(0xff32cb95)),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff32cb95)),
                         ),
                         SizedBox(
                           width: 10,
@@ -110,8 +118,10 @@ class _CleanHomeState extends State<CleanHome> {
                     padding: const EdgeInsets.only(top: 15, right: 330),
                     child: Text(
                       "Schedule",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Color(0xff32cb95)),
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff32cb95)),
                     ),
                   ),
                   Padding(
@@ -142,8 +152,7 @@ class _CleanHomeState extends State<CleanHome> {
                               child: Text(
                                 "Weekly",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  
+                                    fontWeight: FontWeight.bold,
                                     color: (weekly == true)
                                         ? Colors.white
                                         : Colors.black),
@@ -173,7 +182,7 @@ class _CleanHomeState extends State<CleanHome> {
                                 child: Text(
                               "Daily",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: (daily == true)
                                       ? Colors.white
                                       : Colors.black),
@@ -202,7 +211,7 @@ class _CleanHomeState extends State<CleanHome> {
                                 child: Text(
                               "Monthly",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: (monthly == true)
                                       ? Colors.white
                                       : Colors.black),
@@ -219,13 +228,17 @@ class _CleanHomeState extends State<CleanHome> {
                     padding: const EdgeInsets.only(top: 25, right: 310),
                     child: Text(
                       "Date & Time",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff32cb95)),
                     ),
                   ),
                   DateTimePicker(
-                    style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff32cb95)),
                     type: DateTimePickerType.dateTime,
                     dateMask: 'd MMM, yyyy',
                     initialValue: DateTime.now().toString(),
@@ -243,7 +256,7 @@ class _CleanHomeState extends State<CleanHome> {
                     },
                     onSaved: (val) => print(val),
                   ),
-                    SizedBox(
+                  SizedBox(
                     height: 5,
                   ),
                   if (daily == true)
@@ -251,7 +264,10 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.dPrice}",
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
                       ),
                     ),
                   if (monthly == true)
@@ -259,7 +275,10 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.mPrice}",
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
                       ),
                     ),
                   if (weekly == true)
@@ -267,7 +286,10 @@ class _CleanHomeState extends State<CleanHome> {
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
                         "Price: ${widget.userDataList.wPrice}",
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Color(0xff32cb95)),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
                       ),
                     ),
                   /*Padding(
@@ -304,35 +326,35 @@ class _CleanHomeState extends State<CleanHome> {
                             color: Colors.black45,
                           ),
                         ),*/
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: Color(0xff32cb95),
-                              fixedSize: const Size(220, 50),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
-                          child: const Text(
-                            'Book Now',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                            if (weekly) total = widget.userDataList.wPrice;
-                            if (monthly) total = widget.userDataList.mPrice;
-                            if (daily) total = widget.userDataList.dPrice;
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => BookDetails(
-                                        widget.userDataList, xdate, total)));
-                          },
-                        ),
-                      ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Color(0xff32cb95),
+                        fixedSize: const Size(220, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    child: const Text(
+                      'Book Now',
+                      style: TextStyle(fontSize: 20),
                     ),
+                    onPressed: () {
+                      if (weekly) total = widget.userDataList.wPrice;
+                      if (monthly) total = widget.userDataList.mPrice;
+                      if (daily) total = widget.userDataList.dPrice;
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BookDetails(
+                                  widget.userDataList, xdate, total)));
+                    },
                   ),
                 ],
               ),
             ),
-          //],
-       // ),
+          ],
+        ),
+      ),
+      //],
+      // ),
       //),
     );
   }

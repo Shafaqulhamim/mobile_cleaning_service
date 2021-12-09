@@ -51,303 +51,305 @@ class _CleanHomeState extends State<CleanHome> {
                     topLeft: Radius.circular(30), topRight: Radius.circular(0)),
                 color: Colors.white,
               ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10, top: 15, right: 250),
-                    child: Text(
-                      widget.userDataList.firstname,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff32cb95)),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add_location_alt,
-                          color: Color(0xff32cb95),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          widget.userDataList.address,
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff32cb95)),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 200),
-                    child: RatingBar.builder(
-                      initialRating: 4.5,
-                      minRating: 1,
-                      itemSize: 30,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemPadding: EdgeInsets.symmetric(horizontal: 3.0),
-                      itemBuilder: (context, _) => Icon(
-                        Icons.star,
-                        color: Colors.amber,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 10, top: 15, right: 250),
+                      child: Text(
+                        widget.userDataList.firstname,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
                       ),
-                      onRatingUpdate: (rating) {
-                        print(rating);
-                      },
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15, right: 330),
-                    child: Text(
-                      "Schedule",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff32cb95)),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 15, left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              weekly = !weekly;
-                              monthly = false;
-                              daily = false;
-                            });
-                          },
-                          child: Container(
-                            height: 30,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey),
-                              color: (weekly == true)
-                                  ? Color(0xff32cb95)
-                                  : Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.add_location_alt,
+                            color: Color(0xff32cb95),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.userDataList.address,
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff32cb95)),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.favorite,
+                              color: Colors.red,
                             ),
-                            child: Center(
-                              child: Text(
-                                "Weekly",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: (weekly == true)
-                                        ? Colors.white
-                                        : Colors.black),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 200),
+                      child: RatingBar.builder(
+                        initialRating: 4.5,
+                        minRating: 1,
+                        itemSize: 30,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding: EdgeInsets.symmetric(horizontal: 3.0),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {
+                          print(rating);
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15, right: 330),
+                      child: Text(
+                        "Schedule",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 15, left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                weekly = !weekly;
+                                monthly = false;
+                                daily = false;
+                              });
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.grey),
+                                color: (weekly == true)
+                                    ? Color(0xff32cb95)
+                                    : Colors.white,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Weekly",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: (weekly == true)
+                                          ? Colors.white
+                                          : Colors.black),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              weekly = false;
-                              monthly = false;
-                              daily = !daily;
-                            });
-                          },
-                          child: Container(
-                            height: 30,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey),
-                              color: (daily == true)
-                                  ? Color(0xff32cb95)
-                                  : Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                weekly = false;
+                                monthly = false;
+                                daily = !daily;
+                              });
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.grey),
+                                color: (daily == true)
+                                    ? Color(0xff32cb95)
+                                    : Colors.white,
+                              ),
+                              child: Center(
+                                  child: Text(
+                                "Daily",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: (daily == true)
+                                        ? Colors.white
+                                        : Colors.black),
+                              )),
                             ),
-                            child: Center(
-                                child: Text(
-                              "Daily",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: (daily == true)
-                                      ? Colors.white
-                                      : Colors.black),
-                            )),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              weekly = false;
-                              monthly = !monthly;
-                              daily = false;
-                            });
-                          },
-                          child: Container(
-                            height: 30,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey),
-                              color: (monthly == true)
-                                  ? Color(0xff32cb95)
-                                  : Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                weekly = false;
+                                monthly = !monthly;
+                                daily = false;
+                              });
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.grey),
+                                color: (monthly == true)
+                                    ? Color(0xff32cb95)
+                                    : Colors.white,
+                              ),
+                              child: Center(
+                                  child: Text(
+                                "Monthly",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: (monthly == true)
+                                        ? Colors.white
+                                        : Colors.black),
+                              )),
                             ),
-                            child: Center(
-                                child: Text(
-                              "Monthly",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: (monthly == true)
-                                      ? Colors.white
-                                      : Colors.black),
-                            )),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25, right: 310),
-                    child: Text(
-                      "Date & Time",
+                    SizedBox(
+                      height: 0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25, right: 310),
+                      child: Text(
+                        "Date & Time",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
+                      ),
+                    ),
+                    DateTimePicker(
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff32cb95)),
+                      type: DateTimePickerType.dateTime,
+                      dateMask: 'd MMM, yyyy',
+                      initialValue: DateTime.now().toString(),
+                      firstDate: DateTime(2021),
+                      lastDate: DateTime(2022),
+                      dateLabelText: 'Date',
+                      onChanged: (val) {
+                        setState(() {
+                          xdate = val;
+                        });
+                      },
+                      validator: (val) {
+                        print(val);
+                        return null;
+                      },
+                      onSaved: (val) => print(val),
                     ),
-                  ),
-                  DateTimePicker(
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff32cb95)),
-                    type: DateTimePickerType.dateTime,
-                    dateMask: 'd MMM, yyyy',
-                    initialValue: DateTime.now().toString(),
-                    firstDate: DateTime(2021),
-                    lastDate: DateTime(2022),
-                    dateLabelText: 'Date',
-                    onChanged: (val) {
-                      setState(() {
-                        xdate = val;
-                      });
-                    },
-                    validator: (val) {
-                      print(val);
-                      return null;
-                    },
-                    onSaved: (val) => print(val),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  if (daily == true)
-                    Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Text(
-                        "Price: ${widget.userDataList.dPrice}",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff32cb95)),
-                      ),
+                    SizedBox(
+                      height: 5,
                     ),
-                  if (monthly == true)
-                    Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Text(
-                        "Price: ${widget.userDataList.mPrice}",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff32cb95)),
-                      ),
-                    ),
-                  if (weekly == true)
-                    Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Text(
-                        "Price: ${widget.userDataList.wPrice}",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff32cb95)),
-                      ),
-                    ),
-                  /*Padding(
-                    padding:
-                        const EdgeInsets.only(top: 40, left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.grey),
-                            //color: Colors.grey,
-                          ),
-                          child: Icon(
-                            Icons.phone,
-                            size: 30,
-                            color: Colors.black45,
-                          ),
+                    if (daily == true)
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Text(
+                          "Price: ${widget.userDataList.dPrice}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff32cb95)),
                         ),
-                        Container(
-                          height: 40,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.grey),
-                            //color: Colors.grey,
+                      ),
+                    if (monthly == true)
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Text(
+                          "Price: ${widget.userDataList.mPrice}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff32cb95)),
+                        ),
+                      ),
+                    if (weekly == true)
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Text(
+                          "Price: ${widget.userDataList.wPrice}",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff32cb95)),
+                        ),
+                      ),
+                    /*Padding(
+                      padding:
+                          const EdgeInsets.only(top: 40, left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.grey),
+                              //color: Colors.grey,
+                            ),
+                            child: Icon(
+                              Icons.phone,
+                              size: 30,
+                              color: Colors.black45,
+                            ),
                           ),
-                          child: Icon(
-                            Icons.chat,
-                            size: 30,
-                            color: Colors.black45,
-                          ),
-                        ),*/
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: Color(0xff32cb95),
-                        fixedSize: const Size(220, 50),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    child: const Text(
-                      'Book Now',
-                      style: TextStyle(fontSize: 20),
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.grey),
+                              //color: Colors.grey,
+                            ),
+                            child: Icon(
+                              Icons.chat,
+                              size: 30,
+                              color: Colors.black45,
+                            ),
+                          ),*/
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Color(0xff32cb95),
+                          fixedSize: const Size(220, 50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: const Text(
+                        'Book Now',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        if (weekly) total = widget.userDataList.wPrice;
+                        if (monthly) total = widget.userDataList.mPrice;
+                        if (daily) total = widget.userDataList.dPrice;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BookDetails(
+                                    widget.userDataList, xdate, total)));
+                      },
                     ),
-                    onPressed: () {
-                      if (weekly) total = widget.userDataList.wPrice;
-                      if (monthly) total = widget.userDataList.mPrice;
-                      if (daily) total = widget.userDataList.dPrice;
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BookDetails(
-                                  widget.userDataList, xdate, total)));
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

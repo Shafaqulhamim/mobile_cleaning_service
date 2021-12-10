@@ -98,7 +98,9 @@ class _CustomerNotificationScreenState
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
                                 children: [
-                                  Text(
+                                  Text(state
+                                          .orderList[index].userInfo.firstname +
+                                      " " +
                                       state.orderList[index].userInfo.lastname),
                                   Text("accepted your order!"),
                                   SizedBox(

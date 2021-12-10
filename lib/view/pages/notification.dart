@@ -96,9 +96,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
-                                    Text(state.orderList[index].ordererName),
-                                    Text(
-                                        "placed an order! click here to see details..."),
+                                    Text(state.orderList[index].ordererName +
+                                        " placed an order! click here to see details..."),
                                     Text(state.orderList[index].status),
                                   ],
                                 ),

@@ -43,14 +43,14 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               child: Column(
                 children: [
                   Text(
-                    "Ordered By :  Rashed Rana",
+                    "Ordered By :  ${widget.orderList.ordererName}",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "    Phone          :  ${widget.orderList.seller}",
+                    "    Phone          :  ${widget.orderList.orderedBy}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

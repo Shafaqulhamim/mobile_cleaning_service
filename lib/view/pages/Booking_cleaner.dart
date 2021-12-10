@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile_cleaning_service/application/productBloc/product_bloc.dart';
 import 'package:mobile_cleaning_service/domain/order/order_data.dart';
 
@@ -306,6 +307,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               onPressed: () {
                 productBloc.add(AcceptOrderData(
                     widget.orderList.copyWith(status: "Accepted"), "Accepted"));
+                EasyLoading.showSuccess('Order Accepted!');
               },
             ),
             SizedBox(
@@ -324,6 +326,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
               onPressed: () {
                 productBloc.add(AcceptOrderData(
                     widget.orderList.copyWith(status: "Rejected"), "Rejected"));
+                EasyLoading.showSuccess('Order Rejected!');
               },
             ),
           ],

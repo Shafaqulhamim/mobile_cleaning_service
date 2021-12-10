@@ -106,11 +106,11 @@ class _BookDetailsState extends State<BookDetails> {
                           width: 150,
                           child: Column(
                             children: [
-                              // Text(
-                              //   "Book ID       :",
-                              //   style: TextStyle(
-                              //       fontSize: 16, fontWeight: FontWeight.bold),
-                              // ),
+                              Text(
+                                "Cleaner Name  :",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
                               SizedBox(
                                 height: 5,
                               ),
@@ -129,15 +129,15 @@ class _BookDetailsState extends State<BookDetails> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Padding(
-                              //   padding: const EdgeInsets.only(left: 30),
-                              //   child: Text(
-                              //     "A567407",
-                              //     style: TextStyle(
-                              //         fontSize: 16,
-                              //         fontWeight: FontWeight.bold),
-                              //   ),
-                              // ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 30),
+                                child: Text(
+                                  "${state.userData.lastname}",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                               SizedBox(
                                 height: 5,
                               ),

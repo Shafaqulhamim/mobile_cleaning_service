@@ -74,11 +74,6 @@ class _CustomerDashState extends State<CustomerDash> {
                 backgroundColor: Colors.white12,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
-                title: Text('Messages'),
-                backgroundColor: Colors.white12,
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.notifications),
                 title: Text('Notifications'),
                 backgroundColor: Colors.white12,
@@ -98,7 +93,7 @@ class _CustomerDashState extends State<CustomerDash> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Favorite()));
                 }
-                if (_currentIndex == 3) {
+                if (_currentIndex == 2) {
                   BlocProvider.of<ProductBloc>(context)
                     ..add(GetCustomerOrderDataList());
                   Navigator.push(

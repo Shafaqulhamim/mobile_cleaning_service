@@ -17,7 +17,10 @@ class BookDetails extends StatefulWidget {
   final String xdate;
   final int total;
   final String day;
+  final String name;
+  final String address;
   const BookDetails(this.userDataList, this.xdate, this.total, this.day,
+      this.name, this.address,
       {Key? key})
       : super(key: key);
 
@@ -132,7 +135,7 @@ class _BookDetailsState extends State<BookDetails> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 30),
                                 child: Text(
-                                  "${state.userData.lastname}",
+                                  widget.name,
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -144,7 +147,7 @@ class _BookDetailsState extends State<BookDetails> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 30),
                                 child: Text(
-                                  "${state.userData.address}",
+                                  widget.address,
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),

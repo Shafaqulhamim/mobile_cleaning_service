@@ -18,6 +18,8 @@ class _CleanHomeState extends State<CleanHome> {
   var size, height, width;
   bool weekly = false;
   bool monthly = false;
+  late String name;
+  late String address;
   String xdate = "";
   bool daily = true;
   @override
@@ -346,11 +348,20 @@ class _CleanHomeState extends State<CleanHome> {
                         if (weekly) day = "weekly";
                         if (monthly) day = "monthly";
                         if (daily) day = "daily";
+                        name = widget.userDataList.firstname;
+                        address = widget.userDataList.address;
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => BookDetails(
-                                    widget.userDataList, xdate, total, day)));
+                                      widget.userDataList,
+                                      xdate,
+                                      total,
+                                      day,
+                                      name,
+                                      address,
+                                    )));
                       },
                     ),
                   ],

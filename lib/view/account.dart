@@ -27,7 +27,8 @@ class _AccountState extends State<Account> {
     name.text = widget.userProfile.firstname;
     phone.text = widget.userProfile.phoneNumber;
     address.text =
-        (widget.userProfile.address != null) ? widget.userProfile.address : "";
+        // ignore: unnecessary_null_comparison
+        widget.userProfile.address;
     // TODO: implement initState
     super.initState();
   }
@@ -38,7 +39,6 @@ class _AccountState extends State<Account> {
       appBar: AppBar(
         centerTitle: true,
         title: Text("My Account"),
-        leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),
       body: BlocListener<AuthBloc, AuthState>(

@@ -30,7 +30,6 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Booking"),
-        leading: Icon(Icons.arrow_back_ios_new),
         backgroundColor: Color(0xff32cb95),
       ),
       body: SingleChildScrollView(

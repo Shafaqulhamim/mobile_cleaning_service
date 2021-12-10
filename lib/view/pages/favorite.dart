@@ -23,11 +23,10 @@ class _FavoriteState extends State<Favorite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-                elevation: 0,
+        elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Color(0xff32cb95),
         title: Text("Favorite"),
-        leading: Icon(Icons.arrow_back_ios_new),
       ),
       body: ListView.builder(
         itemCount: list.length,
@@ -48,22 +47,28 @@ class _FavoriteState extends State<Favorite> {
                         //   height: 50,
                         // ),
                         Padding(
-                          
                           padding: const EdgeInsets.only(left: 6),
                           child: Text(
                             "Mehedi Hasan",
-                            style: TextStyle(fontSize: 18, color:Color(0xff32cb95), fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color(0xff32cb95),
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(
-                        height: 5,
+                          height: 5,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.add_location_alt, size: 20, color:Color(0xff32cb95)),
-                            
-                            Text(' Mirpur-10',
-                            style: TextStyle(fontSize: 15, color:Color(0xff32cb95), fontWeight: FontWeight.bold),
+                            Icon(Icons.add_location_alt,
+                                size: 20, color: Color(0xff32cb95)),
+                            Text(
+                              ' Mirpur-10',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color(0xff32cb95),
+                                  fontWeight: FontWeight.bold),
                             )
                           ],
                         ),

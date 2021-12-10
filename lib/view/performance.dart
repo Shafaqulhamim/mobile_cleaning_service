@@ -13,6 +13,8 @@ import 'package:mobile_cleaning_service/view/pages/home.dart';
 import 'package:mobile_cleaning_service/view/pages/notification.dart';
 import 'package:mobile_cleaning_service/welcome_page.dart';
 
+import 'pages/help_support.dart';
+
 class Performance extends StatefulWidget {
   final UserData phoneNumber;
   const Performance(this.phoneNumber, {Key? key}) : super(key: key);
@@ -127,6 +129,12 @@ class _PerformanceState extends State<Performance> {
                       ),
                     ),
                     title: const Text("Help & Support"),
+                    onTap: () {
+                      // print('Text1');
+                      Navigator.push(context, MaterialPageRoute(builder: (cnx) {
+                        return help();
+                      }));
+                    },
                     // trailing: const Icon(Icons.arrow_forward),
                   ),
 
@@ -459,7 +467,6 @@ class _PerformanceState extends State<Performance> {
 
                   // backgroundColor: Colors.red,
                 ),
-
                 BottomNavigationBarItem(
                   icon: Icon(Icons.notification_add_outlined),
                   label: 'Notification',

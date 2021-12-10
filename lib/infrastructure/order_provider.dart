@@ -38,10 +38,8 @@ class ProductProvider extends IProductProvider {
     final CollectionReference requests =
         FirebaseFirestore.instance.collection('OrderData');
     try {
-      final QuerySnapshot<Object?> response = await requests
-          .where("seller", isEqualTo: sellerId)
-          .where("status", isEqualTo: "pending")
-          .get();
+      final QuerySnapshot<Object?> response =
+          await requests.where("seller", isEqualTo: sellerId).get();
 
       if (response.docs.isNotEmpty) {
         Logger().i(response.docs.first.data().runtimeType);

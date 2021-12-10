@@ -16,6 +16,7 @@ import 'package:mobile_cleaning_service/view/pages/my_address.dart';
 import 'application/auth/auth_bloc.dart';
 import 'application/productBloc/product_bloc.dart';
 import 'domain/auth/i_auth_provider.dart';
+import 'view/pages/myBooks.dart';
 
 class CustomerDash extends StatefulWidget {
   final List<UserData> userDataList;
@@ -152,12 +153,15 @@ class _CustomerDashState extends State<CustomerDash> {
                       size: 30,
                     ),
                   ),
-                  title: const Text("My Book"),
+                  title: const Text("My Books"),
                   onTap: () {
-                    print('Text1');
-                    // Navigator.push(context, MaterialPageRoute(builder: (cnx) {
-                    //   return page1();
-                    // }));
+                    BlocProvider.of<ProductBloc>(context)
+                      ..add(GetCustomerOrderDataList());
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MyBook(state.userData.phoneNumber)));
                   },
                 ),
                 const Divider(),
@@ -437,14 +441,28 @@ class _CustomerDashState extends State<CustomerDash> {
                                             width: 15,
                                           ),
                                         ),
-                                        Text(state
-                                            .userDataList[index].firstname, style: TextStyle(fontSize: 16, color:Color(0xff32cb95), fontWeight: FontWeight.bold),),
+                                        Text(
+                                          state.userDataList[index].firstname,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Color(0xff32cb95),
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                         Row(
                                           children: [
-                                            Icon(Icons.add_location_alt, color:Color(0xff32cb95), size: 20,),
-                                            Text (" "),
-                                            Text(state
-                                                .userDataList[index].address,style: TextStyle(fontSize: 13, color:Color(0xff32cb95), fontWeight: FontWeight.bold),)
+                                            Icon(
+                                              Icons.add_location_alt,
+                                              color: Color(0xff32cb95),
+                                              size: 20,
+                                            ),
+                                            Text(" "),
+                                            Text(
+                                              state.userDataList[index].address,
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Color(0xff32cb95),
+                                                  fontWeight: FontWeight.bold),
+                                            )
                                           ],
                                         )
                                       ],

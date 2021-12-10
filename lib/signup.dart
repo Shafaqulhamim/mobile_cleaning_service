@@ -8,6 +8,7 @@ import 'package:mobile_cleaning_service/customer_dash.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 
 import 'domain/user/user_profile.dart';
+import 'phnumber.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -68,18 +69,10 @@ class _State extends State<SignupPage> {
             EasyLoading.dismiss();
             EasyLoading.showSuccess('Registration Successful!');
             authBloc.add(UserPList());
-            if (state.userData.isCleaner == false)
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => CustomerDash(state.userDataList)),
-              );
-            else if (state.userData.isCleaner == true)
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Performance(state.userData)),
-              );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NumberScreen()),
+            );
           }
         },
         child: SafeArea(

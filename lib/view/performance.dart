@@ -46,7 +46,7 @@ class _PerformanceState extends State<Performance> {
                 children: [
                   UserAccountsDrawerHeader(
                     accountName: Text(
-                      'User Name',
+                      state.userData.firstname + " " + state.userData.lastname,
                       style: TextStyle(fontSize: 20),
                     ),
                     accountEmail: Text(''),

@@ -55,7 +55,8 @@ class _CustomerNotificationScreenState
           }
 
           if (state.orderList != null) {
-            EasyLoading.showSuccess('Your order has been Accepted Successfully!');
+            EasyLoading.showSuccess(
+                'Your order has been Accepted Successfully!');
             // BlocProvider.of<ProductBloc>(context)
             //   ..add(GetOrderDataList(widget.userData));
           }
@@ -96,12 +97,14 @@ class _CustomerNotificationScreenState
                                   color: Color(0xff5edaae),
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
-                              children: [
-                              Text(state.orderList[index].orderID), Text("accepted your order!"),
-                              SizedBox(
-                              height: 5,
-                              ),
-                              Text(state.orderList[index].seller),
+                                children: [
+                                  Text(
+                                      state.orderList[index].userInfo.lastname),
+                                  Text("accepted your order!"),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(state.orderList[index].seller),
                                 ],
                               ),
                             ),

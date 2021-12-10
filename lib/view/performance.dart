@@ -459,7 +459,6 @@ class _PerformanceState extends State<Performance> {
 
                   // backgroundColor: Colors.red,
                 ),
-
                 BottomNavigationBarItem(
                   icon: Icon(Icons.notification_add_outlined),
                   label: 'Notification',
@@ -470,18 +469,6 @@ class _PerformanceState extends State<Performance> {
                 setState(() {
                   _currentindex = index;
                   if (_currentindex == 1)
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Favorite()));
-                  if (_currentindex == 0)
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Performance(widget.phoneNumber)));
-                  if (_currentindex == 2)
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Favorite()));
-                  if (_currentindex == 3)
                     BlocProvider.of<ProductBloc>(context)
                       ..add(GetOrderDataList(widget.phoneNumber.phoneNumber));
                   Navigator.push(
@@ -489,6 +476,28 @@ class _PerformanceState extends State<Performance> {
                       MaterialPageRoute(
                           builder: (context) => NotificationScreen(
                               widget.phoneNumber.phoneNumber)));
+                  if (_currentindex == 0)
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Performance(widget.phoneNumber)));
+                  // if (_currentindex == 2)
+                  //   BlocProvider.of<ProductBloc>(context)
+                  //     ..add(GetOrderDataList(widget.phoneNumber.phoneNumber));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => NotificationScreen(
+                  //             widget.phoneNumber.phoneNumber)));
+                  // if (_currentindex == 3)
+                  //   BlocProvider.of<ProductBloc>(context)
+                  //     ..add(GetOrderDataList(widget.phoneNumber.phoneNumber));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => NotificationScreen(
+                  //             widget.phoneNumber.phoneNumber)));
                 });
               },
 

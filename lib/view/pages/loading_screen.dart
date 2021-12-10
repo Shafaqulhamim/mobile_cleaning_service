@@ -17,14 +17,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: BlocListener<AuthBloc, AuthState>(
+    BlocListener<AuthBloc, AuthState>(
       listenWhen: (c, p) => c.isAuthenticated != p.isAuthenticated,
       listener: (context, state) {
         Logger().i(state.userData.isCleaner);
@@ -39,6 +32,28 @@ class _LoadingScreenState extends State<LoadingScreen> {
       child: Scaffold(
         body: Welcome(),
       ),
-    ));
+    );
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<AuthBloc, AuthState>(
+      listenWhen: (c, p) => c.isAuthenticated != p.isAuthenticated,
+      listener: (context, state) {
+        Logger().i(state.userData.isCleaner);
+        AuthBloc(context.read<IAuthProvider>())
+          ..add(const AuthEvent.getUserList());
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CustomerDash(state.userDataList)),
+        );
+      },
+      child: Scaffold(
+        body: Welcome(),
+      ),
+    );
   }
 }

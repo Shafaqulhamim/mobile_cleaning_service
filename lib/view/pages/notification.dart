@@ -30,7 +30,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     final ProductBloc productBloc = BlocProvider.of<ProductBloc>(context);
     return Scaffold(
-      backgroundColor: Color (0xffc0d8cc),
+      backgroundColor: Color(0xffc0d8cc),
       appBar: AppBar(
         backgroundColor: Color(0xff59d2a7),
         title: Text(
@@ -68,44 +68,47 @@ class _NotificationScreenState extends State<NotificationScreen> {
               BlocProvider.of<ProductBloc>(context)
                 ..add(GetOrderDataList(widget.userData));
             },
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: state.orderList.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BookDetailsCleaner(
-                                      state.orderList[index])),
-                            );
-                          },
-                          child: Container(
-                            height: 115,
-                            padding: EdgeInsets.all(30),
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Color(0xff5edaae),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Column(
-                              children: [
-                              Text(state.orderList[index].ordererName), Text("placed an order!"),
-                              SizedBox(
-                              height: 5,
-                                ),
-                                Text("click here to see details..."),
-                              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: state.orderList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BookDetailsCleaner(
+                                        state.orderList[index])),
+                              );
+                            },
+                            child: Container(
+                              height: 115,
+                              padding: EdgeInsets.all(30),
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: Color(0xff5edaae),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                children: [
+                                  Text(state.orderList[index].ordererName),
+                                  Text("placed an order!"),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text("click here to see details..."),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }),
-                ),
-              ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
             ),
           );
         },

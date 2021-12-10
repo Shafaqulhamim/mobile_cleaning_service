@@ -93,15 +93,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               decoration: BoxDecoration(
                                   color: Color(0xff5edaae),
                                   borderRadius: BorderRadius.circular(20)),
-                              child: Column(
-                                children: [
-                                  Text(state.orderList[index].ordererName),
-                                  Text("placed an order!"),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text("click here to see details..."),
-                                ],
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Text(state.orderList[index].ordererName),
+                                    Text(
+                                        "placed an order! click here to see details..."),
+                                    Text(state.orderList[index].status),
+                                  ],
+                                ),
                               ),
                             ),
                           );

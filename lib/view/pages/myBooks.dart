@@ -8,6 +8,7 @@ import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/domain/i_order_provider.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:mobile_cleaning_service/view/pages/Booking_cleaner.dart';
+import 'package:mobile_cleaning_service/view/pages/bookdetailsCustomer.dart';
 
 class MyBook extends StatefulWidget {
   final String userData;
@@ -80,12 +81,12 @@ class _MyBookState extends State<MyBook> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => BookDetailsCleaner(
-                              //           state.orderList[index])),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BookDetailsCustomer(
+                                        state.orderList[index])),
+                              );
                             },
                             child: Container(
                               height: 115,

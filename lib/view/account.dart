@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
+import 'package:mobile_cleaning_service/view/resetPasswordf.dart';
 
 class Account extends StatefulWidget {
   final UserData userProfile;
@@ -49,7 +50,7 @@ class _AccountState extends State<Account> {
             EasyLoading.show(status: 'loading...');
           } else if (state.isAuthenticated) {
             EasyLoading.dismiss();
-            EasyLoading.showSuccess('Changes Saved!');
+            EasyLoading.showSuccess('Submitted!');
           }
         },
         child: SingleChildScrollView(
@@ -227,6 +228,8 @@ class _AccountState extends State<Account> {
   Widget passwordButton() {
     return GestureDetector(
       onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ResetPasswordF()));
         //TODO:REGISTER HERE
       },
       child: Container(

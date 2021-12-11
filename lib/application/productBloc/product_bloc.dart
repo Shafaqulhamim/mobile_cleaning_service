@@ -61,7 +61,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       customerOrderList: (GetCustomerOrderDataList value) async* {
         final Either<Failure, List<OrderData>> searchOption =
             await productProvider
-                .getCustomerOrderList(authProvider.fireAuth.currentUser!.uid);
+                .getCustomerOrderList(authProvider.user.phoneNumber);
 
         yield searchOption.fold(
           (l) => state.copyWith(error: l.error),

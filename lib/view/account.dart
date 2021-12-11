@@ -174,15 +174,15 @@ class _AccountState extends State<Account> {
                     ),
                   ),
                 SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
                 saveButton(),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 passwordButton(),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 deleteButton()
               ],

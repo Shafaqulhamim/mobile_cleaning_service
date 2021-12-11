@@ -49,7 +49,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                     height: 5,
                   ),
                   Text(
-                    "    Phone          :  ${widget.orderList.orderedBy}",
+                    "            Phone         :  ${widget.orderList.orderedBy}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -139,21 +139,24 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         children: [
                           if (widget.orderList.userInfo.dPrice ==
                               int.parse(widget.orderList.price))
-                            Text("Daily      :",
+                            Text("Daily             :",
                                 style: TextStyle(
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 )),
 
                           if (widget.orderList.userInfo.wPrice ==
                               int.parse(widget.orderList.price))
-                            Text("Weekly     :",
+                            Text("Weekly            :",
                                 style: TextStyle(
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 )),
                           if (widget.orderList.userInfo.mPrice ==
                               int.parse(widget.orderList.price))
-                            Text("Monthly    :",
+                            Text("Monthly           :",
                                 style: TextStyle(
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 )),
                           // Text(
@@ -183,7 +186,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 120,
+                      left: 140,
                     ),
                     child: Container(
                       child: Column(
@@ -207,7 +210,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                             height: 5,
                           ),
                           Text(
-                            "      -0 Tk.         ",
+                            "      -0",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )
@@ -232,8 +235,8 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40),
                   child: Text(
-                    "Total             : ",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    "Total            : ",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(

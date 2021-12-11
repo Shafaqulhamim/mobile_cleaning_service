@@ -16,7 +16,7 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff32cb95),
-        title: const Text('PassWord Reset'),
+        title: const Text('Password Reset'),
       ),
       body: BlocListener<AuthBloc, AuthState>(
         listenWhen: (p, c) =>
@@ -29,20 +29,27 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
         child: Center(
           child: Column(
             children: [
+              new Image.asset('assets/reset 2.png', height: 150, width: 150,),
               SizedBox(
                 height: 10,
               ),
               TextField(
+                
                 controller: email,
-                // obscureText: true,
+                //  middle a ene de dkhi koi
+                //ok ar otp er 2 page a 2 ta image hoibo
+                // time lagbo kichu jinis push korsilam ami dekhmune amr 
+
+                //obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
+                  
                   labelText: "Enter Email",
-                  hintText: "Enter Email",
+                  hintText: "Enter Your Email",
                   fillColor: Colors.greenAccent[10],
                   border: OutlineInputBorder(
                       borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(10)),
                 ),
               ),
               Padding(
@@ -50,8 +57,8 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
                 child: Container(
                   padding: EdgeInsets.only(top: 3, left: 3),
                   child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
+                    minWidth: 190,
+                    height: 45,
                     onPressed: () {
                       authBloc.add(ResetPassword(email.text));
                       EasyLoading.showSuccess('Request Submitted!');

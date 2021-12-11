@@ -69,6 +69,8 @@ flutter:
     - assets/login.png
     - assets/help.png
     - assets/reset 2.png
+    - assets/msg.png
+    - assets/code.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://f...content-available-to-author-only...r.dev/assets-and-images/#resolution-aware.

@@ -154,7 +154,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                                 )),
                           if (widget.orderList.userInfo.mPrice ==
                               int.parse(widget.orderList.price))
-                            Text("Monthly           :",
+                            Text("Monthly       :",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -210,7 +210,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                             height: 5,
                           ),
                           Text(
-                            "      -0",
+                            "           -0",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )

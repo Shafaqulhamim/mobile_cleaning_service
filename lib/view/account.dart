@@ -50,7 +50,7 @@ class _AccountState extends State<Account> {
             EasyLoading.show(status: 'loading...');
           } else if (state.isAuthenticated) {
             EasyLoading.dismiss();
-            EasyLoading.showSuccess('Submitted!');
+            EasyLoading.showSuccess('Changes Saved!');
           }
         },
         child: SingleChildScrollView(

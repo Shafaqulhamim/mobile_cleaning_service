@@ -83,7 +83,7 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                           "Address       :",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -137,6 +137,25 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if (widget.orderList.userInfo.dPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Daily      :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+
+                          if (widget.orderList.userInfo.wPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Weekly     :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          if (widget.orderList.userInfo.mPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Monthly    :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
                           // Text(
                           //   "1 x Cleaner  :",
                           //   style: TextStyle(
@@ -171,11 +190,11 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   "150 Tk.",
-                          //   style: TextStyle(
-                          //       fontSize: 16, fontWeight: FontWeight.bold),
-                          // ),
+                          Text(
+                            "   " + widget.orderList.price,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
                           // SizedBox(
                           //   height: 5,
                           // ),
@@ -293,41 +312,45 @@ class _BookDetailsCleanerState extends State<BookDetailsCleaner> {
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Color(0xff32cb95),
-                  fixedSize: const Size(250, 50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-              child: const Text(
-                'Confirm Booking ',
-                style: TextStyle(fontSize: 20),
+            if (widget.orderList.status == "pending")
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xff32cb95),
+                    fixedSize: const Size(250, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                child: const Text(
+                  'Confirm Booking ',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  productBloc.add(AcceptOrderData(
+                      widget.orderList.copyWith(status: "Accepted"),
+                      "Accepted"));
+                  EasyLoading.showSuccess('Order Accepted!');
+                },
               ),
-              onPressed: () {
-                productBloc.add(AcceptOrderData(
-                    widget.orderList.copyWith(status: "Accepted"), "Accepted"));
-                EasyLoading.showSuccess('Order Accepted!');
-              },
-            ),
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
-                  fixedSize: const Size(250, 50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-              child: const Text(
-                'Decline Booking ',
-                style: TextStyle(fontSize: 20),
+            if (widget.orderList.status == "pending")
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                    fixedSize: const Size(250, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                child: const Text(
+                  'Decline Booking ',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  productBloc.add(AcceptOrderData(
+                      widget.orderList.copyWith(status: "Rejected"),
+                      "Rejected"));
+                  EasyLoading.showSuccess('Order Rejected!');
+                },
               ),
-              onPressed: () {
-                productBloc.add(AcceptOrderData(
-                    widget.orderList.copyWith(status: "Rejected"), "Rejected"));
-                EasyLoading.showSuccess('Order Rejected!');
-              },
-            ),
           ],
         ),
       ),

@@ -137,6 +137,26 @@ class _BookDetailsCustomerState extends State<BookDetailsCustomer> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if (widget.orderList.userInfo.dPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Daily      :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+
+                          if (widget.orderList.userInfo.wPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Weekly     :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          if (widget.orderList.userInfo.mPrice ==
+                              int.parse(widget.orderList.price))
+                            Text("Monthly    :",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                )),
+
                           // Text(
                           //   "1 x Cleaner  :",
                           //   style: TextStyle(
@@ -171,11 +191,11 @@ class _BookDetailsCustomerState extends State<BookDetailsCustomer> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   "150 Tk.",
-                          //   style: TextStyle(
-                          //       fontSize: 16, fontWeight: FontWeight.bold),
-                          // ),
+                          Text(
+                            "   " + widget.orderList.price,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
                           // SizedBox(
                           //   height: 5,
                           // ),

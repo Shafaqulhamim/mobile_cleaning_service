@@ -33,9 +33,9 @@ class _CustomerNotificationScreenState
   Widget build(BuildContext context) {
     final ProductBloc productBloc = BlocProvider.of<ProductBloc>(context);
     return Scaffold(
-      backgroundColor: Color(0xff32cb95),
+      backgroundColor: Color(0xffc0d8cc),
       appBar: AppBar(
-        backgroundColor: Color(0xff32cb95),
+        backgroundColor: Color(0xff59d2a7),
         title: Text(
           "Notifications",
           style: TextStyle(color: Colors.white),

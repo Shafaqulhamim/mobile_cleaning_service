@@ -182,9 +182,8 @@ class _AccountState extends State<Account> {
                 ),
                 passwordButton(),
                 SizedBox(
-                  height: 10,
+                height: 10,
                 ),
-                deleteButton()
               ],
             ),
           ),
@@ -250,28 +249,4 @@ class _AccountState extends State<Account> {
       ),
     );
   }
-
-  Widget deleteButton() {
-    return GestureDetector(
-      onTap: () {
-        //TODO:REGISTER HERE
-      },
-      child: Container(
-        height: 45,
-        width: 250,
-        //alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.redAccent,
-        ),
-        child: Center(
-          child: Text(
-            "Delete Account",
-            style: TextStyle(
-                color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
   }
-}

@@ -120,6 +120,20 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
+                        SizedBox(
+        height: 10,
+      ),              
+              GestureDetector(
+                child: Text(
+                  "Forgot Password?", 
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ResetPasswordF()),
+                  );
+                },
+              ),
                   Padding(
                     padding: EdgeInsets.all(40),
                     child: Container(
@@ -148,27 +162,17 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              GestureDetector(
-                child: Text(
-                  "Forgot Password?",
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ResetPasswordF()),
-                  );
-                },
-              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Don't have an account?"),
+                  Text("Don't have an account? "),
                   GestureDetector(
                     child: Text(
-                      "SignUp",
+                      "Sign Up",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                     onTap: () {

@@ -32,7 +32,7 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 120,
+                  height: MediaQuery.of(context).size.height / 8,
                 ),
                 new Image.asset(
                   'assets/reset 2.png',
@@ -40,7 +40,7 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
                   width: 150,
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 TextField(
                   controller: email,

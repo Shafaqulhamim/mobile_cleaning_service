@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
 import 'package:mobile_cleaning_service/domain/auth/i_auth_provider.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
+import 'package:mobile_cleaning_service/view/resetPasswordf.dart';
 
 import 'application/auth/auth_bloc.dart';
 
@@ -78,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[],
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
                         children: <Widget>[
                           Container(
@@ -123,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
                         padding: EdgeInsets.only(top: 3, left: 3),
                         child: MaterialButton(
@@ -147,6 +149,18 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                    ),
+                    GestureDetector(
+                      child: Text(
+                        "Forgot Password",
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResetPasswordF()),
+                        );
+                      },
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

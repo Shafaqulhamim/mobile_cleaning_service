@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mobile_cleaning_service/Home.dart';
 import 'package:mobile_cleaning_service/application/auth/auth_bloc.dart';
 import 'package:mobile_cleaning_service/customer_dash.dart';
+import 'package:mobile_cleaning_service/login.dart';
 import 'package:mobile_cleaning_service/view/performance.dart';
 
 import 'domain/user/user_profile.dart';
@@ -78,7 +79,7 @@ class _State extends State<SignupPage> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.all(40),
               child: Form(
                 // key: _formKey,
                 child: Column(
@@ -161,11 +162,27 @@ class _State extends State<SignupPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text("Already have an account?"),
-                          Text(
-                            " Login",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 16),
+                          GestureDetector(
+                            child: Text(
+                              "LogIn",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()),
+                              );
+                            },
                           ),
+                          // Text(
+                          //   " Login",
+                          //   style: TextStyle(
+                          //       fontWeight: FontWeight.w600, fontSize: 16),
+                          // ),
                         ],
                       ),
                     ]),

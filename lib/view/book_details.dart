@@ -118,7 +118,7 @@ class _BookDetailsState extends State<BookDetails> {
                                 height: 5,
                               ),
                               Text(
-                                "Address       :",
+                                "Address            :",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               )
@@ -187,7 +187,7 @@ class _BookDetailsState extends State<BookDetails> {
                                 //   height: 5,
                                 // ),
                                 Text(
-                                  "${widget.day}     :",
+                                  "${widget.day}        :",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -196,7 +196,7 @@ class _BookDetailsState extends State<BookDetails> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "Promo          :",
+                                  "Promo           :",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -233,7 +233,7 @@ class _BookDetailsState extends State<BookDetails> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "         -0 Tk.      ",
+                                  "        -0Tk.      ",
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -256,13 +256,13 @@ class _BookDetailsState extends State<BookDetails> {
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
                         child: Text(
-                          "Total             : ",
+                          "Total              : ",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
                       SizedBox(
-                        width: 150,
+                        width: 140,
                       ),
                       Text(
                         widget.total.toString(),

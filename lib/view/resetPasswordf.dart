@@ -16,7 +16,7 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff32cb95),
-        title: const Text('PassWord Reset'),
+        title: const Text('Password Reset'),
       ),
       body: BlocListener<AuthBloc, AuthState>(
         listenWhen: (p, c) =>
@@ -26,53 +26,68 @@ class _ResetPasswordFstate extends State<ResetPasswordF> {
         listener: (context, state) {
           // TODO: implement listener
         },
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 10,
-              ),
-              TextField(
-                controller: email,
-                // obscureText: true,
-                decoration: InputDecoration(
-                  filled: true,
-                  labelText: "Enter Email",
-                  hintText: "Enter Email",
-                  fillColor: Colors.greenAccent[10],
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15)),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 8,
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: Container(
-                  padding: EdgeInsets.only(top: 3, left: 3),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      authBloc.add(ResetPassword(email.text));
-                      EasyLoading.showSuccess('Request Submitted!');
-                    },
-                    color: Color(0xff32cb95),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Text(
-                      "Reset",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Colors.white,
+                new Image.asset(
+                  'assets/reset 2.png',
+                  height: 150,
+                  width: 150,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: email,
+                  //  middle a ene de dkhi koi
+                  //ok ar otp er 2 page a 2 ta image hoibo
+                  // time lagbo kichu jinis push korsilam ami dekhmune amr
+
+                  //obscureText: true,
+                  decoration: InputDecoration(
+                    filled: true,
+                    labelText: "Enter Email",
+                    hintText: "Enter Your Email",
+                    fillColor: Colors.greenAccent[10],
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 3, left: 3),
+                    child: MaterialButton(
+                      minWidth: 190,
+                      height: 45,
+                      onPressed: () {
+                        authBloc.add(ResetPassword(email.text));
+                        EasyLoading.showSuccess('Request Submitted!');
+                      },
+                      color: Color(0xff32cb95),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                        "Reset",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

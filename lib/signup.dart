@@ -50,7 +50,7 @@ class _State extends State<SignupPage> {
           icon: Icon(
             Icons.arrow_back_ios,
             size: 20,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         title: new Text("Create an account"),

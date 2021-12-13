@@ -1,3 +1,4 @@
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile_cleaning_service/domain/user/user_profile.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -72,6 +73,7 @@ class FirebaseAuthProvider extends IAuthProvider {
         password: password,
       );
       if (credential.user != null) {
+        EasyLoading.showSuccess("Successfully logged In");
         Either<Failure, UserData> userResponse = await getUserProfile();
         return userResponse;
       } else {

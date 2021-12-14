@@ -77,6 +77,7 @@ class FirebaseAuthProvider extends IAuthProvider {
         Either<Failure, UserData> userResponse = await getUserProfile();
         return userResponse;
       } else {
+          EasyLoading.showSuccess("Please recheck Email and Password");
         return left(const Failure("Something went Wrong!"));
       }
     } on PlatformException catch (e) {

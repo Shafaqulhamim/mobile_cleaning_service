@@ -50,7 +50,7 @@ class _State extends State<SignupPage> {
           icon: Icon(
             Icons.arrow_back_ios,
             size: 20,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         title: new Text("Create an account"),
@@ -149,9 +149,9 @@ class _State extends State<SignupPage> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Text(
-                            "Sign up",
+                            "Sign Up",
                             style: TextStyle(
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.white,
                             ),
@@ -161,13 +161,13 @@ class _State extends State<SignupPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Already have an account?"),
+                          Text("Already have an account? "),
                           GestureDetector(
                             child: Text(
-                              "LogIn",
+                              "Login",
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                             ),
                             onTap: () {
@@ -220,7 +220,7 @@ Widget inputFile({label, obscureText = false, controlle}) {
               color: Color(0xff32cb95),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.greenAccent, width: 2),
+              borderSide: const BorderSide(color: Colors.greenAccent, width: 1),
               borderRadius: BorderRadius.circular(15.0),
             ),
             fillColor: Colors.greenAccent[10],

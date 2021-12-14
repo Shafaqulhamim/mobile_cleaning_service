@@ -242,7 +242,7 @@ class _PerformanceState extends State<Performance> {
                                       color: Colors.black,
                                     ),
                                     child: Text(
-                                      '92%',
+                                      'N/A',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16),
                                     ),
@@ -270,7 +270,7 @@ class _PerformanceState extends State<Performance> {
                                       color: Colors.black,
                                     ),
                                     child: Text(
-                                      '99%',
+                                      'N/A',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 16,
@@ -300,7 +300,7 @@ class _PerformanceState extends State<Performance> {
                                       color: Colors.black,
                                     ),
                                     child: Text(
-                                      '97%',
+                                      'N/A',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 16,
@@ -330,7 +330,7 @@ class _PerformanceState extends State<Performance> {
                                       color: Colors.black,
                                     ),
                                     child: Text(
-                                      '4.7',
+                                      'N/A',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 16,
@@ -426,22 +426,22 @@ class _PerformanceState extends State<Performance> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "700 Tk.",
+                                "0 Tk.",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "4200 Tk.",
+                                "0 Tk.",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "5",
+                                "0",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "3",
+                                "0",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               )

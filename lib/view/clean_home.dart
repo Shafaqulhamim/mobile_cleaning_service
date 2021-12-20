@@ -48,7 +48,7 @@ class _CleanHomeState extends State<CleanHome> {
               ),
             ),
             Container(
-              height: 385,
+              height: MediaQuery.of(context).size.height / 1.8,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -230,7 +230,7 @@ class _CleanHomeState extends State<CleanHome> {
                       height: 0,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 25, right: 310),
+                      padding: const EdgeInsets.only(top: 25, left: 20),
                       child: Text(
                         "Date & Time",
                         style: TextStyle(
@@ -239,27 +239,30 @@ class _CleanHomeState extends State<CleanHome> {
                             color: Color(0xff32cb95)),
                       ),
                     ),
-                    DateTimePicker(
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff32cb95)),
-                      type: DateTimePickerType.dateTime,
-                      dateMask: 'd MMM, yyyy',
-                      initialValue: DateTime.now().toString(),
-                      firstDate: DateTime(2021),
-                      lastDate: DateTime(2022),
-                      dateLabelText: 'Date',
-                      onChanged: (val) {
-                        setState(() {
-                          xdate = val;
-                        });
-                      },
-                      validator: (val) {
-                        print(val);
-                        return null;
-                      },
-                      onSaved: (val) => print(val),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 10),
+                      child: DateTimePicker(
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff32cb95)),
+                        type: DateTimePickerType.dateTime,
+                        dateMask: 'd MMM, yyyy',
+                        initialValue: DateTime.now().toString(),
+                        firstDate: DateTime(2021),
+                        lastDate: DateTime(2022),
+                        dateLabelText: 'Date',
+                        onChanged: (val) {
+                          setState(() {
+                            xdate = val;
+                          });
+                        },
+                        validator: (val) {
+                          print(val);
+                          return null;
+                        },
+                        onSaved: (val) => print(val),
+                      ),
                     ),
                     SizedBox(
                       height: 5,
@@ -364,6 +367,7 @@ class _CleanHomeState extends State<CleanHome> {
                                     )));
                       },
                     ),
+                    SizedBox(height: MediaQuery.of(context).size.height / 55)
                   ],
                 ),
               ),

@@ -24,43 +24,43 @@ class _CleanHomeState extends State<CleanHome> {
   bool daily = true;
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
     return Scaffold(
       backgroundColor: Color(0xff32cb95),
       appBar: AppBar(
-        backwardsCompatibility: true,
-        title: Text("Clean Home"),
+        // backwardsCompatibility: true,
+        title: Text("Cleaner Profile"),
         // leading: Icon(Icons.arrow_back_ios_new),
         elevation: 0,
         backgroundColor: Color(0xff32cb95),
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 0),
               child: Image.network(
                 'https://png.pngtree.com/png-clipart/20190618/original/pngtree-office-worker-female-go-to-work-office-worker-thinking-woman-png-image_3933871.jpg',
-                height: 220,
-                width: 220,
+                height: MediaQuery.of(context).size.height / 3.3,
+                width: MediaQuery.of(context).size.width / 1.5,
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height / 1.8,
-              width: double.infinity,
+              height: MediaQuery.of(context).size.height / 1.7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30), topRight: Radius.circular(0)),
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30)),
                 color: Colors.white,
               ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 10, top: 15, right: 250),
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        top: 15,
+                      ),
                       child: Text(
                         widget.userDataList.firstname,
                         style: TextStyle(
@@ -101,7 +101,7 @@ class _CleanHomeState extends State<CleanHome> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 200),
+                      padding: const EdgeInsets.only(right: 0),
                       child: RatingBar.builder(
                         initialRating: 4.5,
                         minRating: 1,
@@ -120,7 +120,9 @@ class _CleanHomeState extends State<CleanHome> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 15, right: 330),
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                      ),
                       child: Text(
                         "Schedule",
                         style: TextStyle(

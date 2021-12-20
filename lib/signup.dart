@@ -79,7 +79,7 @@ class _State extends State<SignupPage> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.all(40),
+              padding: EdgeInsets.all(10),
               child: Form(
                 // key: _formKey,
                 child: Column(
